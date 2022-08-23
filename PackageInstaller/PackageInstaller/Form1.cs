@@ -5,6 +5,7 @@ namespace PackageInstaller
     public partial class Form1 : Form
     {
         FileManager filemanager = new FileManager();
+        UI uiclass = new UI();
         public Form1()
         {
             InitializeComponent();
@@ -13,6 +14,8 @@ namespace PackageInstaller
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            FontFamily InterBold = uiclass.CreateInterBold();
+            FontFamily InterSemiBold = uiclass.CreateInterSemiBold();
 
         }
         //Drag Form
@@ -36,7 +39,7 @@ namespace PackageInstaller
             WindowState = FormWindowState.Minimized;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void FilePathInput_Click(object sender, EventArgs e)
         {
             filemanager.ChooseFolder();
         }

@@ -30,9 +30,12 @@
         {
             this.CloseWindow = new System.Windows.Forms.PictureBox();
             this.MinimizeWindow = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.FilePathInput = new System.Windows.Forms.PictureBox();
+            this.FilePathLabel = new System.Windows.Forms.Label();
+            this.ProductNameLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CloseWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeWindow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FilePathInput)).BeginInit();
             this.SuspendLayout();
             // 
             // CloseWindow
@@ -61,15 +64,42 @@
             this.MinimizeWindow.TabStop = false;
             this.MinimizeWindow.Click += new System.EventHandler(this.MinimizeWindow_Click);
             // 
-            // button1
+            // FilePathInput
             // 
-            this.button1.Location = new System.Drawing.Point(397, 155);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.FilePathInput.BackColor = System.Drawing.Color.Transparent;
+            this.FilePathInput.Image = global::PackageInstaller.Properties.Resources.FilePath;
+            this.FilePathInput.Location = new System.Drawing.Point(25, 160);
+            this.FilePathInput.Name = "FilePathInput";
+            this.FilePathInput.Size = new System.Drawing.Size(480, 50);
+            this.FilePathInput.TabIndex = 2;
+            this.FilePathInput.TabStop = false;
+            this.FilePathInput.Click += new System.EventHandler(this.FilePathInput_Click);
+            // 
+            // FilePathLabel
+            // 
+            this.FilePathLabel.AutoSize = true;
+            this.FilePathLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(58)))), ((int)(((byte)(58)))), ((int)(((byte)(58)))));
+            this.FilePathLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.FilePathLabel.ForeColor = System.Drawing.Color.White;
+            this.FilePathLabel.Location = new System.Drawing.Point(38, 164);
+            this.FilePathLabel.Name = "FilePathLabel";
+            this.FilePathLabel.Size = new System.Drawing.Size(148, 42);
+            this.FilePathLabel.TabIndex = 3;
+            this.FilePathLabel.Text = "Folder path";
+            this.FilePathLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.FilePathLabel.UseCompatibleTextRendering = true;
+            // 
+            // ProductNameLabel
+            // 
+            this.ProductNameLabel.AutoSize = true;
+            this.ProductNameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.ProductNameLabel.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductNameLabel.ForeColor = System.Drawing.Color.White;
+            this.ProductNameLabel.Location = new System.Drawing.Point(25, 24);
+            this.ProductNameLabel.Name = "ProductNameLabel";
+            this.ProductNameLabel.Size = new System.Drawing.Size(257, 51);
+            this.ProductNameLabel.TabIndex = 4;
+            this.ProductNameLabel.Text = "Product name";
             // 
             // Form1
             // 
@@ -77,7 +107,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PackageInstaller.Properties.Resources.FormBG;
             this.ClientSize = new System.Drawing.Size(530, 320);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.ProductNameLabel);
+            this.Controls.Add(this.FilePathLabel);
+            this.Controls.Add(this.FilePathInput);
             this.Controls.Add(this.MinimizeWindow);
             this.Controls.Add(this.CloseWindow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -88,7 +120,9 @@
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.CloseWindow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeWindow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FilePathInput)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -96,6 +130,8 @@
 
         private PictureBox CloseWindow;
         private PictureBox MinimizeWindow;
-        private Button button1;
+        private PictureBox FilePathInput;
+        private Label FilePathLabel;
+        private Label ProductNameLabel;
     }
 }

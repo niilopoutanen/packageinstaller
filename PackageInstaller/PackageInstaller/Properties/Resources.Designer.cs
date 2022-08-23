@@ -83,10 +83,40 @@ namespace PackageInstaller.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FilePath {
+            get {
+                object obj = ResourceManager.GetObject("FilePath", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FormBG {
             get {
                 object obj = ResourceManager.GetObject("FormBG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Inter_Bold {
+            get {
+                object obj = ResourceManager.GetObject("Inter_Bold", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] Inter_SemiBold {
+            get {
+                object obj = ResourceManager.GetObject("Inter_SemiBold", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         
