@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using System.Runtime.InteropServices;
 
 namespace PackageInstaller
@@ -42,6 +43,17 @@ namespace PackageInstaller
         private void FilePathInput_Click(object sender, EventArgs e)
         {
             filemanager.ChooseFolder();
+        }
+
+        private void Logo_Click(object sender, EventArgs e)
+        {
+            string target = "https://github.com/niilopoutanen";
+            Process.Start(new ProcessStartInfo(target) { UseShellExecute = true });
+        }
+
+        private void InstallButton_Click(object sender, EventArgs e)
+        {
+            uiclass.ButtonPress(InstallButton,InstallLabel);
         }
     }
 }

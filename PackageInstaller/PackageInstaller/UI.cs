@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace PackageInstaller
 {
@@ -44,6 +45,11 @@ namespace PackageInstaller
             FontFamily Inter = InterSemiBold.Families[0];
             return Inter;
         }
-
+        public void ButtonPress(PictureBox button, Label buttonlabel)
+        {
+            Color pressColor = Color.FromArgb(74, 74, 74);
+            button.Image = Properties.Resources.InstallButton_hover;
+            buttonlabel.BackColor = pressColor;
+        }
     }
 }

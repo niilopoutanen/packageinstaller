@@ -33,16 +33,18 @@
             this.FilePathInput = new System.Windows.Forms.PictureBox();
             this.FilePathLabel = new System.Windows.Forms.Label();
             this.ProductNameLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.InstallButton = new System.Windows.Forms.PictureBox();
             this.InstallLabel = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.Logo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.CloseWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FilePathInput)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InstallButton)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             this.SuspendLayout();
             // 
             // CloseWindow
@@ -50,7 +52,7 @@
             this.CloseWindow.BackColor = System.Drawing.Color.Transparent;
             this.CloseWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CloseWindow.Image = global::PackageInstaller.Properties.Resources.CloseIcon;
-            this.CloseWindow.Location = new System.Drawing.Point(483, 24);
+            this.CloseWindow.Location = new System.Drawing.Point(485, 15);
             this.CloseWindow.Name = "CloseWindow";
             this.CloseWindow.Size = new System.Drawing.Size(20, 20);
             this.CloseWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -63,7 +65,7 @@
             this.MinimizeWindow.BackColor = System.Drawing.Color.Transparent;
             this.MinimizeWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MinimizeWindow.Image = global::PackageInstaller.Properties.Resources.MinimizeIcon;
-            this.MinimizeWindow.Location = new System.Drawing.Point(445, 24);
+            this.MinimizeWindow.Location = new System.Drawing.Point(447, 15);
             this.MinimizeWindow.Name = "MinimizeWindow";
             this.MinimizeWindow.Size = new System.Drawing.Size(20, 20);
             this.MinimizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -102,7 +104,7 @@
             this.ProductNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.ProductNameLabel.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductNameLabel.ForeColor = System.Drawing.Color.White;
-            this.ProductNameLabel.Location = new System.Drawing.Point(25, 24);
+            this.ProductNameLabel.Location = new System.Drawing.Point(25, 57);
             this.ProductNameLabel.Margin = new System.Windows.Forms.Padding(0);
             this.ProductNameLabel.Name = "ProductNameLabel";
             this.ProductNameLabel.Size = new System.Drawing.Size(257, 51);
@@ -110,15 +112,16 @@
             this.ProductNameLabel.Text = "Product name";
             this.ProductNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // pictureBox1
+            // InstallButton
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::PackageInstaller.Properties.Resources.InstallButton;
-            this.pictureBox1.Location = new System.Drawing.Point(358, 237);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(145, 50);
-            this.pictureBox1.TabIndex = 5;
-            this.pictureBox1.TabStop = false;
+            this.InstallButton.BackColor = System.Drawing.Color.Transparent;
+            this.InstallButton.Image = global::PackageInstaller.Properties.Resources.InstallButton;
+            this.InstallButton.Location = new System.Drawing.Point(358, 237);
+            this.InstallButton.Name = "InstallButton";
+            this.InstallButton.Size = new System.Drawing.Size(145, 50);
+            this.InstallButton.TabIndex = 5;
+            this.InstallButton.TabStop = false;
+            this.InstallButton.Click += new System.EventHandler(this.InstallButton_Click);
             // 
             // InstallLabel
             // 
@@ -154,16 +157,29 @@
             this.pictureBox3.TabIndex = 8;
             this.pictureBox3.TabStop = false;
             // 
+            // Logo
+            // 
+            this.Logo.BackColor = System.Drawing.Color.Transparent;
+            this.Logo.Image = global::PackageInstaller.Properties.Resources.Logo;
+            this.Logo.Location = new System.Drawing.Point(25, 15);
+            this.Logo.Name = "Logo";
+            this.Logo.Size = new System.Drawing.Size(20, 20);
+            this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Logo.TabIndex = 9;
+            this.Logo.TabStop = false;
+            this.Logo.Click += new System.EventHandler(this.Logo_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PackageInstaller.Properties.Resources.FormBG;
             this.ClientSize = new System.Drawing.Size(530, 320);
+            this.Controls.Add(this.Logo);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.InstallLabel);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.InstallButton);
             this.Controls.Add(this.ProductNameLabel);
             this.Controls.Add(this.FilePathLabel);
             this.Controls.Add(this.FilePathInput);
@@ -178,9 +194,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.CloseWindow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeWindow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FilePathInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InstallButton)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,9 +210,10 @@
         private PictureBox FilePathInput;
         private Label FilePathLabel;
         private Label ProductNameLabel;
-        private PictureBox pictureBox1;
+        private PictureBox InstallButton;
         private Label InstallLabel;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
+        private PictureBox Logo;
     }
 }
