@@ -28,12 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.CloseWindow = new System.Windows.Forms.PictureBox();
+            this.MinimizeWindow = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.CloseWindow)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinimizeWindow)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // CloseWindow
+            // 
+            this.CloseWindow.BackColor = System.Drawing.Color.Transparent;
+            this.CloseWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.CloseWindow.Image = global::PackageInstaller.Properties.Resources.CloseIcon;
+            this.CloseWindow.Location = new System.Drawing.Point(483, 24);
+            this.CloseWindow.Name = "CloseWindow";
+            this.CloseWindow.Size = new System.Drawing.Size(20, 20);
+            this.CloseWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.CloseWindow.TabIndex = 0;
+            this.CloseWindow.TabStop = false;
+            this.CloseWindow.Click += new System.EventHandler(this.CloseWindow_Click);
+            // 
+            // MinimizeWindow
+            // 
+            this.MinimizeWindow.BackColor = System.Drawing.Color.Transparent;
+            this.MinimizeWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.MinimizeWindow.Image = global::PackageInstaller.Properties.Resources.MinimizeIcon;
+            this.MinimizeWindow.Location = new System.Drawing.Point(445, 24);
+            this.MinimizeWindow.Name = "MinimizeWindow";
+            this.MinimizeWindow.Size = new System.Drawing.Size(20, 20);
+            this.MinimizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.MinimizeWindow.TabIndex = 1;
+            this.MinimizeWindow.TabStop = false;
+            this.MinimizeWindow.Click += new System.EventHandler(this.MinimizeWindow_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::PackageInstaller.Properties.Resources.FormBG;
+            this.ClientSize = new System.Drawing.Size(530, 320);
+            this.Controls.Add(this.MinimizeWindow);
+            this.Controls.Add(this.CloseWindow);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(0)))), ((int)(((byte)(179)))));
+            this.Load += new System.EventHandler(this.Form1_Load);
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
+            ((System.ComponentModel.ISupportInitialize)(this.CloseWindow)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinimizeWindow)).EndInit();
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private PictureBox CloseWindow;
+        private PictureBox MinimizeWindow;
     }
 }
