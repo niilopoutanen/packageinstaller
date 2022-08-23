@@ -30,6 +30,7 @@
         {
             this.CloseWindow = new System.Windows.Forms.PictureBox();
             this.MinimizeWindow = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CloseWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeWindow)).BeginInit();
             this.SuspendLayout();
@@ -60,12 +61,23 @@
             this.MinimizeWindow.TabStop = false;
             this.MinimizeWindow.Click += new System.EventHandler(this.MinimizeWindow_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(397, 155);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PackageInstaller.Properties.Resources.FormBG;
             this.ClientSize = new System.Drawing.Size(530, 320);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.MinimizeWindow);
             this.Controls.Add(this.CloseWindow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -84,5 +96,6 @@
 
         private PictureBox CloseWindow;
         private PictureBox MinimizeWindow;
+        private Button button1;
     }
 }

@@ -4,9 +4,11 @@ namespace PackageInstaller
 {
     public partial class Form1 : Form
     {
+        FileManager filemanager = new FileManager();
         public Form1()
         {
             InitializeComponent();
+            this.Icon = Properties.Resources.AppIcon;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -32,6 +34,11 @@ namespace PackageInstaller
         private void MinimizeWindow_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            filemanager.ChooseFolder();
         }
     }
 }
