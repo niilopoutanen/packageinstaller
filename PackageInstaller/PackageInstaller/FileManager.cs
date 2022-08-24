@@ -87,7 +87,7 @@ namespace PackageInstaller
         /// <returns>True if install can be continued, false if same version is alreay present</returns>
         public bool CompareVersion(float newversion)
         {
-            float oldversion = GetVersion(true);
+            float oldversion = GetVersion(false);
 
 
             if(oldversion == newversion)
