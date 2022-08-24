@@ -51,9 +51,5 @@ namespace PackageInstaller
             Process.Start(new ProcessStartInfo(target) { UseShellExecute = true });
         }
 
-        private void InstallButton_Click(object sender, EventArgs e)
-        {
-            uiclass.ButtonPress(InstallButton,InstallLabel);
-        }
     }
 }
