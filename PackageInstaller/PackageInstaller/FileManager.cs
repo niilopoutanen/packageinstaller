@@ -15,7 +15,7 @@ namespace PackageInstaller
     {
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         string tempfile = Path.GetTempPath() + "\\temp.zip";
-        float version = 0.1f;
+        float version = 0.4f;
         static string ProductName = "Testi";
         string ProgramFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\NiiloPoutanen\\" + ProductName;
         string Exename = "Tetris.exe";
