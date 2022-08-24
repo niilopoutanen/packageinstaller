@@ -15,7 +15,7 @@ namespace PackageInstaller
     {
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         string tempfile = Path.GetTempPath() + "\\temp.zip";
-        float version = 0.4f;
+        float version = 0.5f;
         static string ProductName = "Testi";
         string ProgramFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\NiiloPoutanen\\" + ProductName;
         string Exename = "Tetris.exe";
@@ -94,10 +94,17 @@ namespace PackageInstaller
         {
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
             string desktopShortcut = Path.Combine(desktop, ProductName + ".lnk");
+            string StartMenu = Environment.GetFolderPath(Environment.SpecialFolder.StartMenu);
+            string StartMenuShortcut = Path.Combine(StartMenu, ProductName + ".lnk");
+
             WshShell shell = new WshShell();
             IWshShortcut link = (IWshShortcut)shell.CreateShortcut(desktopShortcut);
             link.TargetPath = ProgramFiles + "\\" +Exename;
             link.Save();
+
+            IWshShortcut menulink = (IWshShortcut)shell.CreateShortcut(StartMenuShortcut);
+            menulink.TargetPath = ProgramFiles + "\\" + Exename;
+            menulink.Save();
             DeleteTemp();
         }
         public void DeleteTemp()
