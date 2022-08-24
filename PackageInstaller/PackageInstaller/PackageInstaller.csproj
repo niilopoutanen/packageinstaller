@@ -12,7 +12,6 @@
 
   <ItemGroup>
     <None Remove="Resources\Package.zip" />
-    <None Remove="Resources\version.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,7 +20,6 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Resources\Package.zip" />
-    <EmbeddedResource Include="Resources\version.txt" />
   </ItemGroup>
 
   <ItemGroup>

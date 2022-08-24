@@ -15,7 +15,7 @@ namespace PackageInstaller
     {
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         string desktopfile = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\test.zip";
-        float version = 0.6f;
+        float version = 0.65f;
         static string ProductName = "Testi";
         string ProgramFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\NiiloPoutanen\\" + ProductName;
 
@@ -36,9 +36,7 @@ namespace PackageInstaller
                 fileStream.WriteByte((byte)stream.ReadByte());
             fileStream.Close();
 
-            version = Convert.ToSingle(Properties.Resources.version);
-            CompareVersion(version);
-            if (true)
+            if (CompareVersion(version) == true)
             {
                 ExtractZip();
 
@@ -64,13 +62,23 @@ namespace PackageInstaller
             }
             return false;
         }
+        public void ClearDirectory()
+        {
+            DirectoryInfo drinfo = new DirectoryInfo(ProgramFiles);
+            FileInfo[] files = drinfo.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                file.Delete();
+            }
+        }
         public void ExtractZip()
         {
             if (Directory.Exists(ProgramFiles))
             {
                 if (Directory.EnumerateFileSystemEntries(ProgramFiles).Any())
                 {
-                    MessageBox.Show("The folder is not empty.");
+                    ClearDirectory();
+                    ExtractZip();
                 }
                 else if (!Directory.EnumerateFileSystemEntries(ProgramFiles).Any())
                 {

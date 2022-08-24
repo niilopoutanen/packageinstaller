@@ -46,7 +46,7 @@
             this.CloseWindow.Location = new System.Drawing.Point(476, 20);
             this.CloseWindow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CloseWindow.Name = "CloseWindow";
-            this.CloseWindow.Size = new System.Drawing.Size(23, 27);
+            this.CloseWindow.Size = new System.Drawing.Size(20, 20);
             this.CloseWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.CloseWindow.TabIndex = 0;
             this.CloseWindow.TabStop = false;
@@ -57,10 +57,10 @@
             this.MinimizeWindow.BackColor = System.Drawing.Color.Transparent;
             this.MinimizeWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MinimizeWindow.Image = global::PackageInstaller.Properties.Resources.MinimizeIcon;
-            this.MinimizeWindow.Location = new System.Drawing.Point(427, 20);
+            this.MinimizeWindow.Location = new System.Drawing.Point(436, 20);
             this.MinimizeWindow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MinimizeWindow.Name = "MinimizeWindow";
-            this.MinimizeWindow.Size = new System.Drawing.Size(23, 27);
+            this.MinimizeWindow.Size = new System.Drawing.Size(20, 20);
             this.MinimizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.MinimizeWindow.TabIndex = 1;
             this.MinimizeWindow.TabStop = false;
