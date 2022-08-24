@@ -1,21 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.IO.Compression;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Metadata.Ecma335;
-using System.Text;
-using System.Threading.Tasks;
 using IWshRuntimeLibrary;
+
+
 namespace PackageInstaller
 {
     public class FileManager
     {
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         string tempfile = Path.GetTempPath() + "\\temp.zip";
-        float version = 0.5f;
+        float version = 0.3f;
         static string ProductName = "Testi";
         string ProgramFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\NiiloPoutanen\\" + ProductName;
         string Exename = "Tetris.exe";
