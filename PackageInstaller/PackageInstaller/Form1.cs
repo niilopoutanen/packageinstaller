@@ -7,10 +7,15 @@ namespace PackageInstaller
     {
         FileManager filemanager = new FileManager();
         UI uiclass = new UI();
+        
         public Form1()
         {
             InitializeComponent();
             this.Icon = Properties.Resources.AppIcon;
+        }
+        public void ChangeInstallLabel(string TextToShow)
+        {
+            InstallLabel.Text = TextToShow;
         }
         private void Form1_Load(object sender, EventArgs e)
         {

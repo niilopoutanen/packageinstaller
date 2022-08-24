@@ -32,10 +32,12 @@
             this.MinimizeWindow = new System.Windows.Forms.PictureBox();
             this.ProductNameLabel = new System.Windows.Forms.Label();
             this.Logo = new System.Windows.Forms.PictureBox();
-            this.InstallButton = new System.Windows.Forms.Button();
+            this.InstallButton = new System.Windows.Forms.PictureBox();
+            this.InstallLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CloseWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InstallButton)).BeginInit();
             this.SuspendLayout();
             // 
             // CloseWindow
@@ -70,12 +72,12 @@
             // 
             this.ProductNameLabel.AutoSize = true;
             this.ProductNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.ProductNameLabel.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.ProductNameLabel.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ProductNameLabel.ForeColor = System.Drawing.Color.White;
             this.ProductNameLabel.Location = new System.Drawing.Point(29, 58);
             this.ProductNameLabel.Margin = new System.Windows.Forms.Padding(0);
             this.ProductNameLabel.Name = "ProductNameLabel";
-            this.ProductNameLabel.Size = new System.Drawing.Size(319, 62);
+            this.ProductNameLabel.Size = new System.Drawing.Size(336, 62);
             this.ProductNameLabel.TabIndex = 4;
             this.ProductNameLabel.Text = "Product name";
             this.ProductNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -95,13 +97,26 @@
             // 
             // InstallButton
             // 
-            this.InstallButton.Location = new System.Drawing.Point(207, 212);
+            this.InstallButton.BackColor = System.Drawing.Color.Transparent;
+            this.InstallButton.Image = global::PackageInstaller.Properties.Resources.InstallButton;
+            this.InstallButton.Location = new System.Drawing.Point(65, 220);
             this.InstallButton.Name = "InstallButton";
-            this.InstallButton.Size = new System.Drawing.Size(94, 29);
-            this.InstallButton.TabIndex = 10;
-            this.InstallButton.Text = "Install";
-            this.InstallButton.UseVisualStyleBackColor = true;
+            this.InstallButton.Size = new System.Drawing.Size(400, 60);
+            this.InstallButton.TabIndex = 11;
+            this.InstallButton.TabStop = false;
             this.InstallButton.Click += new System.EventHandler(this.InstallButton_Click);
+            // 
+            // InstallLabel
+            // 
+            this.InstallLabel.AutoSize = true;
+            this.InstallLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(134)))), ((int)(((byte)(252)))));
+            this.InstallLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.InstallLabel.ForeColor = System.Drawing.Color.White;
+            this.InstallLabel.Location = new System.Drawing.Point(215, 231);
+            this.InstallLabel.Name = "InstallLabel";
+            this.InstallLabel.Size = new System.Drawing.Size(96, 37);
+            this.InstallLabel.TabIndex = 12;
+            this.InstallLabel.Text = "Install";
             // 
             // Form1
             // 
@@ -109,6 +124,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PackageInstaller.Properties.Resources.FormBG;
             this.ClientSize = new System.Drawing.Size(530, 320);
+            this.Controls.Add(this.InstallLabel);
             this.Controls.Add(this.InstallButton);
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.ProductNameLabel);
@@ -124,6 +140,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CloseWindow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeWindow)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InstallButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,6 +152,7 @@
         private PictureBox MinimizeWindow;
         private Label ProductNameLabel;
         private PictureBox Logo;
-        private Button InstallButton;
+        private PictureBox InstallButton;
+        private Label InstallLabel;
     }
 }
