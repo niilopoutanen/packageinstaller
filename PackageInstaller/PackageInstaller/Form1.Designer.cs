@@ -124,6 +124,7 @@
             this.InstallLabel.Size = new System.Drawing.Size(96, 37);
             this.InstallLabel.TabIndex = 12;
             this.InstallLabel.Text = "Install";
+            this.InstallLabel.Click += new System.EventHandler(this.InstallLabel_Click);
             // 
             // VersionLabel
             // 
@@ -145,7 +146,7 @@
             this.VersionExistsPanel.Controls.Add(this.NewestVersionLabel);
             this.VersionExistsPanel.Location = new System.Drawing.Point(23, 183);
             this.VersionExistsPanel.Name = "VersionExistsPanel";
-            this.VersionExistsPanel.Size = new System.Drawing.Size(473, 125);
+            this.VersionExistsPanel.Size = new System.Drawing.Size(495, 125);
             this.VersionExistsPanel.TabIndex = 14;
             // 
             // OKLabel

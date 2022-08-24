@@ -96,5 +96,14 @@ namespace PackageInstaller
         {
             Application.Exit();
         }
+
+        private void InstallLabel_Click(object sender, EventArgs e)
+        {
+            if (filemanager.UnZipResource() == false)
+            {
+                uiclass.ChangePanelVisibility(VersionExistsPanel, true);
+            }
+            uiclass.UpdateLabel(InstallLabel, "Done");
+        }
     }
 }
