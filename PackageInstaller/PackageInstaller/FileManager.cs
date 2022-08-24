@@ -38,7 +38,12 @@ namespace PackageInstaller
 
             version = Convert.ToSingle(Properties.Resources.version);
             CompareVersion(version);
-            ExtractZip();
+            if (true)
+            {
+                ExtractZip();
+
+            }
+
         }
         public bool CompareVersion(float newversion)
         {
@@ -55,7 +60,7 @@ namespace PackageInstaller
             }
             else if (newversion < oldversion)
             {
-                MessageBox.Show("You are trying to install a older version than the version currently installed.")
+                MessageBox.Show("You are trying to install a older version than the version currently installed.");
             }
             return false;
         }
