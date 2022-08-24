@@ -14,7 +14,7 @@ namespace PackageInstaller
         //Path to temp file with the zip for moving
         string tempfile = Path.GetTempPath() + "\\temp.zip";
         //Version of the program being installed
-        float version = 0.3f;
+        float version = 0.5f;
         //Name of the program being installed
         static string ProductName = "Testi";
         //Path to Program files folder with product name
@@ -38,7 +38,7 @@ namespace PackageInstaller
         /// <summary>
         /// Adds the given ZIP file to temp folder for later moving.
         /// </summary>
-        public void UnZipResource()
+        public bool UnZipResource()
         {
 
             Stream stream = new MemoryStream(Properties.Resources.Package);
@@ -52,9 +52,34 @@ namespace PackageInstaller
                 ExtractZip();
 
             }
+            else if (CompareVersion(version) == false)
+            {
+                return false;
+            }
+            return true;
 
         }
+        public float GetVersion(bool IsLocal)
+        {
+            if(IsLocal == false)
+            {
+                string[] oldversionstring;
+                try
+                {
+                    oldversionstring = System.IO.File.ReadAllLines(ProgramFiles + "\\version.txt");
+                    float oldversion = Convert.ToSingle(oldversionstring[0]);
 
+                    return oldversion;
+                }
+                catch (Exception)
+                {
+                    return 0.0f;
+                }
+            }
+            return version;
+
+
+        }
         /// <summary>
         /// Checks if there is a earlier version installed and compares it to the version that is being installed.
         /// </summary>
@@ -62,21 +87,12 @@ namespace PackageInstaller
         /// <returns>True if install can be continued, false if same version is alreay present</returns>
         public bool CompareVersion(float newversion)
         {
-            string[] oldversionstring;
-            try
-            {
-                oldversionstring = System.IO.File.ReadAllLines(ProgramFiles + "\\version.txt");
-            }
-            catch (Exception)
-            {
-                return true;
-            }
+            float oldversion = GetVersion(true);
 
-            float oldversion = Convert.ToSingle(oldversionstring[0]);
 
             if(oldversion == newversion)
             {
-                MessageBox.Show("New version is the same as old version");
+                return false;
             }
             else if (oldversion < newversion)
             {

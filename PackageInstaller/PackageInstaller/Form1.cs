@@ -21,7 +21,8 @@ namespace PackageInstaller
         {
             FontFamily InterBold = uiclass.CreateInterBold();
             FontFamily InterSemiBold = uiclass.CreateInterSemiBold();
-
+            uiclass.UpdateLabel(VersionLabel, "Version: " + filemanager.GetVersion(false).ToString());
+            uiclass.ChangePanelVisibility(VersionExistsPanel, false);
         }
 
         //Form dragging stuff
@@ -79,8 +80,21 @@ namespace PackageInstaller
 
         private void InstallButton_Click(object sender, EventArgs e)
         {
-            filemanager.UnZipResource();
-            uiclass.InstallLabel(InstallLabel, "Done");
+            if(filemanager.UnZipResource() == false)
+            {
+                uiclass.ChangePanelVisibility(VersionExistsPanel, true);
+            }
+            uiclass.UpdateLabel(InstallLabel, "Done");
+        }
+
+        private void OkButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void OKLabel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
