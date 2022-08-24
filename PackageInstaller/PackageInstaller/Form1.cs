@@ -17,6 +17,7 @@ namespace PackageInstaller
         {
             FontFamily InterBold = uiclass.CreateInterBold();
             FontFamily InterSemiBold = uiclass.CreateInterSemiBold();
+            filemanager.UnzipFIle();
 
         }
         //Drag Form

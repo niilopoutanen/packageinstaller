@@ -32,6 +32,7 @@
             this.MinimizeWindow = new System.Windows.Forms.PictureBox();
             this.ProductNameLabel = new System.Windows.Forms.Label();
             this.Logo = new System.Windows.Forms.PictureBox();
+            this.InstallButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.CloseWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
@@ -71,7 +72,7 @@
             this.ProductNameLabel.BackColor = System.Drawing.Color.Transparent;
             this.ProductNameLabel.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.ProductNameLabel.ForeColor = System.Drawing.Color.White;
-            this.ProductNameLabel.Location = new System.Drawing.Point(29, 76);
+            this.ProductNameLabel.Location = new System.Drawing.Point(29, 58);
             this.ProductNameLabel.Margin = new System.Windows.Forms.Padding(0);
             this.ProductNameLabel.Name = "ProductNameLabel";
             this.ProductNameLabel.Size = new System.Drawing.Size(319, 62);
@@ -92,12 +93,22 @@
             this.Logo.TabStop = false;
             this.Logo.Click += new System.EventHandler(this.Logo_Click);
             // 
+            // InstallButton
+            // 
+            this.InstallButton.Location = new System.Drawing.Point(207, 212);
+            this.InstallButton.Name = "InstallButton";
+            this.InstallButton.Size = new System.Drawing.Size(94, 29);
+            this.InstallButton.TabIndex = 10;
+            this.InstallButton.Text = "Install";
+            this.InstallButton.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PackageInstaller.Properties.Resources.FormBG;
             this.ClientSize = new System.Drawing.Size(530, 320);
+            this.Controls.Add(this.InstallButton);
             this.Controls.Add(this.Logo);
             this.Controls.Add(this.ProductNameLabel);
             this.Controls.Add(this.MinimizeWindow);
@@ -123,5 +134,6 @@
         private PictureBox MinimizeWindow;
         private Label ProductNameLabel;
         private PictureBox Logo;
+        private Button InstallButton;
     }
 }

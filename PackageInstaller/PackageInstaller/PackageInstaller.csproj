@@ -10,7 +10,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\Package.zip" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="AppIcon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Package.zip" />
   </ItemGroup>
 
   <ItemGroup>
