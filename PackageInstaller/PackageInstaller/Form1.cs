@@ -80,7 +80,7 @@ namespace PackageInstaller
         private void InstallButton_Click(object sender, EventArgs e)
         {
             filemanager.UnZipResource();
-
+            uiclass.InstallLabel(InstallLabel, "Done");
         }
     }
 }

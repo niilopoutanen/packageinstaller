@@ -50,5 +50,9 @@ namespace PackageInstaller
             Color pressColor = Color.FromArgb(74, 74, 74);
             buttonlabel.BackColor = pressColor;
         }
+        public void InstallLabel(Label installLabel,string TextToShow)
+        {
+            installLabel.Text = TextToShow;
+        }
     }
 }

@@ -9,7 +9,6 @@ namespace PackageInstaller
 {
     public class FileManager
     {
-        Form1 mainform = new Form1();
         //Path for desktop
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         //Path to temp file with the zip for moving
@@ -161,7 +160,6 @@ namespace PackageInstaller
                         versionwriter.WriteLine(version);
                     }
                     CreateShortcut();
-                    mainform.ChangeInstallLabel("Done");
                 }
             }
             else if (!(Directory.Exists(ProgramFiles)))
