@@ -23,6 +23,7 @@ namespace PackageInstaller
             FontFamily InterSemiBold = uiclass.CreateInterSemiBold();
             uiclass.UpdateLabel(VersionLabel, "Version: " + filemanager.GetVersion(false).ToString());
             uiclass.ChangePanelVisibility(VersionExistsPanel, false);
+            VersionExistsPanel.Size = new Size(480, 120);
         }
 
         //Form dragging stuff
@@ -105,5 +106,12 @@ namespace PackageInstaller
             }
             uiclass.UpdateLabel(InstallLabel, "Done");
         }
+
+        private void Logo_MouseHover(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.Hand;
+        }
+
+
     }
 }
