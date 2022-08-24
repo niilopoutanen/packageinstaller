@@ -73,16 +73,6 @@ namespace PackageInstaller.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ButtonTemplate {
-            get {
-                object obj = ResourceManager.GetObject("ButtonTemplate", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap CloseIcon {
             get {
                 object obj = ResourceManager.GetObject("CloseIcon", resourceCulture);
@@ -151,12 +141,32 @@ namespace PackageInstaller.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OKButton {
+            get {
+                object obj = ResourceManager.GetObject("OKButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
         internal static byte[] Package {
             get {
                 object obj = ResourceManager.GetObject("Package", resourceCulture);
                 return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UninstallButton {
+            get {
+                object obj = ResourceManager.GetObject("UninstallButton", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
     }

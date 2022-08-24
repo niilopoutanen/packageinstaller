@@ -37,14 +37,14 @@
             this.VersionLabel = new System.Windows.Forms.Label();
             this.VersionExistsPanel = new System.Windows.Forms.Panel();
             this.OKLabel = new System.Windows.Forms.Label();
-            this.OkButton = new System.Windows.Forms.PictureBox();
             this.NewestVersionLabel = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.CloseWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InstallButton)).BeginInit();
             this.VersionExistsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.OkButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // CloseWindow
@@ -145,13 +145,13 @@
             // VersionExistsPanel
             // 
             this.VersionExistsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(217)))), ((int)(((byte)(124)))));
+            this.VersionExistsPanel.Controls.Add(this.pictureBox1);
             this.VersionExistsPanel.Controls.Add(this.OKLabel);
-            this.VersionExistsPanel.Controls.Add(this.OkButton);
             this.VersionExistsPanel.Controls.Add(this.NewestVersionLabel);
             this.VersionExistsPanel.Location = new System.Drawing.Point(25, 187);
             this.VersionExistsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.VersionExistsPanel.Name = "VersionExistsPanel";
-            this.VersionExistsPanel.Size = new System.Drawing.Size(83, 30);
+            this.VersionExistsPanel.Size = new System.Drawing.Size(481, 122);
             this.VersionExistsPanel.TabIndex = 14;
             // 
             // OKLabel
@@ -167,27 +167,23 @@
             this.OKLabel.Text = "OK";
             this.OKLabel.Click += new System.EventHandler(this.OKLabel_Click);
             // 
-            // OkButton
-            // 
-            this.OkButton.BackColor = System.Drawing.Color.Transparent;
-            this.OkButton.Image = global::PackageInstaller.Properties.Resources.ButtonTemplate;
-            this.OkButton.Location = new System.Drawing.Point(270, 20);
-            this.OkButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.OkButton.Name = "OkButton";
-            this.OkButton.Size = new System.Drawing.Size(160, 60);
-            this.OkButton.TabIndex = 1;
-            this.OkButton.TabStop = false;
-            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
-            // 
             // NewestVersionLabel
             // 
-            this.NewestVersionLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.NewestVersionLabel.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.NewestVersionLabel.ForeColor = System.Drawing.Color.White;
-            this.NewestVersionLabel.Location = new System.Drawing.Point(32, 20);
+            this.NewestVersionLabel.Location = new System.Drawing.Point(3, 20);
             this.NewestVersionLabel.Name = "NewestVersionLabel";
-            this.NewestVersionLabel.Size = new System.Drawing.Size(219, 58);
+            this.NewestVersionLabel.Size = new System.Drawing.Size(219, 74);
             this.NewestVersionLabel.TabIndex = 0;
             this.NewestVersionLabel.Text = "Newest version already installed.";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(319, 32);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox1.TabIndex = 3;
+            this.pictureBox1.TabStop = false;
             // 
             // Form1
             // 
@@ -215,7 +211,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.InstallButton)).EndInit();
             this.VersionExistsPanel.ResumeLayout(false);
             this.VersionExistsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.OkButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,7 +228,7 @@
         private Label VersionLabel;
         private Panel VersionExistsPanel;
         private Label NewestVersionLabel;
-        private PictureBox OkButton;
         private Label OKLabel;
+        private PictureBox pictureBox1;
     }
 }
