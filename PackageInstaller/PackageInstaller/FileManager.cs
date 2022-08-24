@@ -9,13 +9,23 @@ namespace PackageInstaller
 {
     public class FileManager
     {
+        //Path for desktop
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        //Path to temp file with the zip for moving
         string tempfile = Path.GetTempPath() + "\\temp.zip";
+        //Version of the program being installed
         float version = 0.3f;
+        //Name of the program being installed
         static string ProductName = "Testi";
+        //Path to Program files folder with product name
         string ProgramFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\NiiloPoutanen\\" + ProductName;
+        //Name of the main .EXE of the program. Will be used in creating the shortcut to the app.
         string Exename = "Tetris.exe";
 
+
+        /// <summary>
+        /// Test method if user prompt for install folder will be implemented.
+        /// </summary>
         public void ChooseFolder()
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
@@ -24,6 +34,10 @@ namespace PackageInstaller
                 MessageBox.Show(fbd.SelectedPath);
             }
         }
+
+        /// <summary>
+        /// Adds the given ZIP file to temp folder for later moving.
+        /// </summary>
         public void UnZipResource()
         {
 
@@ -40,6 +54,12 @@ namespace PackageInstaller
             }
 
         }
+
+        /// <summary>
+        /// Checks if there is a earlier version installed and compares it to the version that is being installed.
+        /// </summary>
+        /// <param name="newversion">Version of currently installed package. This has to be declared in top of FileManager.cs class</param>
+        /// <returns>True if install can be continued, false if same version is alreay present</returns>
         public bool CompareVersion(float newversion)
         {
             string[] oldversionstring;
@@ -72,6 +92,10 @@ namespace PackageInstaller
             }
             return false;
         }
+
+        /// <summary>
+        /// Clears the install directory before new version gets installed.
+        /// </summary>
         public void ClearDirectory()
         {
             DirectoryInfo drinfo = new DirectoryInfo(ProgramFiles);
@@ -86,6 +110,10 @@ namespace PackageInstaller
                 folder.Delete(true);
             }
         }
+
+        /// <summary>
+        /// Creates a shortcut to the installed program to Desktop and Start Menu.
+        /// </summary>
         public void CreateShortcut()
         {
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -103,10 +131,18 @@ namespace PackageInstaller
             menulink.Save();
             DeleteTemp();
         }
+
+        /// <summary>
+        /// Deletes the temporary .ZIP file after install.
+        /// </summary>
         public void DeleteTemp()
         {
             System.IO.File.Delete(tempfile);
         }
+
+        /// <summary>
+        /// Extracts the package.ZIP file to the program's folder.
+        /// </summary>
         public void ExtractZip()
         {
             if (Directory.Exists(ProgramFiles))
