@@ -48,7 +48,6 @@ namespace PackageInstaller
         public void ButtonPress(PictureBox button, Label buttonlabel)
         {
             Color pressColor = Color.FromArgb(74, 74, 74);
-            button.Image = Properties.Resources.InstallButton_hover;
             buttonlabel.BackColor = pressColor;
         }
     }
