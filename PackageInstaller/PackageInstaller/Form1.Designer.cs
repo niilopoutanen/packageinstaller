@@ -52,8 +52,7 @@
             this.CloseWindow.BackColor = System.Drawing.Color.Transparent;
             this.CloseWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.CloseWindow.Image = global::PackageInstaller.Properties.Resources.CloseIcon;
-            this.CloseWindow.Location = new System.Drawing.Point(476, 20);
-            this.CloseWindow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.CloseWindow.Location = new System.Drawing.Point(486, 15);
             this.CloseWindow.Name = "CloseWindow";
             this.CloseWindow.Size = new System.Drawing.Size(20, 20);
             this.CloseWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -66,8 +65,7 @@
             this.MinimizeWindow.BackColor = System.Drawing.Color.Transparent;
             this.MinimizeWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.MinimizeWindow.Image = global::PackageInstaller.Properties.Resources.MinimizeIcon;
-            this.MinimizeWindow.Location = new System.Drawing.Point(436, 20);
-            this.MinimizeWindow.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.MinimizeWindow.Location = new System.Drawing.Point(444, 15);
             this.MinimizeWindow.Name = "MinimizeWindow";
             this.MinimizeWindow.Size = new System.Drawing.Size(20, 20);
             this.MinimizeWindow.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -79,12 +77,12 @@
             // 
             this.ProductNameLabel.AutoSize = true;
             this.ProductNameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.ProductNameLabel.Font = new System.Drawing.Font("Segoe UI", 28F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.ProductNameLabel.Font = new System.Drawing.Font("Segoe UI", 34F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.ProductNameLabel.ForeColor = System.Drawing.Color.White;
-            this.ProductNameLabel.Location = new System.Drawing.Point(29, 58);
+            this.ProductNameLabel.Location = new System.Drawing.Point(25, 72);
             this.ProductNameLabel.Margin = new System.Windows.Forms.Padding(0);
             this.ProductNameLabel.Name = "ProductNameLabel";
-            this.ProductNameLabel.Size = new System.Drawing.Size(336, 62);
+            this.ProductNameLabel.Size = new System.Drawing.Size(330, 62);
             this.ProductNameLabel.TabIndex = 4;
             this.ProductNameLabel.Text = "Product name";
             this.ProductNameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -93,8 +91,7 @@
             // 
             this.Logo.BackColor = System.Drawing.Color.Transparent;
             this.Logo.Image = global::PackageInstaller.Properties.Resources.Logo;
-            this.Logo.Location = new System.Drawing.Point(29, 20);
-            this.Logo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Logo.Location = new System.Drawing.Point(25, 15);
             this.Logo.Name = "Logo";
             this.Logo.Size = new System.Drawing.Size(20, 20);
             this.Logo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -106,7 +103,8 @@
             // 
             this.InstallButton.BackColor = System.Drawing.Color.Transparent;
             this.InstallButton.Image = global::PackageInstaller.Properties.Resources.InstallButton;
-            this.InstallButton.Location = new System.Drawing.Point(65, 220);
+            this.InstallButton.Location = new System.Drawing.Point(64, 221);
+            this.InstallButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.InstallButton.Name = "InstallButton";
             this.InstallButton.Size = new System.Drawing.Size(400, 60);
             this.InstallButton.TabIndex = 11;
@@ -117,9 +115,9 @@
             // 
             this.InstallLabel.AutoSize = true;
             this.InstallLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(134)))), ((int)(((byte)(252)))));
-            this.InstallLabel.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.InstallLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.InstallLabel.ForeColor = System.Drawing.Color.White;
-            this.InstallLabel.Location = new System.Drawing.Point(215, 231);
+            this.InstallLabel.Location = new System.Drawing.Point(200, 233);
             this.InstallLabel.Name = "InstallLabel";
             this.InstallLabel.Size = new System.Drawing.Size(96, 37);
             this.InstallLabel.TabIndex = 12;
@@ -130,11 +128,11 @@
             // 
             this.VersionLabel.AutoSize = true;
             this.VersionLabel.BackColor = System.Drawing.Color.Transparent;
-            this.VersionLabel.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.VersionLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.VersionLabel.ForeColor = System.Drawing.Color.White;
-            this.VersionLabel.Location = new System.Drawing.Point(42, 136);
+            this.VersionLabel.Location = new System.Drawing.Point(25, 145);
             this.VersionLabel.Name = "VersionLabel";
-            this.VersionLabel.Size = new System.Drawing.Size(88, 23);
+            this.VersionLabel.Size = new System.Drawing.Size(105, 28);
             this.VersionLabel.TabIndex = 13;
             this.VersionLabel.Text = "Version: 0";
             // 
@@ -144,9 +142,10 @@
             this.VersionExistsPanel.Controls.Add(this.OKLabel);
             this.VersionExistsPanel.Controls.Add(this.OkButton);
             this.VersionExistsPanel.Controls.Add(this.NewestVersionLabel);
-            this.VersionExistsPanel.Location = new System.Drawing.Point(23, 183);
+            this.VersionExistsPanel.Location = new System.Drawing.Point(43, 201);
+            this.VersionExistsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.VersionExistsPanel.Name = "VersionExistsPanel";
-            this.VersionExistsPanel.Size = new System.Drawing.Size(495, 125);
+            this.VersionExistsPanel.Size = new System.Drawing.Size(433, 94);
             this.VersionExistsPanel.TabIndex = 14;
             // 
             // OKLabel
@@ -155,9 +154,9 @@
             this.OKLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(134)))), ((int)(((byte)(252)))));
             this.OKLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.OKLabel.ForeColor = System.Drawing.Color.White;
-            this.OKLabel.Location = new System.Drawing.Point(351, 47);
+            this.OKLabel.Location = new System.Drawing.Point(331, 32);
             this.OKLabel.Name = "OKLabel";
-            this.OKLabel.Size = new System.Drawing.Size(50, 35);
+            this.OKLabel.Size = new System.Drawing.Size(40, 28);
             this.OKLabel.TabIndex = 2;
             this.OKLabel.Text = "OK";
             this.OKLabel.Click += new System.EventHandler(this.OKLabel_Click);
@@ -166,7 +165,8 @@
             // 
             this.OkButton.BackColor = System.Drawing.Color.Transparent;
             this.OkButton.Image = global::PackageInstaller.Properties.Resources.ButtonTemplate;
-            this.OkButton.Location = new System.Drawing.Point(293, 36);
+            this.OkButton.Location = new System.Drawing.Point(270, 20);
+            this.OkButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.OkButton.Name = "OkButton";
             this.OkButton.Size = new System.Drawing.Size(160, 60);
             this.OkButton.TabIndex = 1;
@@ -177,15 +177,15 @@
             // 
             this.NewestVersionLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.NewestVersionLabel.ForeColor = System.Drawing.Color.White;
-            this.NewestVersionLabel.Location = new System.Drawing.Point(37, 27);
+            this.NewestVersionLabel.Location = new System.Drawing.Point(32, 20);
             this.NewestVersionLabel.Name = "NewestVersionLabel";
-            this.NewestVersionLabel.Size = new System.Drawing.Size(250, 78);
+            this.NewestVersionLabel.Size = new System.Drawing.Size(219, 58);
             this.NewestVersionLabel.TabIndex = 0;
             this.NewestVersionLabel.Text = "Newest version already installed.";
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PackageInstaller.Properties.Resources.FormBG;
             this.ClientSize = new System.Drawing.Size(530, 320);
@@ -198,7 +198,6 @@
             this.Controls.Add(this.MinimizeWindow);
             this.Controls.Add(this.CloseWindow);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.TransparencyKey = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(0)))), ((int)(((byte)(179)))));
