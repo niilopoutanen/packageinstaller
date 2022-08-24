@@ -24,6 +24,9 @@ namespace PackageInstaller
             uiclass.UpdateLabel(VersionLabel, "Version: " + filemanager.GetVersion(false).ToString());
             uiclass.ChangePanelVisibility(VersionExistsPanel, false);
             VersionExistsPanel.Size = new Size(480, 120);
+            InstallDonePanel.Visible = false;
+            InstallDonePanel.Size = new Size(480,120);
+            InstallDonePanel.Location = new Point(25,187);
         }
 
         //Form dragging stuff
@@ -81,11 +84,15 @@ namespace PackageInstaller
 
         private void InstallButton_Click(object sender, EventArgs e)
         {
-            if(filemanager.UnZipResource() == false)
+            bool trueorfalse = filemanager.UnZipResource();
+            if (trueorfalse == false)
             {
                 uiclass.ChangePanelVisibility(VersionExistsPanel, true);
             }
-            uiclass.UpdateLabel(InstallLabel, "Done");
+            else if (trueorfalse == true)
+            {
+                InstallDonePanel.Visible = true;
+            }
         }
 
         private void OkButton_Click(object sender, EventArgs e)
@@ -100,11 +107,15 @@ namespace PackageInstaller
 
         private void InstallLabel_Click(object sender, EventArgs e)
         {
-            if (filemanager.UnZipResource() == false)
+            bool trueorfalse = filemanager.UnZipResource();
+            if ( trueorfalse == false)
             {
                 uiclass.ChangePanelVisibility(VersionExistsPanel, true);
             }
-            uiclass.UpdateLabel(InstallLabel, "Done");
+            else if(trueorfalse == true)
+            {
+                InstallDonePanel.Visible = true;
+            }
         }
 
         private void Logo_MouseHover(object sender, EventArgs e)
@@ -112,6 +123,19 @@ namespace PackageInstaller
             Cursor.Current = Cursors.Hand;
         }
 
+        private void pictureBox2_Click(object sender, EventArgs e)
+        {
 
+        }
+
+        private void QuitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void QuitLabel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

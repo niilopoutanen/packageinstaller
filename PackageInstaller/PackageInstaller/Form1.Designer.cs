@@ -36,15 +36,25 @@
             this.InstallLabel = new System.Windows.Forms.Label();
             this.VersionLabel = new System.Windows.Forms.Label();
             this.VersionExistsPanel = new System.Windows.Forms.Panel();
+            this.UninstallLabel = new System.Windows.Forms.Label();
+            this.UninstallButton = new System.Windows.Forms.PictureBox();
             this.OKLabel = new System.Windows.Forms.Label();
+            this.OkButton = new System.Windows.Forms.PictureBox();
             this.NewestVersionLabel = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.InstallDonePanel = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.QuitLabel = new System.Windows.Forms.Label();
+            this.QuitButton = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CloseWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InstallButton)).BeginInit();
             this.VersionExistsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UninstallButton)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OkButton)).BeginInit();
+            this.InstallDonePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QuitButton)).BeginInit();
             this.SuspendLayout();
             // 
             // CloseWindow
@@ -145,27 +155,67 @@
             // VersionExistsPanel
             // 
             this.VersionExistsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(1)))), ((int)(((byte)(217)))), ((int)(((byte)(124)))));
-            this.VersionExistsPanel.Controls.Add(this.pictureBox1);
+            this.VersionExistsPanel.Controls.Add(this.UninstallLabel);
+            this.VersionExistsPanel.Controls.Add(this.UninstallButton);
             this.VersionExistsPanel.Controls.Add(this.OKLabel);
+            this.VersionExistsPanel.Controls.Add(this.OkButton);
             this.VersionExistsPanel.Controls.Add(this.NewestVersionLabel);
             this.VersionExistsPanel.Location = new System.Drawing.Point(25, 187);
             this.VersionExistsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.VersionExistsPanel.Name = "VersionExistsPanel";
-            this.VersionExistsPanel.Size = new System.Drawing.Size(481, 122);
+            this.VersionExistsPanel.Size = new System.Drawing.Size(91, 30);
             this.VersionExistsPanel.TabIndex = 14;
+            // 
+            // UninstallLabel
+            // 
+            this.UninstallLabel.AutoSize = true;
+            this.UninstallLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(134)))), ((int)(((byte)(252)))));
+            this.UninstallLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.UninstallLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.UninstallLabel.ForeColor = System.Drawing.Color.White;
+            this.UninstallLabel.Location = new System.Drawing.Point(357, 43);
+            this.UninstallLabel.Name = "UninstallLabel";
+            this.UninstallLabel.Size = new System.Drawing.Size(96, 28);
+            this.UninstallLabel.TabIndex = 4;
+            this.UninstallLabel.Text = "Uninstall";
+            // 
+            // UninstallButton
+            // 
+            this.UninstallButton.BackColor = System.Drawing.Color.Transparent;
+            this.UninstallButton.Image = global::PackageInstaller.Properties.Resources.UninstallButton;
+            this.UninstallButton.InitialImage = global::PackageInstaller.Properties.Resources.UninstallButton;
+            this.UninstallButton.Location = new System.Drawing.Point(339, 34);
+            this.UninstallButton.Name = "UninstallButton";
+            this.UninstallButton.Size = new System.Drawing.Size(130, 50);
+            this.UninstallButton.TabIndex = 0;
+            this.UninstallButton.TabStop = false;
+            this.UninstallButton.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // OKLabel
             // 
             this.OKLabel.AutoSize = true;
             this.OKLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(134)))), ((int)(((byte)(252)))));
+            this.OKLabel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.OKLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.OKLabel.ForeColor = System.Drawing.Color.White;
-            this.OKLabel.Location = new System.Drawing.Point(331, 32);
+            this.OKLabel.Location = new System.Drawing.Point(254, 43);
             this.OKLabel.Name = "OKLabel";
             this.OKLabel.Size = new System.Drawing.Size(40, 28);
             this.OKLabel.TabIndex = 2;
             this.OKLabel.Text = "OK";
             this.OKLabel.Click += new System.EventHandler(this.OKLabel_Click);
+            // 
+            // OkButton
+            // 
+            this.OkButton.BackColor = System.Drawing.Color.Transparent;
+            this.OkButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.OkButton.Image = global::PackageInstaller.Properties.Resources.OKButton;
+            this.OkButton.Location = new System.Drawing.Point(228, 34);
+            this.OkButton.Name = "OkButton";
+            this.OkButton.Size = new System.Drawing.Size(90, 50);
+            this.OkButton.TabIndex = 3;
+            this.OkButton.TabStop = false;
+            this.OkButton.Click += new System.EventHandler(this.OkButton_Click);
             // 
             // NewestVersionLabel
             // 
@@ -177,13 +227,65 @@
             this.NewestVersionLabel.TabIndex = 0;
             this.NewestVersionLabel.Text = "Newest version already installed.";
             // 
-            // pictureBox1
+            // InstallDonePanel
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(319, 32);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.InstallDonePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.InstallDonePanel.Controls.Add(this.label3);
+            this.InstallDonePanel.Controls.Add(this.QuitLabel);
+            this.InstallDonePanel.Controls.Add(this.QuitButton);
+            this.InstallDonePanel.Controls.Add(this.label1);
+            this.InstallDonePanel.Location = new System.Drawing.Point(28, 187);
+            this.InstallDonePanel.Name = "InstallDonePanel";
+            this.InstallDonePanel.Size = new System.Drawing.Size(466, 121);
+            this.InstallDonePanel.TabIndex = 15;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(15, 52);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(258, 38);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "Application installed to:\nC:/User/Program Files/NiiloPoutanen";
+            // 
+            // QuitLabel
+            // 
+            this.QuitLabel.AutoSize = true;
+            this.QuitLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(134)))), ((int)(((byte)(252)))));
+            this.QuitLabel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.QuitLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.QuitLabel.ForeColor = System.Drawing.Color.White;
+            this.QuitLabel.Location = new System.Drawing.Point(368, 43);
+            this.QuitLabel.Name = "QuitLabel";
+            this.QuitLabel.Size = new System.Drawing.Size(53, 28);
+            this.QuitLabel.TabIndex = 2;
+            this.QuitLabel.Text = "Quit";
+            this.QuitLabel.Click += new System.EventHandler(this.QuitLabel_Click);
+            // 
+            // QuitButton
+            // 
+            this.QuitButton.BackColor = System.Drawing.Color.Transparent;
+            this.QuitButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.QuitButton.Image = global::PackageInstaller.Properties.Resources.OKButton;
+            this.QuitButton.Location = new System.Drawing.Point(349, 33);
+            this.QuitButton.Name = "QuitButton";
+            this.QuitButton.Size = new System.Drawing.Size(90, 50);
+            this.QuitButton.TabIndex = 1;
+            this.QuitButton.TabStop = false;
+            this.QuitButton.Click += new System.EventHandler(this.QuitButton_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(15, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(193, 30);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Installation done.";
             // 
             // Form1
             // 
@@ -191,6 +293,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PackageInstaller.Properties.Resources.FormBG;
             this.ClientSize = new System.Drawing.Size(530, 320);
+            this.Controls.Add(this.InstallDonePanel);
             this.Controls.Add(this.VersionExistsPanel);
             this.Controls.Add(this.VersionLabel);
             this.Controls.Add(this.InstallLabel);
@@ -211,7 +314,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.InstallButton)).EndInit();
             this.VersionExistsPanel.ResumeLayout(false);
             this.VersionExistsPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.UninstallButton)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.OkButton)).EndInit();
+            this.InstallDonePanel.ResumeLayout(false);
+            this.InstallDonePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.QuitButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -229,6 +336,13 @@
         private Panel VersionExistsPanel;
         private Label NewestVersionLabel;
         private Label OKLabel;
-        private PictureBox pictureBox1;
+        private PictureBox OkButton;
+        private PictureBox UninstallButton;
+        private Label UninstallLabel;
+        private Panel InstallDonePanel;
+        private Label label1;
+        private Label QuitLabel;
+        private PictureBox QuitButton;
+        private Label label3;
     }
 }
