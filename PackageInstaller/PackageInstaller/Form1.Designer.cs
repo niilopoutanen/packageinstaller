@@ -101,6 +101,7 @@
             this.InstallButton.TabIndex = 10;
             this.InstallButton.Text = "Install";
             this.InstallButton.UseVisualStyleBackColor = true;
+            this.InstallButton.Click += new System.EventHandler(this.InstallButton_Click);
             // 
             // Form1
             // 
