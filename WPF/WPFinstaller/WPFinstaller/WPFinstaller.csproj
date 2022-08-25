@@ -14,9 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\CloseIcon.png" />
-    <EmbeddedResource Include="Resources\Logo.png" />
-    <EmbeddedResource Include="Resources\MinimizeIcon.png" />
+    <Resource Include="Resources\CloseIcon.png" />
+    <Resource Include="Resources\Logo.png">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\MinimizeIcon.png" />
   </ItemGroup>
 
   <ItemGroup>

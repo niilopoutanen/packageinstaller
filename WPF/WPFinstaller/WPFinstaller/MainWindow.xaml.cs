@@ -30,7 +30,14 @@ namespace WPFinstaller
             InitializeComponent();
 
         }
-
+        private void InstallButton()
+        {
+            InstallPanel.Visibility = Visibility.Hidden;
+        }
+        private void QuitApp(object sender, MouseEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
         private void Form_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -40,9 +47,12 @@ namespace WPFinstaller
         }
         public void InstallButton_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("testi");
+            InstallButton();
         }
-
+        public void InstallBorder_Click(object sender, MouseEventArgs e)
+        {
+            InstallButton();
+        }
         private void CloseWindow_Click(object sender, MouseEventArgs e)
         {
             Application.Current.Shutdown();
