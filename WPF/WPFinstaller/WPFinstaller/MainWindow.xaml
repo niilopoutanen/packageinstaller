@@ -7,28 +7,39 @@
         xmlns:resx="clr-namespace:WPFinstaller.Properties"
         mc:Ignorable="d"
         Title="MainWindow" Height="320" Width="530" WindowStyle="None" MouseDown="Form_MouseDown"
-        AllowsTransparency="True" Background="Transparent">
-
+        AllowsTransparency="True" Background="Transparent"
+        WindowStartupLocation="CenterScreen">
 
     <Grid>
 
-        <Image x:Name="CloseIMG" Source="/Resources/CloseIcon.png" Style ="{StaticResource NavBarButton}" VerticalAlignment="Top" Panel.ZIndex="2" Margin="0,15,15,0" MouseDown="CloseWindow_Click" HorizontalAlignment="Right" Cursor="Hand"/>
-        <Image x:Name="MinimizeIMG" Source ="/Resources/MinimizeIcon.png" Style ="{StaticResource NavBarButton}" HorizontalAlignment="Right" MouseDown="MinimizeWindow_Click" Margin="0,15,45,0" Cursor="Hand"/>
-        <Image x:Name="LogoIMG" Source="/Resources/Logo.png" Style="{StaticResource NavBarButton}" HorizontalAlignment="Left" Margin="15,15,0,0" MouseDown="GithubButton_Click" Cursor="Hand" Panel.ZIndex="1"/>
-        <Border BorderBrush="#121212" BorderThickness="10" CornerRadius="30" Background="#121212" Panel.ZIndex="-1"></Border>
-        <Grid x:Name="InstallPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="0,0,0,10">
-            <Border BorderBrush="#bb86fc" Background="#bb86fc" Width="400" Height="60" CornerRadius="20" Cursor="Hand" Panel.ZIndex="-1" MouseLeftButtonDown="InstallBorder_Click">
+        <Image x:Name="CloseIMG" Source="/Resources/CloseIcon.png" Style ="{StaticResource NavBarButton}" VerticalAlignment="Top" Panel.ZIndex="2" Margin="0,15,25,0" MouseDown="CloseWindow_Click" HorizontalAlignment="Right" Cursor="Hand"/>
+        <Image x:Name="MinimizeIMG" Source ="/Resources/MinimizeIcon.png" Style ="{StaticResource NavBarButton}" HorizontalAlignment="Right" MouseDown="MinimizeWindow_Click" Margin="0,15,55,0" Cursor="Hand"/>
+        <Image x:Name="LogoIMG" Source="/Resources/Logo.png" Style="{StaticResource NavBarButton}" HorizontalAlignment="Left" Margin="25,15,0,0" MouseDown="GithubButton_Click" Cursor="Hand" Panel.ZIndex="1"/>
+        <Border BorderBrush="#121212" CornerRadius="30" Background="#121212" Panel.ZIndex="-1"></Border>
+        <Grid x:Name="InstallPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="0,0,0,10" Background="#121212">
+            <Border BorderBrush="#bb86fc" Background="#bb86fc" Width="400" Height="50" CornerRadius="20" Cursor="Hand" Panel.ZIndex="-1" MouseLeftButtonDown="InstallBorder_Click">
                 <TextBlock Foreground="white" FontSize="25" FontWeight="Bold" Cursor="Hand" MouseLeftButtonDown="InstallBorder_Click" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Install"/></TextBlock>
             </Border>
         </Grid>
-        <Grid x:Name="InstallDonePanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="0,0,0,10" Visibility="Hidden">
-            <TextBlock x:Name="InstallationDone" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,0,40">Installation done.</TextBlock>
-            <TextBlock x:Name="ApplicationInstalledTo" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10,10,0,0">Application installed to:</TextBlock>
-            <TextBlock x:Name="FilePathText" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10,40,0,0">C:/User/Program Files/NiiloPoutanen/App</TextBlock>
+        <Grid x:Name="InstallDonePanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="-1100,0,0,10" Visibility="Visible" Background="#121212">
+            <TextBlock x:Name="InstallationDone" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,0,50">Installation done.</TextBlock>
+            <TextBlock x:Name="ApplicationInstalledTo" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10,0,0,0">Application installed to:</TextBlock>
+            <TextBlock x:Name="FilePathText" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10,30,0,0">C:/User/Program Files/NiiloPoutanen/App</TextBlock>
 
-            <Border x:Name="QuitButton" Background="#BB86fc" Width="90" Height="50" CornerRadius="20" Margin="385,45,25,45" MouseLeftButtonDown="QuitApp" Cursor="Hand">
+            <Border x:Name="QuitButton" Background="#BB86fc" Width="90" Height="50" CornerRadius="20" Margin="385,37,25,53" MouseLeftButtonDown="QuitApp" Cursor="Hand">
                 <TextBlock x:Name="QuitText" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20">Quit</TextBlock>
             </Border>
+        </Grid>
+        <Grid x:Name="SameVersionPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="-2200,0,0,10" Background="#121212" Visibility="Visible">
+            <TextBlock VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10,0,0,25">Newest version</TextBlock>
+            <TextBlock VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10,25,0,0">already installed.</TextBlock>
+            <Border Width="90" Height="50" Background="#BB86FC" CornerRadius="20" HorizontalAlignment="Right" Margin="0,0,170,0" Cursor="Hand" MouseDown="QuitApp">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">OK</TextBlock>
+            </Border>
+            <Border Width="130" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,0,15,0" Cursor="Hand">
+                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">Uninstall</TextBlock>
+            </Border>
+
         </Grid>
 
         <Border Height="165" VerticalAlignment="Top" CornerRadius="30,30,0,0" Panel.ZIndex="-1">
@@ -40,8 +51,8 @@
                 </LinearGradientBrush>
             </Border.Background>
             <Grid>
-                <TextBlock x:Name="ProductName" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold" Margin="20,70,0,0" HorizontalAlignment="Left"><Run Text="Product name"/></TextBlock>
-                <TextBlock x:Name="Version" Foreground="White" Margin="20,0,0,10" VerticalAlignment="Bottom" FontSize="20" FontWeight="SemiBold"><Run Text="Version: 0.0"/></TextBlock>
+                <TextBlock x:Name="ProductName" VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold" Margin="30,70,0,0" HorizontalAlignment="Left"><Run Text="Product name"/></TextBlock>
+                <TextBlock x:Name="Version" Foreground="White" Margin="30,0,0,10" VerticalAlignment="Bottom" FontSize="20" FontWeight="SemiBold"><Run Text="Version: 0.0"/></TextBlock>
             </Grid>
             
         </Border>
