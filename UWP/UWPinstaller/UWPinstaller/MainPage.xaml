@@ -6,9 +6,12 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-
-    <Grid>
-
+    
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="530" Height="321">
+    
+    <Grid Width="530">
+        <RelativePanel BorderBrush="white" BorderThickness="20" Background="#121212">
+                
+        </RelativePanel>
     </Grid>
 </Page>
