@@ -182,6 +182,7 @@ namespace PackageInstaller
             else if (!(Directory.Exists(ProgramFiles)))
             {
                 ZipFile.ExtractToDirectory(tempfile, ProgramFiles);
+                CreateShortcut();
             }
         }
         public void UninstallApp()

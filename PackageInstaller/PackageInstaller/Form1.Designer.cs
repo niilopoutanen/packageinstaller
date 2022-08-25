@@ -184,6 +184,7 @@
             // UninstallButton
             // 
             this.UninstallButton.BackColor = System.Drawing.Color.Transparent;
+            this.UninstallButton.Cursor = System.Windows.Forms.Cursors.Hand;
             this.UninstallButton.Image = global::PackageInstaller.Properties.Resources.UninstallButton;
             this.UninstallButton.InitialImage = global::PackageInstaller.Properties.Resources.UninstallButton;
             this.UninstallButton.Location = new System.Drawing.Point(339, 34);
