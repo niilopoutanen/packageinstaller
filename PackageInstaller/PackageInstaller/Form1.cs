@@ -27,6 +27,9 @@ namespace PackageInstaller
             InstallDonePanel.Visible = false;
             InstallDonePanel.Size = new Size(480,120);
             InstallDonePanel.Location = new Point(25,187);
+            UninstallDonePanel.Visible = false;
+            UninstallDonePanel.Size = new Size(480,120);
+            UninstallDonePanel.Location = new Point(15,187);
         }
 
         //Form dragging stuff
@@ -136,11 +139,24 @@ namespace PackageInstaller
         private void UninstallButton_Click(object sender, EventArgs e)
         {
             filemanager.UninstallApp();
+            UninstallDonePanel.Visible = true;
         }
 
         private void UninstallLabel_Click(object sender, EventArgs e)
         {
             filemanager.UninstallApp();
+            UninstallDonePanel.Visible = true;
+
+        }
+
+        private void UninstallQuitButton_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void UninstallQuitLabel_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }

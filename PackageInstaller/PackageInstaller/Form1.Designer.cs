@@ -46,6 +46,10 @@
             this.QuitLabel = new System.Windows.Forms.Label();
             this.QuitButton = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.UninstallDonePanel = new System.Windows.Forms.Panel();
+            this.UninstallQuitLabel = new System.Windows.Forms.Label();
+            this.UninstallQuitButton = new System.Windows.Forms.PictureBox();
+            this.UninstallDoneLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.CloseWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinimizeWindow)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Logo)).BeginInit();
@@ -55,6 +59,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.OkButton)).BeginInit();
             this.InstallDonePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QuitButton)).BeginInit();
+            this.UninstallDonePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UninstallQuitButton)).BeginInit();
             this.SuspendLayout();
             // 
             // CloseWindow
@@ -164,7 +170,7 @@
             this.VersionExistsPanel.Location = new System.Drawing.Point(25, 187);
             this.VersionExistsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.VersionExistsPanel.Name = "VersionExistsPanel";
-            this.VersionExistsPanel.Size = new System.Drawing.Size(493, 122);
+            this.VersionExistsPanel.Size = new System.Drawing.Size(91, 30);
             this.VersionExistsPanel.TabIndex = 14;
             // 
             // UninstallLabel
@@ -290,6 +296,52 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Installation done.";
             // 
+            // UninstallDonePanel
+            // 
+            this.UninstallDonePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(18)))), ((int)(((byte)(18)))), ((int)(((byte)(18)))));
+            this.UninstallDonePanel.Controls.Add(this.UninstallQuitLabel);
+            this.UninstallDonePanel.Controls.Add(this.UninstallQuitButton);
+            this.UninstallDonePanel.Controls.Add(this.UninstallDoneLabel);
+            this.UninstallDonePanel.Location = new System.Drawing.Point(201, 187);
+            this.UninstallDonePanel.Name = "UninstallDonePanel";
+            this.UninstallDonePanel.Size = new System.Drawing.Size(60, 30);
+            this.UninstallDonePanel.TabIndex = 16;
+            // 
+            // UninstallQuitLabel
+            // 
+            this.UninstallQuitLabel.AutoSize = true;
+            this.UninstallQuitLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(187)))), ((int)(((byte)(134)))), ((int)(((byte)(252)))));
+            this.UninstallQuitLabel.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.UninstallQuitLabel.ForeColor = System.Drawing.Color.White;
+            this.UninstallQuitLabel.Location = new System.Drawing.Point(385, 44);
+            this.UninstallQuitLabel.Name = "UninstallQuitLabel";
+            this.UninstallQuitLabel.Size = new System.Drawing.Size(53, 28);
+            this.UninstallQuitLabel.TabIndex = 2;
+            this.UninstallQuitLabel.Text = "Quit";
+            this.UninstallQuitLabel.Click += new System.EventHandler(this.UninstallQuitLabel_Click);
+            // 
+            // UninstallQuitButton
+            // 
+            this.UninstallQuitButton.BackColor = System.Drawing.Color.Transparent;
+            this.UninstallQuitButton.Image = global::PackageInstaller.Properties.Resources.OKButton;
+            this.UninstallQuitButton.Location = new System.Drawing.Point(366, 34);
+            this.UninstallQuitButton.Name = "UninstallQuitButton";
+            this.UninstallQuitButton.Size = new System.Drawing.Size(100, 50);
+            this.UninstallQuitButton.TabIndex = 1;
+            this.UninstallQuitButton.TabStop = false;
+            this.UninstallQuitButton.Click += new System.EventHandler(this.UninstallQuitButton_Click);
+            // 
+            // UninstallDoneLabel
+            // 
+            this.UninstallDoneLabel.AutoSize = true;
+            this.UninstallDoneLabel.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.UninstallDoneLabel.ForeColor = System.Drawing.Color.White;
+            this.UninstallDoneLabel.Location = new System.Drawing.Point(16, 39);
+            this.UninstallDoneLabel.Name = "UninstallDoneLabel";
+            this.UninstallDoneLabel.Size = new System.Drawing.Size(265, 37);
+            this.UninstallDoneLabel.TabIndex = 0;
+            this.UninstallDoneLabel.Text = "Uninstall successful";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -297,6 +349,7 @@
             this.BackgroundImage = global::PackageInstaller.Properties.Resources.FormBG;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(530, 320);
+            this.Controls.Add(this.UninstallDonePanel);
             this.Controls.Add(this.InstallDonePanel);
             this.Controls.Add(this.VersionExistsPanel);
             this.Controls.Add(this.VersionLabel);
@@ -324,6 +377,9 @@
             this.InstallDonePanel.ResumeLayout(false);
             this.InstallDonePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.QuitButton)).EndInit();
+            this.UninstallDonePanel.ResumeLayout(false);
+            this.UninstallDonePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UninstallQuitButton)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -349,5 +405,9 @@
         private Label QuitLabel;
         private PictureBox QuitButton;
         private Label label3;
+        private Panel UninstallDonePanel;
+        private Label UninstallQuitLabel;
+        private PictureBox UninstallQuitButton;
+        private Label UninstallDoneLabel;
     }
 }

@@ -182,6 +182,10 @@ namespace PackageInstaller
             else if (!(Directory.Exists(ProgramFiles)))
             {
                 ZipFile.ExtractToDirectory(tempfile, ProgramFiles);
+                using (StreamWriter versionwriter = new StreamWriter(ProgramFiles + "\\version.txt"))
+                {
+                    versionwriter.WriteLine(version);
+                }
                 CreateShortcut();
             }
         }
