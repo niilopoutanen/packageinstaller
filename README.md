@@ -6,4 +6,4 @@ The application unpacks given zip file to Appdata/Local/temp, and moves it from 
 <br>
 *Demo image below*
 
-<img src="https://github.com/niilopoutanen/PackageInstaller/blob/main/PackageInstallerDemo.png?raw=true" width=400/>
+<img src="https://github.com/niilopoutanen/PackageInstaller/blob/main/GraphicsDemos.png?raw=true"/>
