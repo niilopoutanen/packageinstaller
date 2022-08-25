@@ -123,11 +123,6 @@ namespace PackageInstaller
             Cursor.Current = Cursors.Hand;
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void QuitButton_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -136,6 +131,16 @@ namespace PackageInstaller
         private void QuitLabel_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void UninstallButton_Click(object sender, EventArgs e)
+        {
+            filemanager.UninstallApp();
+        }
+
+        private void UninstallLabel_Click(object sender, EventArgs e)
+        {
+            filemanager.UninstallApp();
         }
     }
 }

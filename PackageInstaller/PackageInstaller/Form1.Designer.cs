@@ -164,7 +164,7 @@
             this.VersionExistsPanel.Location = new System.Drawing.Point(25, 187);
             this.VersionExistsPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.VersionExistsPanel.Name = "VersionExistsPanel";
-            this.VersionExistsPanel.Size = new System.Drawing.Size(91, 30);
+            this.VersionExistsPanel.Size = new System.Drawing.Size(493, 122);
             this.VersionExistsPanel.TabIndex = 14;
             // 
             // UninstallLabel
@@ -179,6 +179,7 @@
             this.UninstallLabel.Size = new System.Drawing.Size(96, 28);
             this.UninstallLabel.TabIndex = 4;
             this.UninstallLabel.Text = "Uninstall";
+            this.UninstallLabel.Click += new System.EventHandler(this.UninstallLabel_Click);
             // 
             // UninstallButton
             // 
@@ -190,7 +191,7 @@
             this.UninstallButton.Size = new System.Drawing.Size(130, 50);
             this.UninstallButton.TabIndex = 0;
             this.UninstallButton.TabStop = false;
-            this.UninstallButton.Click += new System.EventHandler(this.pictureBox2_Click);
+            this.UninstallButton.Click += new System.EventHandler(this.UninstallButton_Click);
             // 
             // OKLabel
             // 

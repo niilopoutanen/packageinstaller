@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
+using System.Security.Cryptography;
 using IWshRuntimeLibrary;
 
 
@@ -182,6 +183,26 @@ namespace PackageInstaller
             {
                 ZipFile.ExtractToDirectory(tempfile, ProgramFiles);
             }
+        }
+        public void UninstallApp()
+        {
+            string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            string desktopShortcut = Path.Combine(desktop, ProductName + ".lnk");
+            string StartMenu = Environment.GetFolderPath(Environment.SpecialFolder.StartMenu);
+            string StartMenuShortcut = Path.Combine(StartMenu, ProductName + ".lnk");
+            string AppFolder = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\NiiloPoutanen";
+
+            string[] AppDirectories = Directory.GetDirectories(AppFolder);
+            foreach (string dir in AppDirectories)
+            {
+                string folder = Path.Combine(AppFolder, ProductName);
+                if(dir == folder)
+                {
+                    Directory.Delete(dir,true);
+                }
+            }
+            System.IO.File.Delete(desktopShortcut);
+            System.IO.File.Delete(StartMenuShortcut);
         }
     }
 }
