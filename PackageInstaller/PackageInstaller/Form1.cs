@@ -21,7 +21,7 @@ namespace PackageInstaller
         {
             FontFamily InterBold = uiclass.CreateInterBold();
             FontFamily InterSemiBold = uiclass.CreateInterSemiBold();
-            uiclass.UpdateLabel(VersionLabel, "Version: " + filemanager.GetVersion(false).ToString());
+            uiclass.UpdateLabel(VersionLabel, "Version: " + filemanager.GetVersion(true).ToString());
             uiclass.ChangePanelVisibility(VersionExistsPanel, false);
             VersionExistsPanel.Size = new Size(480, 120);
             InstallDonePanel.Visible = false;
