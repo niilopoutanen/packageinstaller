@@ -102,6 +102,7 @@
             // Logo
             // 
             this.Logo.BackColor = System.Drawing.Color.Transparent;
+            this.Logo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Logo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Logo.Image = global::PackageInstaller.Properties.Resources.Logo;
             this.Logo.Location = new System.Drawing.Point(25, 15);
@@ -234,9 +235,9 @@
             this.InstallDonePanel.Controls.Add(this.QuitLabel);
             this.InstallDonePanel.Controls.Add(this.QuitButton);
             this.InstallDonePanel.Controls.Add(this.label1);
-            this.InstallDonePanel.Location = new System.Drawing.Point(28, 187);
+            this.InstallDonePanel.Location = new System.Drawing.Point(122, 187);
             this.InstallDonePanel.Name = "InstallDonePanel";
-            this.InstallDonePanel.Size = new System.Drawing.Size(466, 121);
+            this.InstallDonePanel.Size = new System.Drawing.Size(73, 29);
             this.InstallDonePanel.TabIndex = 15;
             // 
             // label3
@@ -292,6 +293,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PackageInstaller.Properties.Resources.FormBG;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(530, 320);
             this.Controls.Add(this.InstallDonePanel);
             this.Controls.Add(this.VersionExistsPanel);
@@ -302,6 +304,7 @@
             this.Controls.Add(this.ProductNameLabel);
             this.Controls.Add(this.MinimizeWindow);
             this.Controls.Add(this.CloseWindow);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Form1";
             this.Text = "Form1";
