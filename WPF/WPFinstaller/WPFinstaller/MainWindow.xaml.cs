@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,9 +38,17 @@ namespace WPFinstaller
             MessageBox.Show("testi");
         }
 
-        private void CloseWindow_Click(object sender, RoutedEventArgs e)
+        private void CloseWindow_Click(object sender, MouseEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+        private void MinimizeWindow_Click(object sender, MouseEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+        private void GithubButton_Click(object sender, MouseEventArgs e)
+        {
+            Process.Start(new ProcessStartInfo("https://github.com/niilopoutanen") { UseShellExecute = true });
         }
     }
 }
