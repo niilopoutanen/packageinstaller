@@ -27,7 +27,7 @@ namespace WPFinstaller
             
             DoubleAnimation fade = new DoubleAnimation(0, TimeSpan.FromSeconds(1));
             InstallPanel.Visibility = Visibility.Hidden;
-            InstallDonePanel.Visibility = Visibility.Visible;
+            SameVersionPanel.Visibility = Visibility.Visible;
         }
         private void QuitApp(object sender, MouseEventArgs e)
         {

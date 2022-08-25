@@ -12,12 +12,12 @@
 
     <Grid>
 
-        <Image x:Name="CloseIMG" Source="/Resources/CloseIcon.png" Style ="{StaticResource NavBarButton}" VerticalAlignment="Top" Panel.ZIndex="2" Margin="0,15,25,0" MouseDown="CloseWindow_Click" HorizontalAlignment="Right" Cursor="Hand"/>
-        <Image x:Name="MinimizeIMG" Source ="/Resources/MinimizeIcon.png" Style ="{StaticResource NavBarButton}" HorizontalAlignment="Right" MouseDown="MinimizeWindow_Click" Margin="0,15,55,0" Cursor="Hand"/>
-        <Image x:Name="LogoIMG" Source="/Resources/Logo.png" Style="{StaticResource NavBarButton}" HorizontalAlignment="Left" Margin="25,15,0,0" MouseDown="GithubButton_Click" Cursor="Hand" Panel.ZIndex="1"/>
+        <Image x:Name="CloseIMG" Source="/Resources/CloseIcon.png" Style ="{StaticResource NavBarButton}" VerticalAlignment="Top" Panel.ZIndex="2" Margin="0,20,25,0" MouseDown="CloseWindow_Click" HorizontalAlignment="Right" Cursor="Hand"/>
+        <Image x:Name="MinimizeIMG" Source ="/Resources/MinimizeIcon.png" Style ="{StaticResource NavBarButton}" HorizontalAlignment="Right" MouseDown="MinimizeWindow_Click" Margin="0,20,60,0" Cursor="Hand"/>
+        <Image x:Name="LogoIMG" Source="/Resources/Logo.png" Style="{StaticResource NavBarButton}" HorizontalAlignment="Left" Margin="25,20,0,0" MouseDown="GithubButton_Click" Cursor="Hand" Panel.ZIndex="1"/>
         <Border BorderBrush="#121212" CornerRadius="30" Background="#121212" Panel.ZIndex="-1"></Border>
         <Grid x:Name="InstallPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="0,0,0,10" Background="#121212">
-            <Border BorderBrush="#bb86fc" Background="#bb86fc" Width="400" Height="50" CornerRadius="20" Cursor="Hand" Panel.ZIndex="-1" MouseLeftButtonDown="InstallBorder_Click">
+            <Border BorderBrush="#bb86fc" Background="#bb86fc" Width="400" Height="50" CornerRadius="20" Cursor="Hand" Panel.ZIndex="-1" MouseLeftButtonDown="InstallBorder_Click" Margin="50,55,50,35">
                 <TextBlock Foreground="white" FontSize="25" FontWeight="Bold" Cursor="Hand" MouseLeftButtonDown="InstallBorder_Click" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Install"/></TextBlock>
             </Border>
         </Grid>
@@ -26,13 +26,13 @@
             <TextBlock x:Name="ApplicationInstalledTo" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10,0,0,0">Application installed to:</TextBlock>
             <TextBlock x:Name="FilePathText" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10,30,0,0">C:/User/Program Files/NiiloPoutanen/App</TextBlock>
 
-            <Border x:Name="QuitButton" Background="#BB86fc" Width="90" Height="50" CornerRadius="20" Margin="385,37,25,53" MouseLeftButtonDown="QuitApp" Cursor="Hand">
+            <Border x:Name="QuitButton" Background="#BB86fc" Width="90" Height="50" CornerRadius="20" Margin="363,45,47,45" MouseLeftButtonDown="QuitApp" Cursor="Hand">
                 <TextBlock x:Name="QuitText" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20">Quit</TextBlock>
             </Border>
         </Grid>
         <Grid x:Name="SameVersionPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="-2200,0,0,10" Background="#121212" Visibility="Visible">
-            <TextBlock VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10,0,0,25">Newest version</TextBlock>
-            <TextBlock VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10,25,0,0">already installed.</TextBlock>
+            <TextBlock VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10,0,0,45">Newest version</TextBlock>
+            <TextBlock VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10,15,0,0">already installed.</TextBlock>
             <Border Width="90" Height="50" Background="#BB86FC" CornerRadius="20" HorizontalAlignment="Right" Margin="0,0,170,0" Cursor="Hand" MouseDown="QuitApp">
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">OK</TextBlock>
             </Border>
