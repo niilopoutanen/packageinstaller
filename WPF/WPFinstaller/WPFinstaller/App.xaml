@@ -14,5 +14,21 @@
         <Style TargetType="TextBlock">
             <Setter Property="Foreground" Value="#FFFFFF"></Setter>
         </Style>
+
+        <Style TargetType="FrameworkElement" x:Key="VisibleAnimation">
+            <Setter Property="Opacity" Value="1"/>
+            <Style.Triggers>
+                <Trigger Property="Opacity" Value="0">
+                    <Trigger.EnterActions>
+                        <BeginStoryboard>
+                            <Storyboard RepeatBehavior="1x">
+                                <DoubleAnimation Storyboard.TargetProperty="Opacity"
+                                From="1.0" To="0.0" Duration="0:0:0.2" AutoReverse="true"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.EnterActions>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Application.Resources>
 </Application>

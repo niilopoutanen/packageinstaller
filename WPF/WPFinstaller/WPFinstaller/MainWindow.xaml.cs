@@ -17,6 +17,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WPFinstaller.Properties;
 using System.Drawing;
+using System.Windows.Media.Animation;
 
 namespace WPFinstaller
 {
@@ -28,11 +29,14 @@ namespace WPFinstaller
         public MainWindow()
         {
             InitializeComponent();
-
+            InstallDonePanel.Visibility = Visibility.Hidden;
         }
-        private void InstallButton()
+        public void InstallButton()
         {
+            
+            DoubleAnimation fade = new DoubleAnimation(0, TimeSpan.FromSeconds(1));
             InstallPanel.Visibility = Visibility.Hidden;
+            InstallDonePanel.Visibility = Visibility.Visible;
         }
         private void QuitApp(object sender, MouseEventArgs e)
         {

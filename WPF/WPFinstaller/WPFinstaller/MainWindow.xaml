@@ -16,12 +16,12 @@
         <Image x:Name="MinimizeIMG" Source ="/Resources/MinimizeIcon.png" Style ="{StaticResource NavBarButton}" HorizontalAlignment="Right" MouseDown="MinimizeWindow_Click" Margin="0,15,45,0" Cursor="Hand"/>
         <Image x:Name="LogoIMG" Source="/Resources/Logo.png" Style="{StaticResource NavBarButton}" HorizontalAlignment="Left" Margin="15,15,0,0" MouseDown="GithubButton_Click" Cursor="Hand" Panel.ZIndex="1"/>
         <Border BorderBrush="#121212" BorderThickness="10" CornerRadius="30" Background="#121212" Panel.ZIndex="-1"></Border>
-        <Grid x:Name="InstallPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="0,0,0,10" Visibility="Hidden">
+        <Grid x:Name="InstallPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="0,0,0,10">
             <Border BorderBrush="#bb86fc" Background="#bb86fc" Width="400" Height="60" CornerRadius="20" Cursor="Hand" Panel.ZIndex="-1" MouseLeftButtonDown="InstallBorder_Click">
                 <TextBlock Foreground="white" FontSize="25" FontWeight="Bold" Cursor="Hand" MouseLeftButtonDown="InstallBorder_Click" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Install"/></TextBlock>
             </Border>
         </Grid>
-        <Grid x:Name="InstallDone" Width="500" Height="140" VerticalAlignment="Bottom" Margin="0,0,0,10">
+        <Grid x:Name="InstallDonePanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="0,0,0,10" Visibility="Hidden">
             <TextBlock x:Name="InstallationDone" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,0,40">Installation done.</TextBlock>
             <TextBlock x:Name="ApplicationInstalledTo" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10,10,0,0">Application installed to:</TextBlock>
             <TextBlock x:Name="FilePathText" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10,40,0,0">C:/User/Program Files/NiiloPoutanen/App</TextBlock>
