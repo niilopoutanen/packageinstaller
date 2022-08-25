@@ -12,26 +12,25 @@
 
     <Grid>
 
+        <Image x:Name="CloseIMG" Source="/Resources/CloseIcon.png" Style ="{StaticResource NavBarButton}" VerticalAlignment="Top" Panel.ZIndex="1" Margin="0,15,15,0" MouseDown="CloseWindow_Click" HorizontalAlignment="Right"/>
+        <Image Source ="/Resources/MinimizeIcon.png" Style ="{StaticResource NavBarButton}" HorizontalAlignment="Right" MouseDown="MinimizeWindow_Click" Margin="0,15,45,0"/>
+        <Image Source="/Resources/Logo.png" Style="{StaticResource NavBarButton}" HorizontalAlignment="Left" Margin="15,15,0,0" MouseDown="GithubButton_Click"/>
         <Border BorderBrush="#121212" BorderThickness="10" CornerRadius="30" Background="#121212"/>
-        <Image Source="C:\source\PackageInstaller\WPF\WPFinstaller\WPFinstaller\Resources\CloseIcon.png" Style ="{StaticResource NavBarButton}" VerticalAlignment="Top" Panel.ZIndex="1" Margin="0,15,15,0" MouseDown="CloseWindow_Click" HorizontalAlignment="Right"></Image>
-        <Image Source="C:\source\PackageInstaller\WPF\WPFinstaller\WPFinstaller\Resources\MinimizeIcon.png" Style ="{StaticResource NavBarButton}" HorizontalAlignment="Right" MouseDown="MinimizeWindow_Click" Margin="0,15,45,0"></Image>
-        <Image Source="C:\source\PackageInstaller\WPF\WPFinstaller\WPFinstaller\Resources\Logo.png" Style="{StaticResource NavBarButton}" HorizontalAlignment="Left" Margin="15,15,0,0" MouseDown="GithubButton_Click"></Image>
         <Border BorderBrush="#bb86fc" Background="#bb86fc" Width="400" Height="60" CornerRadius="20" Margin="65,219,65,41">
             <Button Background="Transparent" Click="InstallButton_Click" BorderBrush="{x:Null}" Cursor="Hand" HorizontalAlignment="Center">
-                <TextBlock Foreground="white" FontSize="20" FontWeight="Bold">Install</TextBlock>
+                <TextBlock Foreground="white" FontSize="25" FontWeight="Bold"><Run Text="Install"/></TextBlock>
             </Button>
         </Border>
-        <Border Height="170" VerticalAlignment="Top" CornerRadius="30,30,0,0">
-            <TextBlock VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold" Margin="19,76,0,0" HorizontalAlignment="Left">Product name</TextBlock>
-            
+        <Border Height="165" VerticalAlignment="Top" CornerRadius="30,30,0,0">
+
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,-0.5" EndPoint="0, 1.5">
-                    <LinearGradientBrush.GradientStops>
-                        <GradientStop Offset="0.0" Color="#5e368f"/>
-                        <GradientStop Offset="1.0" Color="#BB86FC" />
-                    </LinearGradientBrush.GradientStops>
+                    <GradientStop Offset="0.0" Color="#673A9F"/>
+                    <GradientStop Offset="1.0" Color="#BB86FC" />
                 </LinearGradientBrush>
             </Border.Background>
+            <TextBlock VerticalAlignment="Top" Foreground="White" FontSize="40" FontWeight="Bold" Margin="19,76,0,0" HorizontalAlignment="Left"><Run Text="Product name"/></TextBlock>
+
         </Border>
     </Grid>
 </Window>
