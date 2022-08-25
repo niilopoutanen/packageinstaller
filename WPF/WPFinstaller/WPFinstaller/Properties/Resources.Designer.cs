@@ -99,5 +99,15 @@ namespace WPFinstaller.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        public static byte[] Package {
+            get {
+                object obj = ResourceManager.GetObject("Package", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
