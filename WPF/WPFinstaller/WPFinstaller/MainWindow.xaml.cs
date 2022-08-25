@@ -32,5 +32,14 @@ namespace WPFinstaller
                 DragMove();
             }
         }
+        public void InstallButton_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("testi");
+        }
+
+        private void CloseWindow_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }

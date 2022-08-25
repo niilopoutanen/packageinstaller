@@ -4,13 +4,21 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFinstaller"
+        xmlns:resx="clr-namespace:WPFinstaller.Properties"
         mc:Ignorable="d"
         Title="MainWindow" Height="320" Width="530" WindowStyle="None" MouseDown="Form_MouseDown"
         AllowsTransparency="True" Background="Transparent">
         
         
     <Grid>
+        <Button Width="20" Height="20" Background="Transparent" Panel.ZIndex="1" Margin="500,10,10,290" Click="CloseWindow_Click" BorderThickness="0">
+            <Image Source="C:\source\PackageInstaller\WPF\WPFinstaller\WPFinstaller\Resources\CloseIcon.png"></Image>
+        </Button>
         <Border BorderBrush="#121212" BorderThickness="10" CornerRadius="20" Background="#121212"/>
+        <Border BorderBrush="#bb86fc" Background="#bb86fc" Width="250" Height="50" CornerRadius="10" Margin="140,216,140,54">
+            <Button Background="Transparent" Click="InstallButton_Click" BorderBrush="{x:Null}" Cursor="Hand">
+            </Button>
+        </Border>
         <Border Height="170" VerticalAlignment="Top" CornerRadius="20,20,0,0">
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,-0.5" EndPoint="0, 1.5">
