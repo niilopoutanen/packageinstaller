@@ -26,6 +26,8 @@ namespace WPFinstaller
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        FileManager filemanager = new FileManager();
         public MainWindow()
         {
             InitializeComponent();
