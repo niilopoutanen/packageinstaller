@@ -18,7 +18,7 @@
         <Border BorderBrush="#121212" CornerRadius="30" Background="#121212" Panel.ZIndex="-1"></Border>
         <Grid x:Name="InstallPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="0,0,0,10" Background="#121212">
             <Border x:Name="InstallBTN" BorderBrush="#bb86fc" Background="#bb86fc" Width="400" Height="50" CornerRadius="20" Cursor="Hand" Panel.ZIndex="1" MouseLeftButtonDown="InstallBorder_Click" Margin="0,0,47,0" HorizontalAlignment="Right">
-                <TextBlock Foreground="white" FontSize="25" FontWeight="Bold" Cursor="Hand" MouseLeftButtonDown="InstallBorder_Click" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Install"/></TextBlock>
+                <TextBlock x:Name="InstallText" Foreground="white" FontSize="25" FontWeight="Bold" Cursor="Hand" MouseLeftButtonDown="InstallBorder_Click" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Install"/></TextBlock>
             </Border>
         </Grid>
         <Grid x:Name="InstallDonePanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="-1100,0,0,10" Visibility="Visible" Background="#121212">
@@ -26,7 +26,7 @@
             <TextBlock x:Name="ApplicationInstalledTo" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10,0,0,0">Application installed to:</TextBlock>
             <TextBlock x:Name="FilePathText" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10,30,0,0">C:/User/Program Files/NiiloPoutanen/App</TextBlock>
 
-            <Border x:Name="QuitButton" Background="#BB86fc" Width="90" Height="50" CornerRadius="20" Margin="363,0,47,20" MouseLeftButtonDown="QuitApp" Cursor="Hand">
+            <Border x:Name="QuitButton" Background="#BB86fc" Width="90" Height="50" CornerRadius="20" Margin="368,35,42,55" MouseLeftButtonDown="QuitApp" Cursor="Hand">
                 <TextBlock x:Name="QuitText" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20">Quit</TextBlock>
             </Border>
         </Grid>
