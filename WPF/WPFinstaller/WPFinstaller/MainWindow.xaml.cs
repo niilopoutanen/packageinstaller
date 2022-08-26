@@ -84,10 +84,40 @@ namespace WPFinstaller
             btnOut.FillBehavior = FillBehavior.HoldEnd;
             btnOut.Duration = new Duration(TimeSpan.FromSeconds(0.5));
 
+            DoubleAnimation TextDecr = new DoubleAnimation();
+            TextDecr.Duration = new Duration(TimeSpan.FromSeconds(0.2));
+            TextDecr.FillBehavior = FillBehavior.HoldEnd;
+            TextDecr.From = 24;
+            TextDecr.To = 0;
+
+
+            ThicknessAnimationUsingKeyFrames OkSlide = new ThicknessAnimationUsingKeyFrames();
+            OkSlide.Duration = new Duration(TimeSpan.FromSeconds(0.4));
+            OkSlide.FillBehavior = FillBehavior.HoldEnd;
+            OkSlide.KeyFrames.Add(
+                new SplineThicknessKeyFrame(
+                    new Thickness(0,0,190,20),
+                    KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0))));
+            OkSlide.KeyFrames.Add(
+                new SplineThicknessKeyFrame(
+                    new Thickness(0, 0, 80, 20),
+                    KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.4)),
+                    new KeySpline(0.2, 0.5, 0, 1)
+                    ));
+
 
             storyboard = new Storyboard();
             storyboard.Children.Add(btnOut);
+            storyboard.Children.Add(OkSlide);
+            storyboard.Children.Add(TextDecr);
+
+
             Storyboard.SetTargetName(btnOut, UninstallBTNText.Name);
+            Storyboard.SetTargetName(OkSlide, OKButton.Name);
+            Storyboard.SetTargetName(TextDecr, NewVerText.Name);
+
+            Storyboard.SetTargetProperty(TextDecr, new PropertyPath(TextBlock.FontSizeProperty));
+            Storyboard.SetTargetProperty(OkSlide, new PropertyPath(Border.MarginProperty));
             Storyboard.SetTargetProperty(btnOut, new PropertyPath(TextBlock.OpacityProperty));
             storyboard.Begin(this);
             await Task.Delay(500);
@@ -168,35 +198,30 @@ namespace WPFinstaller
             fade4.FillBehavior = FillBehavior.HoldEnd;
             storyboard = new Storyboard();
             storyboard.Children.Add(fade1);
-            storyboard.Children.Add(fade2);
             storyboard.Children.Add(fade3);
             storyboard.Children.Add(fade4);
 
             if(success == true)
             {
                 Storyboard.SetTargetName(fade1, InstallationDone.Name);
-                Storyboard.SetTargetName(fade2, ApplicationInstalledTo.Name);
-                Storyboard.SetTargetName(fade3, FilePathText.Name);
+                Storyboard.SetTargetName(fade3, ApplicationInstalledTo.Name);
                 Storyboard.SetTargetName(fade4, QuitText.Name);
 
 
                 Storyboard.SetTargetProperty(fade4, new PropertyPath(TextBlock.OpacityProperty));
                 Storyboard.SetTargetProperty(fade3, new PropertyPath(TextBlock.OpacityProperty));
-                Storyboard.SetTargetProperty(fade2, new PropertyPath(TextBlock.OpacityProperty));
                 Storyboard.SetTargetProperty(fade1, new PropertyPath(TextBlock.OpacityProperty));
                 storyboard.Begin(this);
             }
             else if (success == false)
             {
                 Storyboard.SetTargetName(fade1, NewVerText.Name);
-                Storyboard.SetTargetName(fade2, AlrInstText.Name);
                 Storyboard.SetTargetName(fade3, OKButton.Name);
                 Storyboard.SetTargetName(fade4, UninstallBTNText.Name);
 
 
                 Storyboard.SetTargetProperty(fade4, new PropertyPath(TextBlock.OpacityProperty));
                 Storyboard.SetTargetProperty(fade3, new PropertyPath(Border.OpacityProperty));
-                Storyboard.SetTargetProperty(fade2, new PropertyPath(TextBlock.OpacityProperty));
                 Storyboard.SetTargetProperty(fade1, new PropertyPath(TextBlock.OpacityProperty));
                 storyboard.Begin(this);
             }
