@@ -28,6 +28,7 @@ namespace WPFinstaller
             UninstallDonePanel.Visibility = Visibility.Hidden;
             UninstallDonePanel.Margin = new Thickness(0, 0, 10, 0);
             Version.Text = "Version: " + filemanager.GetVersion(true).ToString();
+            ApplicationInstalledTo.Text = "Application installed to: \n"+ filemanager.GetInstallPath();
         }
         public void OnComplete()
         {

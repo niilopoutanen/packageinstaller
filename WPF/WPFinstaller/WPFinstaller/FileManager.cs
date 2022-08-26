@@ -34,6 +34,11 @@ namespace WPFinstaller
         /// <summary>
         /// Adds the given ZIP file to temp folder for later moving.
         /// </summary>
+        
+        public string GetInstallPath()
+        {
+            return ProgramFiles;
+        }
         public bool UnZipResource()
         {
 
