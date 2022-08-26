@@ -84,11 +84,17 @@ namespace WPFinstaller
             btnOut.FillBehavior = FillBehavior.HoldEnd;
             btnOut.Duration = new Duration(TimeSpan.FromSeconds(0.5));
 
-            DoubleAnimation TextDecr = new DoubleAnimation();
-            TextDecr.Duration = new Duration(TimeSpan.FromSeconds(0.2));
-            TextDecr.FillBehavior = FillBehavior.HoldEnd;
-            TextDecr.From = 24;
-            TextDecr.To = 0;
+            DoubleAnimation btnScale = new DoubleAnimation();
+            btnScale.From = 130;
+            btnScale.To = 90;
+            btnScale.FillBehavior = FillBehavior.HoldEnd;
+            btnScale.Duration = new Duration(TimeSpan.FromSeconds(0.5));
+
+            DoubleAnimation Textfade = new DoubleAnimation();
+            Textfade.Duration = new Duration(TimeSpan.FromSeconds(0.2));
+            Textfade.FillBehavior = FillBehavior.HoldEnd;
+            Textfade.From = 1;
+            Textfade.To = 0;
 
 
             ThicknessAnimationUsingKeyFrames OkSlide = new ThicknessAnimationUsingKeyFrames();
@@ -100,7 +106,7 @@ namespace WPFinstaller
                     KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0))));
             OkSlide.KeyFrames.Add(
                 new SplineThicknessKeyFrame(
-                    new Thickness(0, 0, 80, 20),
+                    new Thickness(0, 0, 42, 20),
                     KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.4)),
                     new KeySpline(0.2, 0.5, 0, 1)
                     ));
@@ -109,16 +115,20 @@ namespace WPFinstaller
             storyboard = new Storyboard();
             storyboard.Children.Add(btnOut);
             storyboard.Children.Add(OkSlide);
-            storyboard.Children.Add(TextDecr);
-
+            storyboard.Children.Add(Textfade);
+            storyboard.Children.Add(btnScale);
 
             Storyboard.SetTargetName(btnOut, UninstallBTNText.Name);
             Storyboard.SetTargetName(OkSlide, OKButton.Name);
-            Storyboard.SetTargetName(TextDecr, NewVerText.Name);
+            Storyboard.SetTargetName(Textfade, NewVerText.Name);
+            Storyboard.SetTargetName(btnScale, UninstallBTN.Name);
 
-            Storyboard.SetTargetProperty(TextDecr, new PropertyPath(TextBlock.FontSizeProperty));
+
+            Storyboard.SetTargetProperty(Textfade, new PropertyPath(TextBlock.OpacityProperty));
             Storyboard.SetTargetProperty(OkSlide, new PropertyPath(Border.MarginProperty));
             Storyboard.SetTargetProperty(btnOut, new PropertyPath(TextBlock.OpacityProperty));
+            Storyboard.SetTargetProperty(btnScale, new PropertyPath(Border.WidthProperty));
+
             storyboard.Begin(this);
             await Task.Delay(500);
             UninstallPanel();
