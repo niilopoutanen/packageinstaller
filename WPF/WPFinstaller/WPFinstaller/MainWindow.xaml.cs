@@ -53,17 +53,17 @@ namespace WPFinstaller
         public async void InstallButton()
         {
             await ShowPanel();
-            //bool isdone = filemanager.UnZipResource();
-            //if(isdone == true)
-            //{
-            //    InstallPanel.Visibility = Visibility.Hidden;
-            //    InstallDonePanel.Visibility = Visibility.Visible;
-            //}
-            //else if (isdone == false)
-            //{
-            //    InstallPanel.Visibility = Visibility.Hidden;
-            //    SameVersionPanel.Visibility = Visibility.Visible;
-            //}
+            bool isdone = filemanager.UnZipResource();
+            if (isdone == true)
+            {
+                InstallPanel.Visibility = Visibility.Hidden;
+                InstallDonePanel.Visibility = Visibility.Visible;
+            }
+            else if (isdone == false)
+            {
+                InstallPanel.Visibility = Visibility.Hidden;
+                SameVersionPanel.Visibility = Visibility.Visible;
+            }
 
         }
         public void UninstallApp(object sender, MouseEventArgs e)
