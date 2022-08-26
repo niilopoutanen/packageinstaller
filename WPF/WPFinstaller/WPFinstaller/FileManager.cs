@@ -17,7 +17,7 @@ namespace WPFinstaller
         //Path to temp file with the zip for moving
         string tempfile = Path.GetTempPath() + "\\temp.zip";
         //Version of the program being installed
-        float version = 0.4f;
+        float version = 0.3f;
         //Name of the program being installed
         static string ProductName = "Testi";
         //Path to Program files folder with product name
@@ -38,6 +38,10 @@ namespace WPFinstaller
         public string GetInstallPath()
         {
             return ProgramFiles;
+        }
+        public string GetProductName()
+        {
+            return ProductName;
         }
         public bool UnZipResource()
         {

@@ -29,6 +29,7 @@ namespace WPFinstaller
             UninstallDonePanel.Margin = new Thickness(0, 0, 10, 0);
             Version.Text = "Version: " + filemanager.GetVersion(true).ToString();
             ApplicationInstalledTo.Text = "Application installed to: \n"+ filemanager.GetInstallPath();
+            ProductName.Text = filemanager.GetProductName();
         }
         public void OnComplete()
         {

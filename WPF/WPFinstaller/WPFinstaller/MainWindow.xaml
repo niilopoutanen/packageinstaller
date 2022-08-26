@@ -45,6 +45,14 @@
                 <TextBlock x:Name="UninstallOkText" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">OK</TextBlock>
             </Border>
         </Grid>
+        <Grid x:Name="OlderVersionPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="-4400,0,0,10" Background="#121212">
+            <Border Width="90" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,0,20,0" Cursor="Hand">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold">No</TextBlock>
+            </Border>
+            <Border Width="90" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,0,140,0" Cursor="Hand">
+                <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold">Yes</TextBlock>
+            </Border>
+        </Grid>
         <Border x:Name="BGborder" Height="165" VerticalAlignment="Top" CornerRadius="30,30,0,0" Panel.ZIndex="-1">
 
             <Border.Background>
