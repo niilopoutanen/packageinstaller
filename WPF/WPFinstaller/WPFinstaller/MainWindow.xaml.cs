@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Runtime.CompilerServices;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -36,11 +37,24 @@ namespace WPFinstaller
             InstallDonePanel.Visibility = Visibility.Visible;
 
         }
-        public async Task ShutdownAnim()
+
+        public async Task WindowAnim(bool isClose)
         {
+            int start = 0;
+            int end = 0;
+            if (isClose == true)
+            {
+                start = 1;
+                end = 0;
+            }
+            else if (isClose == false)
+            {
+                start = 0;
+                end = 1;
+            }
             DoubleAnimation opacity = new DoubleAnimation();
-            opacity.From = 1;
-            opacity.To = 0;
+            opacity.From = start;
+            opacity.To = end;
             opacity.FillBehavior = FillBehavior.HoldEnd;
             opacity.Duration = new Duration(TimeSpan.FromSeconds(0.5));
             storyboard = new Storyboard();
@@ -49,7 +63,11 @@ namespace WPFinstaller
             Storyboard.SetTargetProperty(opacity, new PropertyPath(Grid.OpacityProperty));
             storyboard.Begin(this);
             await Task.Delay(600);
-            Application.Current.Shutdown();
+            if(isClose == true)
+            {
+                Application.Current.Shutdown();
+
+            }
         }
 
         public void UninstallPanel()
@@ -58,13 +76,13 @@ namespace WPFinstaller
             btnIn.From = 0;
             btnIn.To = 1;
             btnIn.FillBehavior = FillBehavior.HoldEnd;
-            btnIn.Duration = new Duration(TimeSpan.FromSeconds(0.5));
+            btnIn.Duration = new Duration(TimeSpan.FromSeconds(1));
 
             DoubleAnimation TextIn = new DoubleAnimation();
             TextIn.From = 0;
             TextIn.To = 1;
             TextIn.FillBehavior = FillBehavior.HoldEnd;
-            TextIn.Duration = new Duration(TimeSpan.FromSeconds(0.5));
+            TextIn.Duration = new Duration(TimeSpan.FromSeconds(1));
 
 
             storyboard = new Storyboard();
@@ -89,7 +107,7 @@ namespace WPFinstaller
 
             DoubleAnimationUsingKeyFrames btnScale = new DoubleAnimationUsingKeyFrames();
             btnScale.FillBehavior = FillBehavior.HoldEnd;
-            btnScale.Duration = new Duration(TimeSpan.FromSeconds(0.5));
+            btnScale.Duration = new Duration(TimeSpan.FromSeconds(0.8));
             btnScale.KeyFrames.Add(
                 new SplineDoubleKeyFrame(
                     130,
@@ -97,19 +115,19 @@ namespace WPFinstaller
             btnScale.KeyFrames.Add(
                 new SplineDoubleKeyFrame(
                     90,
-                    KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5)),
+                    KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.8)),
                     new KeySpline(0.2, 0.5, 0, 1)
                     ));
 
             DoubleAnimation Textfade = new DoubleAnimation();
-            Textfade.Duration = new Duration(TimeSpan.FromSeconds(0.2));
+            Textfade.Duration = new Duration(TimeSpan.FromSeconds(0.4));
             Textfade.FillBehavior = FillBehavior.HoldEnd;
             Textfade.From = 1;
             Textfade.To = 0;
 
 
             ThicknessAnimationUsingKeyFrames OkSlide = new ThicknessAnimationUsingKeyFrames();
-            OkSlide.Duration = new Duration(TimeSpan.FromSeconds(0.4));
+            OkSlide.Duration = new Duration(TimeSpan.FromSeconds(0.8));
             OkSlide.FillBehavior = FillBehavior.HoldEnd;
             OkSlide.KeyFrames.Add(
                 new SplineThicknessKeyFrame(
@@ -118,7 +136,7 @@ namespace WPFinstaller
             OkSlide.KeyFrames.Add(
                 new SplineThicknessKeyFrame(
                     new Thickness(0, 0, 42, 20),
-                    KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.4)),
+                    KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.8)),
                     new KeySpline(0.2, 0.5, 0, 1)
                     ));
 
@@ -141,7 +159,7 @@ namespace WPFinstaller
             Storyboard.SetTargetProperty(btnScale, new PropertyPath(Border.WidthProperty));
 
             storyboard.Begin(this);
-            await Task.Delay(500);
+            await Task.Delay(800);
             UninstallPanel();
 
         }
@@ -188,6 +206,7 @@ namespace WPFinstaller
             Storyboard.SetTargetProperty(change, new PropertyPath(Border.WidthProperty));
             Storyboard.SetTargetProperty(fadeout, new PropertyPath(TextBlock.OpacityProperty));
 
+            InstallBTN.IsHitTestVisible = false;
             storyboard.Begin(this);
             await Task.Delay(800);
             ShowNextPanel(success);
@@ -274,7 +293,7 @@ namespace WPFinstaller
         }
         private async void QuitApp(object sender, MouseEventArgs e)
         {
-            await ShutdownAnim();
+            await WindowAnim(true);
         }
         private void Form_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -293,7 +312,7 @@ namespace WPFinstaller
         }
         private async void CloseWindow_Click(object sender, MouseEventArgs e)
         {
-            await ShutdownAnim();
+            await WindowAnim(true);
         }
         private void MinimizeWindow_Click(object sender, MouseEventArgs e)
         {
@@ -302,6 +321,16 @@ namespace WPFinstaller
         private void GithubButton_Click(object sender, MouseEventArgs e)
         {
             Process.Start(new ProcessStartInfo("https://github.com/niilopoutanen") { UseShellExecute = true });
+        }
+
+        private async void Window_Activated(object sender, EventArgs e)
+        {
+             await WindowAnim(false);
+        }
+
+        private void CloseIMG_MouseEnter(object sender, MouseEventArgs e)
+        {
+
         }
     }
 }

@@ -6,13 +6,13 @@
         xmlns:local="clr-namespace:WPFinstaller"
         xmlns:resx="clr-namespace:WPFinstaller.Properties"
         mc:Ignorable="d"
-        Title="MainWindow" Height="320" Width="530" WindowStyle="None" MouseDown="Form_MouseDown"
+        Title="MainWindow" Height="320" Width="530" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent"
         WindowStartupLocation="CenterScreen">
-
+    
     <Grid x:Name="TopGrid">
 
-        <Image x:Name="CloseIMG" Source="/Resources/CloseIcon.png" Style ="{StaticResource NavBarButton}" VerticalAlignment="Top" Panel.ZIndex="2" Margin="0,20,25,0" MouseLeftButtonDown="CloseWindow_Click" HorizontalAlignment="Right" Cursor="Hand"/>
+        <Image x:Name="CloseIMG" Source="/Resources/CloseIcon.png" Style ="{StaticResource NavBarButton}" VerticalAlignment="Top" Panel.ZIndex="2" Margin="0,20,25,0" MouseLeftButtonDown="CloseWindow_Click" HorizontalAlignment="Right" Cursor="Hand" MouseEnter="CloseIMG_MouseEnter"/>
         <Image x:Name="MinimizeIMG" Source ="/Resources/MinimizeIcon.png" Style ="{StaticResource NavBarButton}" HorizontalAlignment="Right" MouseLeftButtonDown="MinimizeWindow_Click" Margin="0,20,60,0" Cursor="Hand"/>
         <Image x:Name="LogoIMG" Source="/Resources/Logo.png" Style="{StaticResource NavBarButton}" HorizontalAlignment="Left" Margin="25,20,0,0" MouseLeftButtonDown="GithubButton_Click" Cursor="Hand" Panel.ZIndex="1"/>
         <Border BorderBrush="#121212" CornerRadius="30" Background="#121212" Panel.ZIndex="-1"></Border>
@@ -53,7 +53,7 @@
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold">Yes</TextBlock>
             </Border>
         </Grid>
-        <Border x:Name="BGborder" Height="165" VerticalAlignment="Top" CornerRadius="30,30,0,0" Panel.ZIndex="-1">
+        <Border x:Name="BGborder" Height="165" VerticalAlignment="Top" CornerRadius="30,30,0,0" Panel.ZIndex="-1"  MouseDown="Form_MouseDown">
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,-0.5" EndPoint="0, 1.5">
