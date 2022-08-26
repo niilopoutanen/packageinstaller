@@ -17,5 +17,22 @@
             <Setter Property="Foreground" Value="#FFFFFF"></Setter>
         </Style>
 
+
+
+        <!--<Style x:Key="InstallBTN" TargetType="Border">
+            <Setter Property="RenderTransformOrigin" Value="1,1"/>
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="Border.MouseDown">
+                    <BeginStoryboard>
+                        <Storyboard >
+                            <DoubleAnimation Storyboard.TargetProperty="Width"
+                        From="400" To="90" Duration="0:0:0.1"   
+                        AutoReverse="False"  
+                        FillBehavior="HoldEnd" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>-->
     </Application.Resources>
 </Application>

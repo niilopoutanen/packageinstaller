@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Runtime.CompilerServices;
+using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Animation;
 
@@ -12,7 +15,7 @@ namespace WPFinstaller
     /// </summary>
     public partial class MainWindow : Window
     {
-
+        private Storyboard storyboard;
         FileManager filemanager = new FileManager();
         public MainWindow()
         {
@@ -24,19 +27,43 @@ namespace WPFinstaller
             UninstallDonePanel.Visibility = Visibility.Hidden;
             UninstallDonePanel.Margin = new Thickness(0, 0, 10, 0);
         }
-        public void InstallButton()
+        public void OnComplete()
         {
-            bool isdone = filemanager.UnZipResource();
-            if(isdone == true)
-            {
-                InstallPanel.Visibility = Visibility.Hidden;
-                InstallDonePanel.Visibility = Visibility.Visible;
-            }
-            else if (isdone == false)
-            {
-                InstallPanel.Visibility = Visibility.Hidden;
-                SameVersionPanel.Visibility = Visibility.Visible;
-            }
+            InstallDonePanel.Visibility = Visibility.Visible;
+
+        }
+        public async Task ShowPanel()
+        {
+            DoubleAnimation change = new DoubleAnimation();
+            change.From = 400;
+            change.To = 90;
+            change.Duration = new Duration(TimeSpan.FromSeconds(0.4));
+            change.AutoReverse = false;
+            change.FillBehavior = FillBehavior.HoldEnd;
+
+            storyboard = new Storyboard();
+            storyboard.Children.Add(change);
+            Storyboard.SetTargetName(change, InstallBTN.Name);
+            Storyboard.SetTargetProperty(change, new PropertyPath(Border.WidthProperty));
+            storyboard.Begin(this);
+            await Task.Delay(400);
+            InstallDonePanel.Visibility = Visibility.Visible;
+
+        }
+        public async void InstallButton()
+        {
+            await ShowPanel();
+            //bool isdone = filemanager.UnZipResource();
+            //if(isdone == true)
+            //{
+            //    InstallPanel.Visibility = Visibility.Hidden;
+            //    InstallDonePanel.Visibility = Visibility.Visible;
+            //}
+            //else if (isdone == false)
+            //{
+            //    InstallPanel.Visibility = Visibility.Hidden;
+            //    SameVersionPanel.Visibility = Visibility.Visible;
+            //}
 
         }
         public void UninstallApp(object sender, MouseEventArgs e)
