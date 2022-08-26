@@ -27,6 +27,7 @@ namespace WPFinstaller
             SameVersionPanel.Margin = new Thickness(0, 0, 10, 0);
             UninstallDonePanel.Visibility = Visibility.Hidden;
             UninstallDonePanel.Margin = new Thickness(0, 0, 10, 0);
+            Version.Text = "Version: " + filemanager.GetVersion(true).ToString();
         }
         public void OnComplete()
         {
@@ -82,13 +83,21 @@ namespace WPFinstaller
             btnOut.From = 1;
             btnOut.To = 0;
             btnOut.FillBehavior = FillBehavior.HoldEnd;
-            btnOut.Duration = new Duration(TimeSpan.FromSeconds(0.5));
+            btnOut.Duration = new Duration(TimeSpan.FromSeconds(0.3));
 
-            DoubleAnimation btnScale = new DoubleAnimation();
-            btnScale.From = 130;
-            btnScale.To = 90;
+            DoubleAnimationUsingKeyFrames btnScale = new DoubleAnimationUsingKeyFrames();
             btnScale.FillBehavior = FillBehavior.HoldEnd;
             btnScale.Duration = new Duration(TimeSpan.FromSeconds(0.5));
+            btnScale.KeyFrames.Add(
+                new SplineDoubleKeyFrame(
+                    130,
+                    KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0))));
+            btnScale.KeyFrames.Add(
+                new SplineDoubleKeyFrame(
+                    90,
+                    KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.5)),
+                    new KeySpline(0.2, 0.5, 0, 1)
+                    ));
 
             DoubleAnimation Textfade = new DoubleAnimation();
             Textfade.Duration = new Duration(TimeSpan.FromSeconds(0.2));
