@@ -42,9 +42,9 @@
 
         </Grid>
         <Grid x:Name="UninstallDonePanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="-3300,0,0,10" Background="#121212">
-            <TextBlock FontSize="30" FontWeight="Bold" VerticalAlignment="Center" Margin="20,0,0,30">Uninstall done.</TextBlock>
+            <TextBlock x:Name="UninstallDoneText" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" Margin="20,0,0,30">Uninstall done.</TextBlock>
             <Border Background="#BB86fc" Width="90" Height="50" CornerRadius="20" Margin="363,0,47,20" MouseLeftButtonDown="QuitApp" Cursor="Hand">
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">OK</TextBlock>
+                <TextBlock x:Name="UninstallOkText" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">OK</TextBlock>
             </Border>
         </Grid>
         <Border x:Name="BGborder" Height="165" VerticalAlignment="Top" CornerRadius="30,30,0,0" Panel.ZIndex="-1">

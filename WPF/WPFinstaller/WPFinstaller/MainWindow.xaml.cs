@@ -48,6 +48,52 @@ namespace WPFinstaller
             await Task.Delay(600);
             Application.Current.Shutdown();
         }
+
+        public void UninstallPanel()
+        {
+            DoubleAnimation btnIn = new DoubleAnimation();
+            btnIn.From = 0;
+            btnIn.To = 1;
+            btnIn.FillBehavior = FillBehavior.HoldEnd;
+            btnIn.Duration = new Duration(TimeSpan.FromSeconds(0.5));
+
+            DoubleAnimation TextIn = new DoubleAnimation();
+            TextIn.From = 0;
+            TextIn.To = 1;
+            TextIn.FillBehavior = FillBehavior.HoldEnd;
+            TextIn.Duration = new Duration(TimeSpan.FromSeconds(0.5));
+
+
+            storyboard = new Storyboard();
+            storyboard.Children.Add(btnIn);
+            storyboard.Children.Add(TextIn);
+            Storyboard.SetTargetName(TextIn, UninstallDoneText.Name);
+            Storyboard.SetTargetName(btnIn, UninstallOkText.Name);
+            Storyboard.SetTargetProperty(btnIn, new PropertyPath(TextBlock.OpacityProperty));
+            Storyboard.SetTargetProperty(TextIn, new PropertyPath(TextBlock.OpacityProperty));
+            UninstallDonePanel.Visibility = Visibility.Visible;
+
+            storyboard.Begin(this);
+
+        }
+        public async Task UninstallAnim()
+        {
+            DoubleAnimation btnOut = new DoubleAnimation();
+            btnOut.From = 1;
+            btnOut.To = 0;
+            btnOut.FillBehavior = FillBehavior.HoldEnd;
+            btnOut.Duration = new Duration(TimeSpan.FromSeconds(0.5));
+
+
+            storyboard = new Storyboard();
+            storyboard.Children.Add(btnOut);
+            Storyboard.SetTargetName(btnOut, UninstallBTNText.Name);
+            Storyboard.SetTargetProperty(btnOut, new PropertyPath(TextBlock.OpacityProperty));
+            storyboard.Begin(this);
+            await Task.Delay(500);
+            UninstallPanel();
+
+        }
         public async Task InstallAnim(bool success)
         {
             int MinSize = 90;
@@ -174,8 +220,9 @@ namespace WPFinstaller
                 SameVersionPanel.Visibility = Visibility.Visible;
             }
         }
-        public void UninstallApp(object sender, MouseEventArgs e)
+        public async void UninstallApp(object sender, MouseEventArgs e)
         {
+            await UninstallAnim();
             filemanager.UninstallApp();
             UninstallDonePanel.Visibility = Visibility.Visible;
         }
