@@ -33,8 +33,32 @@ namespace WPFinstaller
             InstallDonePanel.Visibility = Visibility.Visible;
 
         }
-        public async Task InstallAnim()
+        public async Task ShutdownAnim()
         {
+            DoubleAnimation opacity = new DoubleAnimation();
+            opacity.From = 1;
+            opacity.To = 0;
+            opacity.FillBehavior = FillBehavior.HoldEnd;
+            opacity.Duration = new Duration(TimeSpan.FromSeconds(0.5));
+            storyboard = new Storyboard();
+            storyboard.Children.Add(opacity);
+            Storyboard.SetTargetName(opacity, TopGrid.Name);
+            Storyboard.SetTargetProperty(opacity, new PropertyPath(Grid.OpacityProperty));
+            storyboard.Begin(this);
+            await Task.Delay(600);
+            Application.Current.Shutdown();
+        }
+        public async Task InstallAnim(bool success)
+        {
+            int MinSize = 90;
+            if (success == true)
+            {
+                MinSize = 90;
+            }
+            else if (success == false)
+            {
+                MinSize = 130;
+            }
             DoubleAnimationUsingKeyFrames change = new DoubleAnimationUsingKeyFrames();
             change.Duration = new Duration(TimeSpan.FromSeconds(1));
             change.AutoReverse = false;
@@ -45,7 +69,7 @@ namespace WPFinstaller
                     KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0))));
             change.KeyFrames.Add(
                 new SplineDoubleKeyFrame(
-                    90,
+                    MinSize,
                     KeyTime.FromTimeSpan(TimeSpan.FromSeconds(0.8)),
                     new KeySpline(0.2, 0.5, 0, 1)
                     ));
@@ -69,9 +93,9 @@ namespace WPFinstaller
 
             storyboard.Begin(this);
             await Task.Delay(800);
-            await ShowInstallDone();
+            ShowNextPanel(success);
         }
-        public async Task ShowInstallDone()
+        public void ShowNextPanel(bool success)
         {
             DoubleAnimation fade1 = new DoubleAnimation();
             fade1.From = 0;
@@ -102,46 +126,62 @@ namespace WPFinstaller
             storyboard.Children.Add(fade3);
             storyboard.Children.Add(fade4);
 
+            if(success == true)
+            {
+                Storyboard.SetTargetName(fade1, InstallationDone.Name);
+                Storyboard.SetTargetName(fade2, ApplicationInstalledTo.Name);
+                Storyboard.SetTargetName(fade3, FilePathText.Name);
+                Storyboard.SetTargetName(fade4, QuitText.Name);
 
-            Storyboard.SetTargetName(fade1, InstallationDone.Name);
-            Storyboard.SetTargetName(fade2, ApplicationInstalledTo.Name);
-            Storyboard.SetTargetName(fade3, FilePathText.Name);
-            Storyboard.SetTargetName(fade4, QuitText.Name);
+
+                Storyboard.SetTargetProperty(fade4, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(fade3, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(fade2, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(fade1, new PropertyPath(TextBlock.OpacityProperty));
+                storyboard.Begin(this);
+            }
+            else if (success == false)
+            {
+                Storyboard.SetTargetName(fade1, NewVerText.Name);
+                Storyboard.SetTargetName(fade2, AlrInstText.Name);
+                Storyboard.SetTargetName(fade3, OKButton.Name);
+                Storyboard.SetTargetName(fade4, UninstallBTNText.Name);
 
 
-            Storyboard.SetTargetProperty(fade4, new PropertyPath(TextBlock.OpacityProperty));
-            Storyboard.SetTargetProperty(fade3, new PropertyPath(TextBlock.OpacityProperty));
-            Storyboard.SetTargetProperty(fade2, new PropertyPath(TextBlock.OpacityProperty));
-            Storyboard.SetTargetProperty(fade1, new PropertyPath(TextBlock.OpacityProperty));
-            storyboard.Begin(this);
-            await Task.Delay(1);
+                Storyboard.SetTargetProperty(fade4, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(fade3, new PropertyPath(Border.OpacityProperty));
+                Storyboard.SetTargetProperty(fade2, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(fade1, new PropertyPath(TextBlock.OpacityProperty));
+                storyboard.Begin(this);
+            }
+
 
         }
         public async void InstallButton()
         {
-            await InstallAnim();
-            InstallDonePanel.Visibility = Visibility.Visible;
-            //bool isdone = filemanager.UnZipResource();
-            //if (isdone == true)
-            //{
-            //    InstallPanel.Visibility = Visibility.Hidden;
-            //    InstallDonePanel.Visibility = Visibility.Visible;
-            //}
-            //else if (isdone == false)
-            //{
-            //    InstallPanel.Visibility = Visibility.Hidden;
-            //    SameVersionPanel.Visibility = Visibility.Visible;
-            //}
+            bool didsucceed = filemanager.UnZipResource();
+            await InstallAnim(didsucceed);
+            if (didsucceed == true)
+            {
+                InstallPanel.Visibility = Visibility.Hidden;
 
+                InstallDonePanel.Visibility = Visibility.Visible;
+
+            }
+            else if (didsucceed == false)
+            {
+                InstallPanel.Visibility = Visibility.Hidden;
+                SameVersionPanel.Visibility = Visibility.Visible;
+            }
         }
         public void UninstallApp(object sender, MouseEventArgs e)
         {
             filemanager.UninstallApp();
             UninstallDonePanel.Visibility = Visibility.Visible;
         }
-        private void QuitApp(object sender, MouseEventArgs e)
+        private async void QuitApp(object sender, MouseEventArgs e)
         {
-            Application.Current.Shutdown();
+            await ShutdownAnim();
         }
         private void Form_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -158,9 +198,9 @@ namespace WPFinstaller
         {
             InstallButton();
         }
-        private void CloseWindow_Click(object sender, MouseEventArgs e)
+        private async void CloseWindow_Click(object sender, MouseEventArgs e)
         {
-            Application.Current.Shutdown();
+            await ShutdownAnim();
         }
         private void MinimizeWindow_Click(object sender, MouseEventArgs e)
         {

@@ -10,7 +10,7 @@
         AllowsTransparency="True" Background="Transparent"
         WindowStartupLocation="CenterScreen">
 
-    <Grid>
+    <Grid x:Name="TopGrid">
 
         <Image x:Name="CloseIMG" Source="/Resources/CloseIcon.png" Style ="{StaticResource NavBarButton}" VerticalAlignment="Top" Panel.ZIndex="2" Margin="0,20,25,0" MouseDown="CloseWindow_Click" HorizontalAlignment="Right" Cursor="Hand"/>
         <Image x:Name="MinimizeIMG" Source ="/Resources/MinimizeIcon.png" Style ="{StaticResource NavBarButton}" HorizontalAlignment="Right" MouseDown="MinimizeWindow_Click" Margin="0,20,60,0" Cursor="Hand"/>
@@ -22,22 +22,22 @@
             </Border>
         </Grid>
         <Grid x:Name="InstallDonePanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="-1100,0,0,10" Visibility="Visible" Background="#121212">
-            <TextBlock x:Name="InstallationDone" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,0,50">Installation done.</TextBlock>
-            <TextBlock x:Name="ApplicationInstalledTo" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10,0,0,0">Application installed to:</TextBlock>
-            <TextBlock x:Name="FilePathText" VerticalAlignment="Center" FontWeight="SemiBold" Margin="10,30,0,0">C:/User/Program Files/NiiloPoutanen/App</TextBlock>
+            <TextBlock x:Name="InstallationDone" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" Margin="20,0,0,50">Installation done.</TextBlock>
+            <TextBlock x:Name="ApplicationInstalledTo" VerticalAlignment="Center" FontWeight="SemiBold" Margin="20,0,0,0">Application installed to:</TextBlock>
+            <TextBlock x:Name="FilePathText" VerticalAlignment="Center" FontWeight="SemiBold" Margin="20,30,0,0">C:/User/Program Files/NiiloPoutanen/App</TextBlock>
 
             <Border x:Name="QuitButton" Background="#BB86fc" Width="90" Height="50" CornerRadius="20" Margin="368,35,42,55" MouseLeftButtonDown="QuitApp" Cursor="Hand">
                 <TextBlock x:Name="QuitText" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20">Quit</TextBlock>
             </Border>
         </Grid>
         <Grid x:Name="SameVersionPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="-2200,0,0,10" Background="#121212" Visibility="Visible">
-            <TextBlock VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10,0,0,60">Newest version</TextBlock>
-            <TextBlock VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10,0,0,0">already installed.</TextBlock>
-            <Border Width="90" Height="50" Background="#BB86FC" CornerRadius="20" HorizontalAlignment="Right" Margin="0,0,190,20" Cursor="Hand" MouseDown="QuitApp">
+            <TextBlock x:Name="NewVerText" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10,0,0,60">Newest version</TextBlock>
+            <TextBlock x:Name="AlrInstText" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10,0,0,0">already installed.</TextBlock>
+            <Border x:Name="OKButton" Width="90" Height="50" Background="#BB86FC" CornerRadius="20" HorizontalAlignment="Right" Margin="0,0,190,20" Cursor="Hand" MouseDown="QuitApp">
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">OK</TextBlock>
             </Border>
-            <Border Width="130" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,0,47,20" Cursor="Hand" MouseDown="UninstallApp">
-                <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">Uninstall</TextBlock>
+            <Border Width="130" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,35,42,55" Cursor="Hand" MouseDown="UninstallApp">
+                <TextBlock x:Name="UninstallBTNText" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">Uninstall</TextBlock>
             </Border>
 
         </Grid>
