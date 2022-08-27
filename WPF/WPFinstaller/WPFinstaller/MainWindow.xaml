@@ -17,7 +17,7 @@
         <Image x:Name="LogoIMG" Source="/Resources/Logo.png" Style="{StaticResource NavBarButton}" HorizontalAlignment="Left" Margin="25,20,0,0" MouseLeftButtonDown="GithubButton_Click" Cursor="Hand" Panel.ZIndex="1"/>
         <Border BorderBrush="#121212" CornerRadius="30" Background="#121212" Panel.ZIndex="-1"></Border>
         <Grid x:Name="InstallPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="0,0,0,10" Background="#121212">
-            <Border x:Name="InstallBTN" Style="{StaticResource ButtonHover}" BorderBrush="#bb86fc" Background="#bb86fc" Width="400" Height="50" CornerRadius="20" Cursor="Hand" Panel.ZIndex="1" MouseLeftButtonDown="InstallBorder_Click" Margin="0,0,47,0" HorizontalAlignment="Right">
+            <Border x:Name="InstallBTN" Style="{StaticResource ButtonHover}" Background="#bb86fc" Width="400" Height="50" CornerRadius="20" Cursor="Hand" Panel.ZIndex="1" MouseLeftButtonDown="InstallBorder_Click" Margin="0,0,47,0" HorizontalAlignment="Right">
                 <TextBlock x:Name="InstallText" Foreground="white" FontSize="25" FontWeight="Bold" Cursor="Hand" MouseLeftButtonDown="InstallBorder_Click" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Install"/></TextBlock>
             </Border>
         </Grid>
@@ -59,8 +59,8 @@
 
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,-0.5" EndPoint="0, 1.5">
-                    <GradientStop Offset="0.0" Color="#673A9F"/>
-                    <GradientStop Offset="1.0" Color="#BB86FC" />
+                    <GradientStop Offset="0.0" Color="#3700b3"/>
+                    <GradientStop Offset="1.0" Color="#BC92DC" />
                 </LinearGradientBrush>
             </Border.Background>
             <Grid x:Name="TopGradient">
