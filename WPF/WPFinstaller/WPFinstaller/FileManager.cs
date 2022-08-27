@@ -18,7 +18,7 @@ namespace WPFinstaller
         //Path to temp file with the zip for moving
         string tempfile = Path.GetTempPath() + "\\temp.zip";
         //Version of the program being installed
-        float version = 0.06f;
+        float version = 0.05f;
         //Name of the program being installed
         static string ProductName = "Testi";
         //Path to Program files folder with product name
@@ -45,32 +45,38 @@ namespace WPFinstaller
         {
             return ProductName;
         }
-        public int UnZipResource()
+        public int UnZipResource(bool forceinstall)
         {
-            //0 = same version exists = false
-            //1 = older version exists but installed is newer = true
-            //2 = older version is newer than installed = false
-            Stream stream = new MemoryStream(Properties.Resources.Package);
-            FileStream fileStream = new FileStream(tempfile, FileMode.Create);
-            for (int i = 0; i < stream.Length; i++)
-                fileStream.WriteByte((byte)stream.ReadByte());
-            fileStream.Close();
-
-            if (CompareVersion(version) == 1)
+            if(forceinstall == true)
             {
                 ExtractZip();
+            }
+            else if (forceinstall == false)
+            {
+                //0 = same version exists = false
+                //1 = older version exists but installed is newer = true
+                //2 = older version is newer than installed = false
+                Stream stream = new MemoryStream(Properties.Resources.Package);
+                FileStream fileStream = new FileStream(tempfile, FileMode.Create);
+                for (int i = 0; i < stream.Length; i++)
+                    fileStream.WriteByte((byte)stream.ReadByte());
+                fileStream.Close();
 
-            }
-            else if (CompareVersion(version) == 2)
-            {
-                return 2;
-            }
-            else if (CompareVersion(version) == 0)
-            {
-                return 0;
+                if (CompareVersion(version) == 1)
+                {
+                    ExtractZip();
+
+                }
+                else if (CompareVersion(version) == 2)
+                {
+                    return 2;
+                }
+                else if (CompareVersion(version) == 0)
+                {
+                    return 0;
+                }
             }
             return 1;
-
         }
         public float GetVersion(bool IsLocal)
         {

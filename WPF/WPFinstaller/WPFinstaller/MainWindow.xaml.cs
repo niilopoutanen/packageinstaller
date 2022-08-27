@@ -278,35 +278,43 @@ namespace WPFinstaller
 
 
         }
-        public async void InstallButton()
+        public async void InstallButton(bool forceinstall)
         {
-            //0 = same version exists = false
-            //1 = older version exists but installed is newer = true
-            //2 = older version is newer than installed = false
-            int didsucceed = filemanager.UnZipResource();
-            await InstallAnim(didsucceed);
-            if (didsucceed == 1)
+            if(forceinstall == false)
             {
-                InstallPanel.Visibility = Visibility.Hidden;
+                //0 = same version exists = false
+                //1 = older version exists but installed is newer = true
+                //2 = older version is newer than installed = false
+                int didsucceed = filemanager.UnZipResource(false);
+                await InstallAnim(didsucceed);
+                if (didsucceed == 1)
+                {
+                    InstallPanel.Visibility = Visibility.Hidden;
 
-                InstallDonePanel.Visibility = Visibility.Visible;
+                    InstallDonePanel.Visibility = Visibility.Visible;
 
+                }
+                else if (didsucceed == 0)
+                {
+                    InstallPanel.Visibility = Visibility.Hidden;
+                    SameVersionPanel.Visibility = Visibility.Visible;
+                }
+                else if (didsucceed == 2)
+                {
+                    float installedversion = filemanager.GetVersion(false);
+                    float newversion = filemanager.GetVersion(true);
+                    NewerVersionInstalledText.Text = "Version " + installedversion + " installed.";
+                    DowngradeToText.Text = "Do you want to downgrade to \nversion " + newversion + " ?";
+                    InstallPanel.Visibility = Visibility.Hidden;
+                    OlderVersionPanel.Visibility = Visibility.Visible;
+
+                }
             }
-            else if (didsucceed == 0)
+            else if (forceinstall == true)
             {
-                InstallPanel.Visibility = Visibility.Hidden;
-                SameVersionPanel.Visibility = Visibility.Visible;
+                filemanager.UnZipResource(true);
             }
-            else if (didsucceed == 2)
-            {
-                float installedversion = filemanager.GetVersion(false);
-                float newversion = filemanager.GetVersion(true);
-                NewerVersionInstalledText.Text = "Version " + installedversion + " installed.";
-                DowngradeToText.Text = "Do you want to downgrade to \nversion " + newversion + " ?" ;
-                InstallPanel.Visibility = Visibility.Hidden;
-                OlderVersionPanel.Visibility = Visibility.Visible;
 
-            }
         }
         public async void UninstallApp(object sender, MouseEventArgs e)
         {
@@ -327,11 +335,15 @@ namespace WPFinstaller
         }
         public void InstallButton_Click(object sender, RoutedEventArgs e)
         {
-            InstallButton();
+            InstallButton(false);
         }
         public void InstallBorder_Click(object sender, MouseEventArgs e)
         {
-            InstallButton();
+            InstallButton(false);
+        }
+        public void DownGradeButton_Click(object sender, MouseEventArgs e)
+        {
+            InstallButton(true);
         }
         private async void CloseWindow_Click(object sender, MouseEventArgs e)
         {

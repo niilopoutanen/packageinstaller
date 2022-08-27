@@ -9,7 +9,7 @@
         Title="MainWindow" Height="320" Width="530" WindowStyle="None"
         AllowsTransparency="True" Background="Transparent"
         WindowStartupLocation="CenterScreen">
-    
+
     <Grid x:Name="TopGrid">
 
         <Image x:Name="CloseIMG" Source="/Resources/CloseIcon.png" Style ="{StaticResource NavBarButton}" VerticalAlignment="Top" Panel.ZIndex="2" Margin="0,20,25,0" MouseLeftButtonDown="CloseWindow_Click" HorizontalAlignment="Right" Cursor="Hand" MouseEnter="CloseIMG_MouseEnter"/>
@@ -30,7 +30,7 @@
             </Border>
         </Grid>
         <Grid x:Name="SameVersionPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="-2200,0,0,10" Background="#121212" Visibility="Visible">
-            <TextBlock x:Name="NewVerText" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,0,300,30" HorizontalAlignment="Left">Newest version<LineBreak/>already installed.</TextBlock>
+            <TextBlock x:Name="NewVerText" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="20,21,0,0" HorizontalAlignment="Left">Newest version<LineBreak/>already installed.</TextBlock>
             <Border x:Name="OKButton" Style="{StaticResource ButtonHover}" Width="90" Height="50" Background="#BB86FC" CornerRadius="20" HorizontalAlignment="Right" Margin="0,0,190,20" Cursor="Hand" MouseLeftButtonDown="QuitApp" Panel.ZIndex="1">
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">OK</TextBlock>
             </Border>
@@ -51,7 +51,7 @@
             <Border Width="90" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,35,42,55" Cursor="Hand" MouseLeftButtonDown="QuitApp">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold">No</TextBlock>
             </Border>
-            <Border Width="90" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,35,140,55" Cursor="Hand">
+            <Border x:Name="DownGradeButton" Width="90" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,35,140,55" Cursor="Hand" MouseLeftButtonDown="DownGradeButton_Click">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold">Yes</TextBlock>
             </Border>
         </Grid>
