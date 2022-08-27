@@ -30,7 +30,7 @@
             </Border>
         </Grid>
         <Grid x:Name="SameVersionPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="-2200,0,0,10" Background="#121212" Visibility="Visible">
-            <TextBlock x:Name="NewVerText" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="10,0,300,30" HorizontalAlignment="Center">Newest version<LineBreak/>already installed.</TextBlock>
+            <TextBlock x:Name="NewVerText" VerticalAlignment="Center" FontSize="24" FontWeight="Bold" Margin="20,0,300,30" HorizontalAlignment="Left">Newest version<LineBreak/>already installed.</TextBlock>
             <Border x:Name="OKButton" Style="{StaticResource ButtonHover}" Width="90" Height="50" Background="#BB86FC" CornerRadius="20" HorizontalAlignment="Right" Margin="0,0,190,20" Cursor="Hand" MouseLeftButtonDown="QuitApp" Panel.ZIndex="1">
                 <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">OK</TextBlock>
             </Border>
@@ -46,10 +46,12 @@
             </Border>
         </Grid>
         <Grid x:Name="OlderVersionPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="-4400,0,0,10" Background="#121212">
-            <Border Width="90" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,0,20,0" Cursor="Hand">
+            <TextBlock x:Name="NewerVersionInstalledText" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" Margin="20,0,0,60">Version 0.0 installed.</TextBlock>
+            <TextBlock x:Name="DowngradeToText" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="20,10,0,0">Do you want to downgrade to <LineBreak/> version 0.0?</TextBlock>
+            <Border Width="90" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,35,42,55" Cursor="Hand" MouseLeftButtonDown="QuitApp">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold">No</TextBlock>
             </Border>
-            <Border Width="90" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,0,140,0" Cursor="Hand">
+            <Border Width="90" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,35,140,55" Cursor="Hand">
                 <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold">Yes</TextBlock>
             </Border>
         </Grid>

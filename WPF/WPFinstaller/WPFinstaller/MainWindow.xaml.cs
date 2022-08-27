@@ -28,6 +28,8 @@ namespace WPFinstaller
             SameVersionPanel.Margin = new Thickness(0, 0, 10, 0);
             UninstallDonePanel.Visibility = Visibility.Hidden;
             UninstallDonePanel.Margin = new Thickness(0, 0, 10, 0);
+            OlderVersionPanel.Visibility = Visibility.Hidden;
+            OlderVersionPanel.Margin = new Thickness(0,0,10,0);
             Version.Text = "Version: " + filemanager.GetVersion(true).ToString();
             ApplicationInstalledTo.Text = "Application installed to: \n"+ filemanager.GetInstallPath();
             ProductName.Text = filemanager.GetProductName();
@@ -37,7 +39,6 @@ namespace WPFinstaller
             InstallDonePanel.Visibility = Visibility.Visible;
 
         }
-
         public async Task WindowAnim(bool isClose)
         {
             int start = 0;
@@ -163,14 +164,23 @@ namespace WPFinstaller
             UninstallPanel();
 
         }
-        public async Task InstallAnim(bool success)
+        public async Task InstallAnim(int success)
         {
+            bool successbool = false;
+            if(success == 1)
+            {
+                successbool = true;
+            }
+            else if (success == 0 || success == 2)
+            {
+                successbool = false;
+            }
             int MinSize = 90;
-            if (success == true)
+            if (successbool == true)
             {
                 MinSize = 90;
             }
-            else if (success == false)
+            else if (successbool == false)
             {
                 MinSize = 130;
             }
@@ -209,7 +219,7 @@ namespace WPFinstaller
             InstallBTN.IsHitTestVisible = false;
             storyboard.Begin(this);
             await Task.Delay(800);
-            ShowNextPanel(success);
+            ShowNextPanel(successbool);
         }
         public void ShowNextPanel(bool success)
         {
@@ -270,19 +280,32 @@ namespace WPFinstaller
         }
         public async void InstallButton()
         {
-            bool didsucceed = filemanager.UnZipResource();
+            //0 = same version exists = false
+            //1 = older version exists but installed is newer = true
+            //2 = older version is newer than installed = false
+            int didsucceed = filemanager.UnZipResource();
             await InstallAnim(didsucceed);
-            if (didsucceed == true)
+            if (didsucceed == 1)
             {
                 InstallPanel.Visibility = Visibility.Hidden;
 
                 InstallDonePanel.Visibility = Visibility.Visible;
 
             }
-            else if (didsucceed == false)
+            else if (didsucceed == 0)
             {
                 InstallPanel.Visibility = Visibility.Hidden;
                 SameVersionPanel.Visibility = Visibility.Visible;
+            }
+            else if (didsucceed == 2)
+            {
+                float installedversion = filemanager.GetVersion(false);
+                float newversion = filemanager.GetVersion(true);
+                NewerVersionInstalledText.Text = "Version " + installedversion + " installed.";
+                DowngradeToText.Text = "Do you want to downgrade to \nversion " + newversion + " ?" ;
+                InstallPanel.Visibility = Visibility.Hidden;
+                OlderVersionPanel.Visibility = Visibility.Visible;
+
             }
         }
         public async void UninstallApp(object sender, MouseEventArgs e)

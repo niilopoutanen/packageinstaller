@@ -12,12 +12,13 @@ namespace WPFinstaller
 {
     public class FileManager
     {
+
         //Path for desktop
         string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         //Path to temp file with the zip for moving
         string tempfile = Path.GetTempPath() + "\\temp.zip";
         //Version of the program being installed
-        float version = 0.3f;
+        float version = 0.06f;
         //Name of the program being installed
         static string ProductName = "Testi";
         //Path to Program files folder with product name
@@ -37,31 +38,38 @@ namespace WPFinstaller
         
         public string GetInstallPath()
         {
+
             return ProgramFiles;
         }
         public string GetProductName()
         {
             return ProductName;
         }
-        public bool UnZipResource()
+        public int UnZipResource()
         {
-
+            //0 = same version exists = false
+            //1 = older version exists but installed is newer = true
+            //2 = older version is newer than installed = false
             Stream stream = new MemoryStream(Properties.Resources.Package);
             FileStream fileStream = new FileStream(tempfile, FileMode.Create);
             for (int i = 0; i < stream.Length; i++)
                 fileStream.WriteByte((byte)stream.ReadByte());
             fileStream.Close();
 
-            if (CompareVersion(version) == true)
+            if (CompareVersion(version) == 1)
             {
                 ExtractZip();
 
             }
-            else if (CompareVersion(version) == false)
+            else if (CompareVersion(version) == 2)
             {
-                return false;
+                return 2;
             }
-            return true;
+            else if (CompareVersion(version) == 0)
+            {
+                return 0;
+            }
+            return 1;
 
         }
         public float GetVersion(bool IsLocal)
@@ -90,25 +98,27 @@ namespace WPFinstaller
         /// </summary>
         /// <param name="newversion">Version of currently installed package. This has to be declared in top of FileManager.cs class</param>
         /// <returns>True if install can be continued, false if same version is alreay present</returns>
-        public bool CompareVersion(float newversion)
+        public int CompareVersion(float newversion)
         {
+            //0 = same version exists = false
+            //1 = older version exists but installed is newer = true
+            //2 = older version is newer than installed = false
             float oldversion = GetVersion(false);
 
 
             if (oldversion == newversion)
             {
-                return false;
+                return 0;
             }
             else if (oldversion < newversion)
             {
-                return true;
+                return 1;
             }
             else if (newversion < oldversion)
             {
-                //You are trying to install a older version than the version currently installed. Click YES if you wish to continue.
-                return true;
+                return 2;
             }
-            return false;
+            return 0;
         }
 
         /// <summary>
