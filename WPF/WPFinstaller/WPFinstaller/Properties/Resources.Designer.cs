@@ -93,6 +93,34 @@ namespace WPFinstaller.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        public static byte[] Logo1 {
+            get {
+                object obj = ResourceManager.GetObject("Logo1", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+        ///&lt;!--This file is NOT compatible with Silverlight--&gt;
+        ///&lt;Viewbox xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; Stretch=&quot;Uniform&quot;&gt;
+        ///  &lt;Canvas Name=&quot;Layer_1&quot; Canvas.Left=&quot;0&quot; Canvas.Top=&quot;0&quot; Width=&quot;8192&quot; Height=&quot;8192&quot;&gt;
+        ///    &lt;Canvas.RenderTransform&gt;
+        ///      &lt;TranslateTransform X=&quot;0&quot; Y=&quot;0&quot;/&gt;
+        ///    &lt;/Canvas.RenderTransform&gt;
+        ///    &lt;Canvas.Resources/&gt;
+        ///    &lt;!--Unknown tag: sodipodi:namedview--&gt;
+        ///    &lt;Path xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot; Name=&quot;path6&quot; [rest of string was truncated]&quot;;.
+        /// </summary>
+        public static string Logo2 {
+            get {
+                return ResourceManager.GetString("Logo2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         public static byte[] MinimizeIcon {
             get {
                 object obj = ResourceManager.GetObject("MinimizeIcon", resourceCulture);

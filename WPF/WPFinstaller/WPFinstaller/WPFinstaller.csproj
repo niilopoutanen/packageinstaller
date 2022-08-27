@@ -15,6 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Page Remove="Resources\Logo.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
     <COMReference Include="IWshRuntimeLibrary">
       <WrapperTool>tlbimp</WrapperTool>
       <VersionMinor>0</VersionMinor>
@@ -24,6 +28,10 @@
       <Isolated>false</Isolated>
       <EmbedInteropTypes>true</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Resources\Logo.xaml" />
   </ItemGroup>
 
   <ItemGroup>
