@@ -11,7 +11,6 @@
   <ItemGroup>
     <None Remove="Resources\CloseIcon.png" />
     <None Remove="Resources\Inter-Bold.ttf" />
-    <None Remove="Resources\Inter-SemiBold.ttf" />
     <None Remove="Resources\Logo.png" />
     <None Remove="Resources\MinimizeIcon.png" />
   </ItemGroup>
@@ -39,7 +38,6 @@
   <ItemGroup>
     <Resource Include="Resources\CloseIcon.png" />
     <Resource Include="Resources\Inter-Bold.ttf" />
-    <Resource Include="Resources\Inter-SemiBold.ttf" />
     <Resource Include="Resources\Logo.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

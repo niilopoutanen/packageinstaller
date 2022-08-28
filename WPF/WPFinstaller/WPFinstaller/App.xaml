@@ -5,10 +5,10 @@
              StartupUri="MainWindow.xaml">
     <Application.Resources>
 
-        <FontFamily x:Key="InterBold">/Resources/Inter-Bold.ttf</FontFamily>
-        
-        
-        
+        <FontFamily x:Key="InterBold">./Resources/Inter-Bold.ttf#InterBold</FontFamily>
+
+
+
         <Style x:Key="NavBarButton" TargetType="Image">
             <Setter Property="Width" Value="20"></Setter>
             <Setter Property="Height" Value="20"></Setter>

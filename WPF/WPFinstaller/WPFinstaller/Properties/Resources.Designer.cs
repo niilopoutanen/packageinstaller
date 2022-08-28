@@ -93,16 +93,6 @@ namespace WPFinstaller.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] Inter_SemiBold {
-            get {
-                object obj = ResourceManager.GetObject("Inter_SemiBold", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] Logo {
             get {
                 object obj = ResourceManager.GetObject("Logo", resourceCulture);
