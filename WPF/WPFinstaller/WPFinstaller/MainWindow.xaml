@@ -17,7 +17,7 @@
         <Image x:Name="LogoIMG" Source="/Resources/Logo.png" Style="{StaticResource NavBarButton}" HorizontalAlignment="Left" Margin="25,20,0,0" MouseLeftButtonDown="GithubButton_Click" Cursor="Hand" Panel.ZIndex="1"/>
         <Border BorderBrush="#121212" CornerRadius="30" Background="#121212" Panel.ZIndex="-1"></Border>
         <Grid x:Name="InstallPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="0,0,0,10" Background="#121212">
-            <Border x:Name="InstallBTN" Style="{StaticResource ButtonHover}" Background="#bb86fc" Width="430" Height="50" CornerRadius="20" Cursor="Hand" Panel.ZIndex="1" MouseLeftButtonDown="InstallBorder_Click" Margin="0,45,0,45" HorizontalAlignment="Center">
+            <Border x:Name="InstallBTN" Style="{StaticResource ButtonHover}" Background="#bb86fc" Width="460" Height="50" CornerRadius="20" Cursor="Hand" Panel.ZIndex="1" MouseLeftButtonDown="InstallBorder_Click" Margin="0,45,0,45" HorizontalAlignment="Center">
                 <TextBlock FontFamily="./Resources/#Inter" x:Name="InstallText" Foreground="white" FontSize="25" FontWeight="Bold" Cursor="Hand" MouseLeftButtonDown="InstallBorder_Click" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Install"/></TextBlock>
             </Border>
         </Grid>
