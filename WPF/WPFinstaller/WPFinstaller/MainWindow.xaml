@@ -17,7 +17,7 @@
         <Image x:Name="LogoIMG" Source="/Resources/Logo.png" Style="{StaticResource NavBarButton}" HorizontalAlignment="Left" Margin="25,20,0,0" MouseLeftButtonDown="GithubButton_Click" Cursor="Hand" Panel.ZIndex="1"/>
         <Border BorderBrush="#121212" CornerRadius="30" Background="#121212" Panel.ZIndex="-1"></Border>
         <Grid x:Name="InstallPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="0,0,0,10" Background="#121212">
-            <Border x:Name="InstallBTN" Style="{StaticResource ButtonHover}" Background="#bb86fc" Width="400" Height="50" CornerRadius="20" Cursor="Hand" Panel.ZIndex="1" MouseLeftButtonDown="InstallBorder_Click" Margin="0,0,47,0" HorizontalAlignment="Right">
+            <Border x:Name="InstallBTN" Style="{StaticResource ButtonHover}" Background="#bb86fc" Width="430" Height="50" CornerRadius="20" Cursor="Hand" Panel.ZIndex="1" MouseLeftButtonDown="InstallBorder_Click" Margin="0,45,0,45" HorizontalAlignment="Center">
                 <TextBlock FontFamily="./Resources/#Inter" x:Name="InstallText" Foreground="white" FontSize="25" FontWeight="Bold" Cursor="Hand" MouseLeftButtonDown="InstallBorder_Click" HorizontalAlignment="Center" VerticalAlignment="Center"><Run Text="Install"/></TextBlock>
             </Border>
         </Grid>
@@ -25,33 +25,33 @@
             <TextBlock FontFamily="./Resources/#Inter" x:Name="InstallationDone" FontSize="24" VerticalAlignment="Center" Margin="20,0,0,60" FontWeight="Bold">Installation done.</TextBlock>
             <TextBlock FontFamily="./Resources/#Inter" x:Name="ApplicationInstalledTo" VerticalAlignment="Center" Margin="20,10,0,0">Application installed to: <LineBreak/>C:/User/Program Files/NiiloPoutanen/App</TextBlock>
 
-            <Border x:Name="QuitButton" Style="{StaticResource ButtonHover}" Background="#BB86fc" Width="90" Height="50" CornerRadius="20" Margin="368,35,42,55" MouseLeftButtonDown="QuitApp" Cursor="Hand">
+            <Border x:Name="QuitButton" Style="{StaticResource ButtonHover}" Background="#BB86fc" Width="90" Height="50" CornerRadius="20" Margin="390,35,20,55" MouseLeftButtonDown="QuitApp" Cursor="Hand">
                 <TextBlock FontFamily="./Resources/#Inter" x:Name="QuitText" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" FontSize="20">Quit</TextBlock>
             </Border>
         </Grid>
         <Grid x:Name="SameVersionPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="-2200,0,0,10" Background="#121212" Visibility="Visible">
-            <TextBlock FontFamily="./Resources/#Inter" x:Name="NewVerText" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="20,21,0,0" HorizontalAlignment="Left">Newest version<LineBreak/>already installed.</TextBlock>
-            <Border x:Name="OKButton" Style="{StaticResource ButtonHover}" Width="90" Height="50" Background="#BB86FC" CornerRadius="20" HorizontalAlignment="Right" Margin="0,0,190,20" Cursor="Hand" MouseLeftButtonDown="QuitApp" Panel.ZIndex="1">
+            <TextBlock FontFamily="./Resources/#Inter" x:Name="NewVerText" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="14,27,0,0" HorizontalAlignment="Left">Newest version<LineBreak/>already installed.</TextBlock>
+            <Border x:Name="OKButton" Style="{StaticResource ButtonHover}" Width="90" Height="50" Background="#BB86FC" CornerRadius="20" HorizontalAlignment="Right" Margin="0,35,164,55" Cursor="Hand" MouseLeftButtonDown="QuitApp" Panel.ZIndex="1">
                 <TextBlock FontFamily="./Resources/#Inter" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">OK</TextBlock>
             </Border>
-            <Border x:Name="UninstallBTN" Style="{StaticResource ButtonHover}" Width="130" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,35,42,55" Cursor="Hand" MouseLeftButtonDown="UninstallApp" Panel.ZIndex="2">
+            <Border x:Name="UninstallBTN" Style="{StaticResource ButtonHover}" Width="130" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,35,20,55" Cursor="Hand" MouseLeftButtonDown="UninstallApp" Panel.ZIndex="2">
                 <TextBlock FontFamily="./Resources/#Inter" x:Name="UninstallBTNText" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">Uninstall</TextBlock>
             </Border>
 
         </Grid>
         <Grid x:Name="UninstallDonePanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="-3300,0,0,10" Background="#121212">
             <TextBlock FontFamily="./Resources/#Inter" x:Name="UninstallDoneText" FontSize="30" FontWeight="Bold" VerticalAlignment="Center" Margin="20,0,0,30">Uninstall done.</TextBlock>
-            <Border Background="#BB86fc" Style="{StaticResource ButtonHover}" Width="90" Height="50" CornerRadius="20" Margin="368,35,42,55" MouseLeftButtonDown="QuitApp" Cursor="Hand">
+            <Border Background="#BB86fc" Style="{StaticResource ButtonHover}" Width="90" Height="50" CornerRadius="20" Margin="390,35,20,55" MouseLeftButtonDown="QuitApp" Cursor="Hand">
                 <TextBlock FontFamily="./Resources/#Inter" x:Name="UninstallOkText" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="24" FontWeight="Bold">OK</TextBlock>
             </Border>
         </Grid>
         <Grid x:Name="OlderVersionPanel" Width="500" Height="140" VerticalAlignment="Bottom" Margin="-4400,0,0,10" Background="#121212">
             <TextBlock FontFamily="./Resources/#Inter" x:Name="NewerVersionInstalledText" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" Margin="20,0,0,60">Version 0.0 installed.</TextBlock>
             <TextBlock FontFamily="./Resources/#Inter" x:Name="DowngradeToText" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Center" Margin="20,10,0,0">Do you want to downgrade to <LineBreak/> version 0.0?</TextBlock>
-            <Border Width="90" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,35,42,55" Cursor="Hand" MouseLeftButtonDown="QuitApp">
+            <Border Width="90" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,35,20,55" Cursor="Hand" MouseLeftButtonDown="QuitApp">
                 <TextBlock FontFamily="./Resources/#Inter" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold">No</TextBlock>
             </Border>
-            <Border x:Name="DownGradeButton" Width="90" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,35,140,55" Cursor="Hand" MouseLeftButtonDown="DownGradeButton_Click">
+            <Border x:Name="DownGradeButton" Width="90" Height="50" CornerRadius="20" Background="#BB86FC" HorizontalAlignment="Right" Margin="0,35,128,55" Cursor="Hand" MouseLeftButtonDown="DownGradeButton_Click">
                 <TextBlock FontFamily="./Resources/#Inter" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" FontWeight="Bold">Yes</TextBlock>
             </Border>
         </Grid>
