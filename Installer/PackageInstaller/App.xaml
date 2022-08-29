@@ -119,5 +119,12 @@
                 <SplineThicknessKeyFrame KeyTime="0:0:0.5" Value="335,0,0,45" KeySpline="0.25,0 0.8,0.5"/>
             </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
+
+        <!--<Storyboard x:Key="TextFadeOut">
+            <DoubleAnimation From="1" To="0" Duration="0:0:0.3" FillBehavior="HoldEnd" Storyboard.TargetProperty="Opacity" />
+        </Storyboard>-->
+
+        <DoubleAnimation From="1" To="0" Duration="0:0:0.3" FillBehavior="HoldEnd" Storyboard.TargetProperty="Opacity" x:Key="TextFadeOut" />
+
     </Application.Resources>
 </Application>

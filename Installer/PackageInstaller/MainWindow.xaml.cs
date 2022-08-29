@@ -60,6 +60,10 @@ namespace WPFinstaller
         {
             Storyboard sb = (this.FindResource("InstallButtonAnim") as Storyboard).Clone();
             Storyboard.SetTarget(sb, InstallButton);
+            DoubleAnimation TextFadeOut = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
+            sb.Children.Add(TextFadeOut);
+            Storyboard.SetTargetName(TextFadeOut, InstallText.Name);
+            Storyboard.SetTargetProperty(TextFadeOut, new PropertyPath(TextBlock.OpacityProperty));
             sb.Begin();
             await Task.Delay(500);
 
