@@ -10,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -33,8 +34,13 @@ namespace WPFinstaller
         }
 
 
-        private void InstallApp()
+        private async void InstallApp()
         {
+            Storyboard sb = (this.FindResource("InstallButtonAnim") as Storyboard).Clone();
+            Storyboard.SetTarget(sb, InstallButton);
+            sb.Begin();
+            await Task.Delay(500);
+
             InstallPanel.Visibility = Visibility.Hidden;
             InstallDonePanel.Visibility = Visibility.Visible;
         }

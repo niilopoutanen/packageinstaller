@@ -46,5 +46,16 @@
             <Setter Property="VerticalAlignment" Value="Center"/>
             <Setter Property="Foreground" Value="White"/>
         </Style>
+
+        <Storyboard x:Key="InstallButtonAnim" >
+            <DoubleAnimationUsingKeyFrames Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Border.Width)">
+                <SplineDoubleKeyFrame KeyTime="0:0:0" Value="400"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="120" KeySpline="0.25,0 0.8,0.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <ThicknessAnimationUsingKeyFrames Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Border.Margin)">
+                <SplineThicknessKeyFrame KeyTime="0:0:0" Value="0,0,0,45"/>
+                <SplineThicknessKeyFrame KeyTime="0:0:0.5" Value="335,0,0,45" KeySpline="0.25,0 0.8,0.5"/>
+            </ThicknessAnimationUsingKeyFrames>
+        </Storyboard>
     </Application.Resources>
 </Application>
