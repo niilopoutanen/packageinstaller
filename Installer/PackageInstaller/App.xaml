@@ -13,15 +13,31 @@
             <Setter Property="Foreground" Value="White"></Setter>
         </Style>
 
-        <!--<Style x:Key="NavBarHover">
+        <Style x:Key="NavBarHover" TargetType="Path">
+            <!--<Setter Property="Effect">
+                <Setter.Value>
+                    <DropShadowEffect Color="White" ShadowDepth="0" Opacity="0" BlurRadius="1"/>
+                </Setter.Value>
+            </Setter>
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
                     <Trigger.EnterActions>
-                        
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation From="#FFFFFF" To="Gray" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)"/>
+                            </Storyboard>
+                        </BeginStoryboard>
                     </Trigger.EnterActions>
+                    <Trigger.ExitActions>
+                        <BeginStoryboard>
+                            <Storyboard>
+                                <ColorAnimation From="Gray" To="#FFFFFF" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)"/>
+                            </Storyboard>
+                        </BeginStoryboard>
+                    </Trigger.ExitActions>
                 </Trigger>
-            </Style.Triggers>
-        </Style>-->
+            </Style.Triggers>-->
+        </Style>
         
         <!--Styles for button interactions-->
         <Style x:Key="InteractButton" TargetType="Border">
