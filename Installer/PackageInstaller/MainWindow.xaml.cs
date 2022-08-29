@@ -91,8 +91,9 @@ namespace WPFinstaller
             Storyboard.SetTargetProperty(marginAnim, new PropertyPath(Border.MarginProperty));
 
 
-            await Task.Delay(500);
             storyboard.Begin(this);
+            await Task.Delay(500);
+
             int successful = filemanager.UnZipResource(false);
 
             if(successful == 1)
@@ -116,6 +117,27 @@ namespace WPFinstaller
         }
         private async void UninstallApp()
         {
+            DoubleAnimationUsingKeyFrames widthAnim = (this.FindResource("MainButtonWidthAnim") as DoubleAnimationUsingKeyFrames).Clone();
+            ThicknessAnimationUsingKeyFrames marginAnim = (this.FindResource("MainButtonMarginAnim") as ThicknessAnimationUsingKeyFrames).Clone();
+            DoubleAnimation fadeout = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
+
+
+            Storyboard storyboard = new Storyboard();
+            storyboard.Children.Add(fadeout);
+            storyboard.Children.Add(widthAnim);
+            storyboard.Children.Add(marginAnim);
+            Storyboard.SetTargetName(fadeout, UninstallText.Name);
+            Storyboard.SetTargetName(widthAnim, UninstallButton.Name);
+            Storyboard.SetTargetName(marginAnim, UninstallButton.Name);
+
+            Storyboard.SetTargetProperty(fadeout, new PropertyPath(TextBlock.OpacityProperty));
+            Storyboard.SetTargetProperty(widthAnim, new PropertyPath(Border.WidthProperty));
+            Storyboard.SetTargetProperty(marginAnim, new PropertyPath(Border.MarginProperty));
+
+
+            storyboard.Begin(this);
+            await Task.Delay(500);
+
 
             filemanager.UninstallApp();
             UninstallPanel.Visibility = Visibility.Hidden;
