@@ -7,4 +7,4 @@ The application unpacks given zip file to Appdata/Local/temp, and moves it from 
 <br>
 *Demo image below*
 
-<img src="https://github.com/niilopoutanen/PackageInstaller/blob/main/WPFGraphicsDemo.png?raw=true"/>
+<img src="https://github.com/niilopoutanen/PackageInstaller/blob/main/GraphicsDemo.png?raw=true" width=500/>
