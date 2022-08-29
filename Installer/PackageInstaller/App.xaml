@@ -112,11 +112,11 @@
         <Storyboard x:Key="InstallButtonAnim" >
             <DoubleAnimationUsingKeyFrames Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Border.Width)">
                 <SplineDoubleKeyFrame KeyTime="0:0:0" Value="400"/>
-                <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="120" KeySpline="0.25,0 0.8,0.5"/>
+                <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="120" KeySpline="0.5,0 0.3,1"/>
             </DoubleAnimationUsingKeyFrames>
             <ThicknessAnimationUsingKeyFrames Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Border.Margin)">
                 <SplineThicknessKeyFrame KeyTime="0:0:0" Value="0,0,0,45"/>
-                <SplineThicknessKeyFrame KeyTime="0:0:0.5" Value="335,0,0,45" KeySpline="0.25,0 0.8,0.5"/>
+                <SplineThicknessKeyFrame KeyTime="0:0:0.5" Value="335,0,0,45" KeySpline="0.5,0 0.3,1"/>
             </ThicknessAnimationUsingKeyFrames>
         </Storyboard>
 
