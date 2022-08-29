@@ -27,9 +27,14 @@
                 <TextBlock x:Name="Version" FontSize="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,60,0,0" FontWeight="SemiBold">Version 0.0</TextBlock>
             </Grid>
             <Grid x:Name="InteractionGrid" Width="455" Height="140" VerticalAlignment="Bottom">
-                <Grid x:Name="InstallPanel" Style="{StaticResource InteractGrid}">
+                <Grid x:Name="InstallPanel" Style="{StaticResource InteractGrid}" d:IsHidden="True">
                     <Border x:Name="InstallButton" Style="{StaticResource InteractButton}" Width="400" HorizontalAlignment="Center" MouseLeftButtonDown="InstallButton_Click">
                         <TextBlock x:Name="InstallText" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Install</TextBlock>
+                    </Border>
+                </Grid>
+                <Grid x:Name="UninstallPanel" Style="{StaticResource InteractGrid}" Margin="-4400,0,0,0">
+                    <Border x:Name="UninstallButton" Style="{StaticResource InteractButton}" Width="400" HorizontalAlignment="Center">
+                        <TextBlock x:Name="UninstallText" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Uninstall</TextBlock>
                     </Border>
                 </Grid>
                 <Grid x:Name="InstallDonePanel" Style="{StaticResource InteractGrid}" Margin="-1100,0,0,0">

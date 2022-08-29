@@ -35,7 +35,37 @@ namespace WPFinstaller
         /// <summary>
         /// Adds the given ZIP file to temp folder for later moving.
         /// </summary>
+        public bool IsAppInstalled()
+        {
+            if (Directory.Exists(ProgramFiles))
+            {
+                string[] versionarray;
+                try
+                {
+                    versionarray = System.IO.File.ReadAllLines(ProgramFiles + "\\version.txt");
 
+                }
+                catch
+                {
+                    return false;
+                }
+                try
+                {
+                    float oldversion = Convert.ToSingle(versionarray[0]);
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
+            }
+            else if (!(Directory.Exists(ProgramFiles)))
+            {
+                return false;
+
+            }
+            return false;
+        }
         public string GetInstallPath()
         {
 
@@ -56,7 +86,7 @@ namespace WPFinstaller
                 //0 = same version exists = false
                 //1 = older version exists but installed is newer = true
                 //2 = older version is newer than installed = false
-                Stream stream = new MemoryStream(Properties.Resources.Package);
+                Stream stream = new MemoryStream(Installer.Properties.Resources.Package);
                 FileStream fileStream = new FileStream(tempfile, FileMode.Create);
                 for (int i = 0; i < stream.Length; i++)
                     fileStream.WriteByte((byte)stream.ReadByte());

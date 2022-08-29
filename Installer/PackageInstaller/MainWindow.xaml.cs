@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Automation.Provider;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
@@ -22,15 +24,29 @@ namespace WPFinstaller
     /// </summary>
     public partial class MainWindow : Window
     {
+        FileManager filemanager = new FileManager();
         public MainWindow()
         {
             InitializeComponent();
+            InstallPanel.Visibility = Visibility.Hidden;
             InstallDonePanel.Visibility = Visibility.Hidden;
             InstallDonePanel.Margin = new Thickness(0, 0, 0, 0);
             SameVersionPanel.Visibility = Visibility.Hidden;
             SameVersionPanel.Margin = new Thickness(0, 0, 0, 0);
             OlderVersionPanel.Visibility = Visibility.Hidden;
             OlderVersionPanel.Margin = new Thickness(0, 0, 0, 0);
+            UninstallPanel.Visibility = Visibility.Hidden;
+            UninstallPanel.Margin = new Thickness(0, 0, 0, 0);
+
+            bool IsAppInstalled = filemanager.IsAppInstalled();
+            if (IsAppInstalled == true)
+            {
+                UninstallPanel.Visibility = Visibility.Visible;
+            }
+            else if (IsAppInstalled == false)
+            {
+                InstallPanel.Visibility = Visibility.Visible;
+            }
         }
 
 
