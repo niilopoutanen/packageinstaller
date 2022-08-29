@@ -71,8 +71,25 @@ namespace WPFinstaller
 
             storyboard.Begin(this);
         }
+        private void InstallDoneAnim()
+        {
+            DoubleAnimation fadein = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
+            DoubleAnimation fadein2 = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
+            Storyboard storyboard = new Storyboard();
+            storyboard.Children.Add(fadein);
+            storyboard.Children.Add(fadein2);
+
+            Storyboard.SetTargetName(fadein, InstallationDoneText.Name);
+            Storyboard.SetTargetName(fadein2, QuitButtonText2.Name);
+
+            Storyboard.SetTargetProperty(fadein, new PropertyPath(TextBlock.OpacityProperty));
+            Storyboard.SetTargetProperty(fadein2, new PropertyPath(TextBlock.OpacityProperty));
+
+            storyboard.Begin(this);
+        }
         private async void InstallApp()
         {
+            int successful = filemanager.UnZipResource(false);
             DoubleAnimationUsingKeyFrames widthAnim = (this.FindResource("MainButtonWidthAnim") as DoubleAnimationUsingKeyFrames).Clone();
             ThicknessAnimationUsingKeyFrames marginAnim = (this.FindResource("MainButtonMarginAnim") as ThicknessAnimationUsingKeyFrames).Clone();
             DoubleAnimation fadeout = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
@@ -82,19 +99,19 @@ namespace WPFinstaller
             storyboard.Children.Add(fadeout);
             storyboard.Children.Add(widthAnim);
             storyboard.Children.Add(marginAnim);
-            Storyboard.SetTargetName(fadeout, QuitButtonText2.Name);
+            Storyboard.SetTargetName(fadeout, InstallText.Name);
             Storyboard.SetTargetName(widthAnim, InstallButton.Name);
             Storyboard.SetTargetName(marginAnim, InstallButton.Name);
 
             Storyboard.SetTargetProperty(fadeout, new PropertyPath(TextBlock.OpacityProperty));
+
             Storyboard.SetTargetProperty(widthAnim, new PropertyPath(Border.WidthProperty));
             Storyboard.SetTargetProperty(marginAnim, new PropertyPath(Border.MarginProperty));
 
 
             storyboard.Begin(this);
             await Task.Delay(500);
-
-            int successful = filemanager.UnZipResource(false);
+            InstallDoneAnim();
 
             if(successful == 1)
             {

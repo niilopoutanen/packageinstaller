@@ -59,7 +59,7 @@
                     </Border>
                 </Grid>
                 <Grid x:Name="InstallDonePanel" Style="{StaticResource InteractGrid}" Margin="-1100,0,0,0">
-                    <TextBlock VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="0,44,0,0">Installation done.</TextBlock>
+                    <TextBlock x:Name="InstallationDoneText" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="0,44,0,0">Installation done.</TextBlock>
                     <Border Style="{StaticResource InteractButton}" Width="120" HorizontalAlignment="Right" MouseLeftButtonDown="CloseApp">
                         <TextBlock x:Name="QuitButtonText2" Style="{StaticResource InteractButtonText}">Quit</TextBlock>
                     </Border>
