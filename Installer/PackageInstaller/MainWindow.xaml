@@ -17,16 +17,22 @@
             </Border.Background>
         </Border>
         <Grid x:Name="NavBar" Width="475" Height="20" VerticalAlignment="Top" Margin="0,20,0,0" Panel.ZIndex="1">
-            <Image x:Name="CloseButton" Source="/Resources/CloseIcon.png" Width="20" Height="20" HorizontalAlignment="Right" MouseLeftButtonDown="CloseApp"/>
-            <Image x:Name="MinimizeButton" Source="/Resources/MinimizeIcon.png" Width="20" Height="20" HorizontalAlignment="Right" Margin="0,0,30,0" MouseLeftButtonDown="MinimizeApp"></Image>
-            <Image x:Name="GIthubButton" Source="/Resources/GitHubLogo.png" Width="20" Height="20" HorizontalAlignment="Left" MouseLeftButtonDown="OpenLink"></Image>
-            <Viewbox Width="20" >
+            <Viewbox x:Name="GitHubLogo" Width="20" HorizontalAlignment="Left" MouseLeftButtonDown="OpenLink" Cursor="Hand">
                 <Canvas Name="Layer_1" Width="20" Height="20" ClipToBounds="True" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-                    <Path Stroke="#FFFFFFFF" Stretch="Uniform" StrokeThickness="953.803" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeDashCap="Round" StrokeLineJoin="Round" StrokeMiterLimit="5.6889" Name="path6" Data="M8,0C3.58,0 0,3.58 0,8 0,11.54 2.29,14.53 5.47,15.59 5.87,15.66 6.02,15.42 6.02,15.21 6.02,15.02 6.01,14.39 6.01,13.72 4,14.09 3.48,13.23 3.32,12.78 3.23,12.55 2.84,11.84 2.5,11.65 2.22,11.5 1.82,11.13 2.49,11.12 3.12,11.11 3.57,11.7 3.72,11.94 4.44,13.15 5.59,12.81 6.05,12.6 6.12,12.08 6.33,11.73 6.56,11.53 4.78,11.33 2.92,10.64 2.92,7.58 2.92,6.71 3.23,5.99 3.74,5.43 3.66,5.23 3.38,4.41 3.82,3.31 3.82,3.31 4.49,3.1 6.02,4.13 6.66,3.95 7.34,3.86 8.02,3.86 8.7,3.86 9.38,3.95 10.02,4.13 11.55,3.09 12.22,3.31 12.22,3.31 12.66,4.41 12.38,5.23 12.3,5.43 12.81,5.99 13.12,6.7 13.12,7.58 13.12,10.65 11.25,11.33 9.47,11.53 9.76,11.78 10.01,12.26 10.01,13.01 10.01,14.08 10,14.94 10,15.21 10,15.42 10.15,15.67 10.55,15.59 13.71,14.53 16,11.53 16,8 16,3.58 12.42,0 8,0z" Height="1608" Width="1638" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.462,0.503">
-                        <!--<Path.Data>
-                            <PathGeometry FillRule="Nonzero" Figures="M529.35602,6923.0316L529.35602,1248.2816 3610.4311,6943.3774 3610.4311,1121.9778 5822.2233,1121.9778C5822.2233,1121.9778 7658.1415,972.35656 7658.1415,2552.81 7658.1415,4095.7723 5891.6046,3983.6421 5891.6046,3983.6421L4769.2735,3983.6421 4769.2735,6937.4337" />
-                        </Path.Data>-->
+                    <Path Fill="White" Stretch="Fill" StrokeThickness="1" Name="path6" Data="M 9.9924591 0 C 4.4716255 0 0 4.4716255 0 9.9924591 c 0 4.4216629 2.8603414 8.1563449 6.832344 9.4803459 0.499623 0.08743 0.6869816 -0.21234 0.6869816 -0.474643 0 -0.23732 -0.01249 -1.024226 -0.01249 -1.861094 C 4.9962296 17.599219 4.3467197 16.525029 4.1468706 15.962953 4.0344553 15.67567 3.547323 14.788839 3.1226435 14.551519 2.7729074 14.364161 2.2732844 13.902009 3.1101529 13.889518 c 0.7869062 -0.01249 1.348982 0.724454 1.5363407 1.024228 0.8993212 1.511359 2.3357372 1.086679 2.9103036 0.824377 0.087434 -0.64951 0.3497361 -1.086679 0.6370193 -1.336492 -2.2233221 -0.249811 -4.5465689 -1.11166 -4.5465689 -4.933776 0 -1.0866798 0.3872077 -1.9860012 1.0242271 -2.6854734 C 4.57155 6.5325701 4.221814 5.5083431 4.7713994 4.13438 c 0 0 0.8368684 -0.262302 2.7479263 1.024227 0.7993967 -0.2248303 1.6487557 -0.3372454 2.4981143 -0.3372454 0.84936 0 1.698718 0.1124151 2.498115 0.3372454 1.911058 -1.2990197 2.747927 -1.024227 2.747927 -1.024227 0.549585 1.3739631 0.199849 2.3981901 0.09993 2.6480016 0.637019 0.6994722 1.024227 1.5863029 1.024227 2.6854734 0 3.834606 -2.335737 4.683965 -4.559059 4.933776 0.362227 0.312265 0.674491 0.911812 0.674491 1.848605 0 1.336492 -0.01249 2.410682 -0.01249 2.747926 0 0.262303 0.187358 0.574568 0.686981 0.474643 3.947021 -1.324001 6.807362 -5.071174 6.807362 -9.4803459 C 19.984918 4.4716255 15.513293 0 9.9924591 0 Z" Height="20" Width="20" HorizontalAlignment="Center" VerticalAlignment="Center">
                     </Path>
+                </Canvas>
+            </Viewbox>
+            <Viewbox x:Name="MinimizeIcon" Width="20" Height="20" HorizontalAlignment="Right" Margin="0,0,30,0" MouseLeftButtonDown="MinimizeApp" Cursor="Hand">
+                <Canvas Width="20" Height="20">
+                    <Path Stroke="#FFFFFF" Fill="#FFFFFF" Width="20" Height="20" StrokeEndLineCap="Round" StrokeStartLineCap="Round" StrokeThickness="4.6" HorizontalAlignment="Center" VerticalAlignment="Center" Data="m 2.3166305 10.578697 15.3482925 0.06703">
+                    </Path>
+                </Canvas>
+            </Viewbox>
+            <Viewbox x:Name="CloseIcon" Width="20" Height="20" HorizontalAlignment="Right" MouseLeftButtonDown="CloseApp" Cursor="Hand">
+                <Canvas Width="20" Height="20">
+                    <Path Width="20" Height="20" StrokeThickness="4.6" StrokeEndLineCap="Round" StrokeStartLineCap="Round" Stroke="#FFFFFF" Data="M 4.5972578 4.5498602 15.402742 15.45014" />
+                    <Path Width="20" Height="20" StrokeThickness="4.6" StrokeEndLineCap="Round" StrokeStartLineCap="Round" Stroke="#FFFFFF" Data="M 15.45014 4.5972579 4.5498599 15.402742" />
                 </Canvas>
             </Viewbox>
         </Grid>

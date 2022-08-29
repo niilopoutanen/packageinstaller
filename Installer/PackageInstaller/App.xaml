@@ -4,11 +4,7 @@
              xmlns:local="clr-namespace:WPFinstaller"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary x:Name="Logo" Source="Resources/Logo.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
+
         <!-- semitransparent color for button bg-->
         <SolidColorBrush x:Key="ButtonColor" Color="White" Opacity="0.1"/>
         
