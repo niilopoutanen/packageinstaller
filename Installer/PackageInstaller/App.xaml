@@ -126,5 +126,7 @@
 
         <DoubleAnimation From="1" To="0" Duration="0:0:0.3" FillBehavior="HoldEnd" Storyboard.TargetProperty="Opacity" x:Key="TextFadeOut" />
 
+
+        <DoubleAnimation From="0" To="1" Duration="0:0:0.3" FillBehavior="HoldEnd" Storyboard.TargetProperty="Opacity" x:Key="TextFadeIn" />
     </Application.Resources>
 </Application>
