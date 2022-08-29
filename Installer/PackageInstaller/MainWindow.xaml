@@ -33,8 +33,14 @@
                     </Border>
                 </Grid>
                 <Grid x:Name="UninstallPanel" Style="{StaticResource InteractGrid}" Margin="-4400,0,0,0">
-                    <Border x:Name="UninstallButton" Style="{StaticResource InteractButton}" Width="400" HorizontalAlignment="Center">
+                    <Border x:Name="UninstallButton" Style="{StaticResource InteractButton}" Width="400" HorizontalAlignment="Center" MouseLeftButtonDown="UninstallButton_Click">
                         <TextBlock x:Name="UninstallText" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Uninstall</TextBlock>
+                    </Border>
+                </Grid>
+                <Grid x:Name="UninstallDonePanel" Style="{StaticResource InteractGrid}" Margin="-5500,0,0,0">
+                    <TextBlock Style="{StaticResource InformationHeaderText}" Margin="0,49,0,0" VerticalAlignment="Top">App uninstalled.</TextBlock>
+                    <Border Style="{StaticResource InteractButton}" Width="120" HorizontalAlignment="Right">
+                        <TextBlock Style="{StaticResource InteractButtonText}">Quit</TextBlock>
                     </Border>
                 </Grid>
                 <Grid x:Name="InstallDonePanel" Style="{StaticResource InteractGrid}" Margin="-1100,0,0,0">

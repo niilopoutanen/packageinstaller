@@ -37,6 +37,8 @@ namespace WPFinstaller
             OlderVersionPanel.Margin = new Thickness(0, 0, 0, 0);
             UninstallPanel.Visibility = Visibility.Hidden;
             UninstallPanel.Margin = new Thickness(0, 0, 0, 0);
+            UninstallDonePanel.Visibility = Visibility.Hidden;
+            UninstallDonePanel.Margin = new Thickness(0, 0, 0, 0);
 
             bool IsAppInstalled = filemanager.IsAppInstalled();
             if (IsAppInstalled == true)
@@ -60,14 +62,29 @@ namespace WPFinstaller
             InstallPanel.Visibility = Visibility.Hidden;
             InstallDonePanel.Visibility = Visibility.Visible;
         }
-
+        private async void UninstallApp()
+        {
+            Storyboard sb = (this.FindResource("InstallButtonAnim") as Storyboard).Clone();
+            Storyboard.SetTarget(sb, UninstallButton);
+            sb.Begin();
+            await Task.Delay(500);
+            UninstallPanel.Visibility = Visibility.Hidden;
+            UninstallDonePanel.Visibility = Visibility.Visible;
+        }
 
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if(e.ChangedButton == MouseButton.Left)
             {
-                DragMove();
+                try
+                {
+                    DragMove();
+                }
+                catch (Exception)
+                {
+
+                }
             }
         }
         private void CloseApp(object sender, MouseButtonEventArgs e)
@@ -85,6 +102,10 @@ namespace WPFinstaller
         private void InstallButton_Click(object sender, MouseButtonEventArgs e)
         {
             InstallApp();
+        }
+        private void UninstallButton_Click(object sender, MouseButtonEventArgs e)
+        {
+            UninstallApp();
         }
     }
 }
