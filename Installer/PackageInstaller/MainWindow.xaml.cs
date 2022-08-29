@@ -65,15 +65,39 @@ namespace WPFinstaller
             Storyboard.SetTargetName(TextFadeOut, InstallText.Name);
             Storyboard.SetTargetProperty(TextFadeOut, new PropertyPath(TextBlock.OpacityProperty));
             sb.Begin();
+
+            //0 = same version exists = false
+            //1 = older version exists but installed is newer = true
+            //2 = older version is newer than installed = false
+            int successful = filemanager.UnZipResource(false);
+
+            if(successful == 1)
+            {
+                InstallPanel.Visibility = Visibility.Hidden;
+                InstallDonePanel.Visibility = Visibility.Visible;
+            }
+            else if (successful == 0)
+            {
+                InstallPanel.Visibility = Visibility.Hidden;
+                SameVersionPanel.Visibility = Visibility.Visible;
+            }
+            else if(successful == 2)
+            {
+                InstallPanel.Visibility = Visibility.Hidden;
+                OlderVersionPanel.Visibility = Visibility.Visible;
+            }
             await Task.Delay(500);
 
-            InstallPanel.Visibility = Visibility.Hidden;
-            InstallDonePanel.Visibility = Visibility.Visible;
+
         }
         private async void UninstallApp()
         {
             Storyboard sb = (this.FindResource("InstallButtonAnim") as Storyboard).Clone();
             Storyboard.SetTarget(sb, UninstallButton);
+            DoubleAnimation TextFadeOut = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
+            sb.Children.Add(TextFadeOut);
+            Storyboard.SetTargetName(TextFadeOut, InstallText.Name);
+            Storyboard.SetTargetProperty(TextFadeOut, new PropertyPath(TextBlock.OpacityProperty));
             sb.Begin();
             await Task.Delay(500);
             UninstallPanel.Visibility = Visibility.Hidden;
