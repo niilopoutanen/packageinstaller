@@ -34,13 +34,13 @@
                 </Grid>
                 <Grid x:Name="InstallDonePanel" Style="{StaticResource InteractGrid}" Margin="-1100,0,0,0">
                     <TextBlock VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="0,44,0,0">Installation done.</TextBlock>
-                    <Border Style="{StaticResource InteractButton}" Width="120" HorizontalAlignment="Right">
+                    <Border Style="{StaticResource InteractButton}" Width="120" HorizontalAlignment="Right" MouseLeftButtonDown="CloseApp">
                         <TextBlock Style="{StaticResource InteractButtonText}">Quit</TextBlock>
                     </Border>
                 </Grid>
                 <Grid x:Name="SameVersionPanel" Style="{StaticResource InteractGrid}" Margin="-2200,0,0,0">
                     <TextBlock Style="{StaticResource InformationHeaderText}" Margin="0,33,0,0" VerticalAlignment="Top">Same version already <LineBreak/> installed.</TextBlock>
-                    <Border Style="{StaticResource InteractButton}" Width="120" HorizontalAlignment="Right">
+                    <Border Style="{StaticResource InteractButton}" Width="120" HorizontalAlignment="Right" MouseLeftButtonDown="CloseApp">
                         <TextBlock Style="{StaticResource InteractButtonText}">OK</TextBlock>
                     </Border>
                 </Grid>
