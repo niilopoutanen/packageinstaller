@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFinstaller"
         mc:Ignorable="d"
-        Title="MainWindow" Height="320" Width="515" WindowStyle="None" Background="Transparent" MouseDown="Window_MouseDown" ResizeMode="NoResize" AllowsTransparency="True">
+        Title="MainWindow" Height="320" Width="515" WindowStyle="None" Background="Transparent" MouseDown="Window_MouseDown" ResizeMode="CanResize" AllowsTransparency="True">
 
     <Grid x:Name="MainGrid">
         <Border x:Name="BackGround" Width="515" Height="320" CornerRadius="30" Panel.ZIndex="0">
@@ -20,6 +20,15 @@
             <Image x:Name="CloseButton" Source="/Resources/CloseIcon.png" Width="20" Height="20" HorizontalAlignment="Right" MouseLeftButtonDown="CloseApp"/>
             <Image x:Name="MinimizeButton" Source="/Resources/MinimizeIcon.png" Width="20" Height="20" HorizontalAlignment="Right" Margin="0,0,30,0" MouseLeftButtonDown="MinimizeApp"></Image>
             <Image x:Name="GIthubButton" Source="/Resources/GitHubLogo.png" Width="20" Height="20" HorizontalAlignment="Left" MouseLeftButtonDown="OpenLink"></Image>
+            <Viewbox Width="20" >
+                <Canvas Name="Layer_1" Width="20" Height="20" ClipToBounds="True" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+                    <Path Stroke="#FFFFFFFF" Stretch="Uniform" StrokeThickness="953.803" StrokeStartLineCap="Round" StrokeEndLineCap="Round" StrokeDashCap="Round" StrokeLineJoin="Round" StrokeMiterLimit="5.6889" Name="path6" Data="M8,0C3.58,0 0,3.58 0,8 0,11.54 2.29,14.53 5.47,15.59 5.87,15.66 6.02,15.42 6.02,15.21 6.02,15.02 6.01,14.39 6.01,13.72 4,14.09 3.48,13.23 3.32,12.78 3.23,12.55 2.84,11.84 2.5,11.65 2.22,11.5 1.82,11.13 2.49,11.12 3.12,11.11 3.57,11.7 3.72,11.94 4.44,13.15 5.59,12.81 6.05,12.6 6.12,12.08 6.33,11.73 6.56,11.53 4.78,11.33 2.92,10.64 2.92,7.58 2.92,6.71 3.23,5.99 3.74,5.43 3.66,5.23 3.38,4.41 3.82,3.31 3.82,3.31 4.49,3.1 6.02,4.13 6.66,3.95 7.34,3.86 8.02,3.86 8.7,3.86 9.38,3.95 10.02,4.13 11.55,3.09 12.22,3.31 12.22,3.31 12.66,4.41 12.38,5.23 12.3,5.43 12.81,5.99 13.12,6.7 13.12,7.58 13.12,10.65 11.25,11.33 9.47,11.53 9.76,11.78 10.01,12.26 10.01,13.01 10.01,14.08 10,14.94 10,15.21 10,15.42 10.15,15.67 10.55,15.59 13.71,14.53 16,11.53 16,8 16,3.58 12.42,0 8,0z" Height="1608" Width="1638" HorizontalAlignment="Left" VerticalAlignment="Center" RenderTransformOrigin="0.462,0.503">
+                        <!--<Path.Data>
+                            <PathGeometry FillRule="Nonzero" Figures="M529.35602,6923.0316L529.35602,1248.2816 3610.4311,6943.3774 3610.4311,1121.9778 5822.2233,1121.9778C5822.2233,1121.9778 7658.1415,972.35656 7658.1415,2552.81 7658.1415,4095.7723 5891.6046,3983.6421 5891.6046,3983.6421L4769.2735,3983.6421 4769.2735,6937.4337" />
+                        </Path.Data>-->
+                    </Path>
+                </Canvas>
+            </Viewbox>
         </Grid>
         <Grid x:Name="ContentGrid" Width="455" Height="260" VerticalAlignment="Center" HorizontalAlignment="Center" Panel.ZIndex="1">
             <Grid x:Name="HeaderGrid" Width="455" Height="120" VerticalAlignment="Top">
@@ -39,7 +48,7 @@
                 </Grid>
                 <Grid x:Name="UninstallDonePanel" Style="{StaticResource InteractGrid}" Margin="-5500,0,0,0">
                     <TextBlock Style="{StaticResource InformationHeaderText}" Margin="0,49,0,0" VerticalAlignment="Top">App uninstalled.</TextBlock>
-                    <Border Style="{StaticResource InteractButton}" Width="120" HorizontalAlignment="Right">
+                    <Border Style="{StaticResource InteractButton}" Width="120" HorizontalAlignment="Right" MouseLeftButtonDown="CloseApp">
                         <TextBlock Style="{StaticResource InteractButtonText}">Quit</TextBlock>
                     </Border>
                 </Grid>

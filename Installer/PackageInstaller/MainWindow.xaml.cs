@@ -42,7 +42,7 @@ namespace WPFinstaller
 
             ProductName.Text = filemanager.GetProductName();
             float version = filemanager.GetVersion(true);
-
+            Version.Text = version.ToString();
 
             bool IsAppInstalled = filemanager.IsAppInstalled();
             if (IsAppInstalled == true)
