@@ -26,6 +26,10 @@ namespace WPFinstaller
             InitializeComponent();
             InstallDonePanel.Visibility = Visibility.Hidden;
             InstallDonePanel.Margin = new Thickness(0, 0, 0, 0);
+            SameVersionPanel.Visibility = Visibility.Hidden;
+            SameVersionPanel.Margin = new Thickness(0, 0, 0, 0);
+            OlderVersionPanel.Visibility = Visibility.Hidden;
+            OlderVersionPanel.Margin = new Thickness(0, 0, 0, 0);
         }
 
 

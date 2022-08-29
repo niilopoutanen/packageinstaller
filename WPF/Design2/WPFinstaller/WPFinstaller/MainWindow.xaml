@@ -44,11 +44,14 @@
                         <TextBlock Style="{StaticResource InteractButtonText}">OK</TextBlock>
                     </Border>
                 </Grid>
-                <Grid Style="{StaticResource InteractGrid}">
-                    <TextBlock Style="{StaticResource InformationHeaderText}">Version 0.0 installed.</TextBlock>
-                    <TextBlock Style="{StaticResource InformationSubText}" Margin="0,40,0,0">Do you want to downgrade to version 0.1?</TextBlock>
-                    <Border Style="{StaticResource InteractButton}" Width="110" HorizontalAlignment="Right">
-                        <TextBlock>Yes</TextBlock>
+                <Grid x:Name="OlderVersionPanel" Style="{StaticResource InteractGrid}" Margin="-3300,0,0,0">
+                    <TextBlock Style="{StaticResource InformationHeaderText}" Margin="0,44,0,0" VerticalAlignment="Top">Version 0.0 installed.</TextBlock>
+                    <TextBlock Style="{StaticResource InformationSubText}" Margin="0,76,0,0" VerticalAlignment="Top">Do you want to downgrade to version 0.1?</TextBlock>
+                    <Border Style="{StaticResource InteractButton}" Width="110" HorizontalAlignment="Right" Margin="0,0,0,70">
+                        <TextBlock Style="{StaticResource InteractButtonText}">Yes</TextBlock>
+                    </Border>
+                    <Border Style="{StaticResource ResourceKey=InteractButton}" Width="110" HorizontalAlignment="Right" Margin="0,0,0,4">
+                        <TextBlock Style="{StaticResource ResourceKey=InteractButtonText}">No</TextBlock>
                     </Border>
                 </Grid>
             </Grid>
