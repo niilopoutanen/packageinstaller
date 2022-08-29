@@ -40,6 +40,10 @@ namespace WPFinstaller
             UninstallDonePanel.Visibility = Visibility.Hidden;
             UninstallDonePanel.Margin = new Thickness(0, 0, 0, 0);
 
+            ProductName.Text = filemanager.GetProductName();
+            float version = filemanager.GetVersion(true);
+
+
             bool IsAppInstalled = filemanager.IsAppInstalled();
             if (IsAppInstalled == true)
             {
