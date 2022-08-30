@@ -64,6 +64,10 @@ namespace WPFinstaller
                 ErrorGrid.Visibility = Visibility.Visible;
             }
         }
+
+        /// <summary>
+        /// Hides all panels that are in scene
+        /// </summary>
         private void HideAll()
         {
             InstallPanel.Visibility = Visibility.Hidden;
@@ -73,6 +77,10 @@ namespace WPFinstaller
             UninstallDonePanel.Visibility = Visibility.Hidden;
             ErrorGrid.Visibility = Visibility.Hidden;
         }
+
+        /// <summary>
+        /// Animations that play when starting uninstall done panel
+        /// </summary>
         private async void UninstallDoneAnim()
         {
             try
@@ -100,6 +108,10 @@ namespace WPFinstaller
                 ErrorGrid.Visibility = Visibility.Visible;
             }
         }
+
+        /// <summary>
+        /// Animations that play when starting install done panel
+        /// </summary>
         private void InstallDoneAnim()
         {
             try
@@ -133,6 +145,10 @@ namespace WPFinstaller
                 ErrorGrid.Visibility = Visibility.Visible;
             }
         }
+
+        /// <summary>
+        /// Functionality for app install buttom click & install button animations
+        /// </summary>
         private async void InstallApp()
         {
             try
@@ -186,6 +202,9 @@ namespace WPFinstaller
 
 
         }
+        /// <summary>
+        /// Functionality for app uninstall buttom click & uninstall button animations
+        /// </summary>
         private async void UninstallApp()
         {
             try
@@ -227,6 +246,10 @@ namespace WPFinstaller
             }
         }
 
+
+        /// <summary>
+        /// Method for newer version installed panel initialize
+        /// </summary>
         private void NewerVersionExists()
         {
             try
@@ -244,6 +267,9 @@ namespace WPFinstaller
             }
         }
 
+        /// <summary>
+        /// Animations for panel after old version panel
+        /// </summary>
         private async void NewerVersionExistsAnim()
         {
             try
@@ -285,6 +311,10 @@ namespace WPFinstaller
                 ErrorGrid.Visibility = Visibility.Visible;
             }
         }
+
+        /// <summary>
+        /// Animations for downgrade panels
+        /// </summary>
         private async void DownGradeAnim()
         {
             try
@@ -345,6 +375,12 @@ namespace WPFinstaller
                 ErrorGrid.Visibility = Visibility.Visible;
             }
         }
+
+        /// <summary>
+        /// Moves the window when dragging with left mouse.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if(e.ChangedButton == MouseButton.Left)
@@ -359,14 +395,32 @@ namespace WPFinstaller
                 }
             }
         }
+
+        /// <summary>
+        /// Shuts down the application.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CloseApp(object sender, MouseButtonEventArgs e)
         {
             Application.Current.Shutdown();
         }
+
+        /// <summary>
+        /// Minimizes the app window.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void MinimizeApp(object sender, MouseButtonEventArgs e)
         {
             this.WindowState = WindowState.Minimized;
         }
+
+        /// <summary>
+        /// Opens the link to personal github page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void OpenLink(object sender, MouseButtonEventArgs e)
         {
             try

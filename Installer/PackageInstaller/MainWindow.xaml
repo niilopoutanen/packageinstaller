@@ -60,7 +60,7 @@
                 </Grid>
                 <Grid x:Name="InstallDonePanel" Style="{StaticResource InteractGrid}" Margin="-1100,0,0,0">
                     <TextBlock x:Name="InstallationDoneText" Style="{StaticResource InformationHeaderText}" Margin="0,0,0,40">Installation done.</TextBlock>
-                    <TextBlock x:Name="AppInstalledToText" VerticalAlignment="Center" Style="{StaticResource InformationSubText}" Margin="0,30,0,0">App installed to: </TextBlock>
+                    <TextBlock x:Name="AppInstalledToText" VerticalAlignment="Center" Style="{StaticResource InformationSubText}" Margin="0,30,0,0">App installed to:</TextBlock>
                     <Border Style="{StaticResource InteractButton}" Width="120" HorizontalAlignment="Right" MouseLeftButtonDown="CloseApp" Cursor="Hand" Margin="0,0,0,45">
                         <TextBlock x:Name="QuitButtonText2" Style="{StaticResource InteractButtonText}">Quit</TextBlock>
                     </Border>
@@ -82,8 +82,6 @@
                     </Border>
                 </Grid>
             </Grid>
-
         </Grid>
-
     </Grid>
 </Window>

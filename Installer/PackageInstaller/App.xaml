@@ -108,38 +108,45 @@
         </Style>
 
         
+        
+        <!--Animation for Install & Uninstall buttons-->
         <DoubleAnimationUsingKeyFrames Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Border.Width)" x:Key="MainButtonWidthAnim">
             <SplineDoubleKeyFrame KeyTime="0:0:0" Value="400"/>
             <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="120" KeySpline="0.5,0 0.3,1"/>
         </DoubleAnimationUsingKeyFrames>
 
-
+        <!--Animation for Install & Uninstall buttons-->
         <ThicknessAnimationUsingKeyFrames Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Border.Margin)" x:Key="MainButtonMarginAnim">
             <SplineThicknessKeyFrame KeyTime="0:0:0" Value="0,0,0,45"/>
             <SplineThicknessKeyFrame KeyTime="0:0:0.5" Value="335,0,0,45" KeySpline="0.5,0 0.3,1"/>
         </ThicknessAnimationUsingKeyFrames>
 
-
+        <!--Text fade out animation-->
         <DoubleAnimation From="1" To="0" Duration="0:0:0.3" FillBehavior="HoldEnd" Storyboard.TargetProperty="Opacity" x:Key="TextFadeOut" />
 
-
+        <!--Text fade in animation-->
         <DoubleAnimation From="0" To="1" Duration="0:0:0.3" FillBehavior="HoldEnd" Storyboard.TargetProperty="Opacity" x:Key="TextFadeIn" />
 
+        <!--Animation for yes button initialization-->
         <ThicknessAnimationUsingKeyFrames x:Key="YesButtonAnim" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Border.Margin)">
             <SplineThicknessKeyFrame KeyTime="0:0:0" Value="0,0,0,45" />
             <SplineThicknessKeyFrame KeyTime="0:0:0.2" Value="0,0,0,70" KeySpline="0.5,0 0.3,1"/>
         </ThicknessAnimationUsingKeyFrames>
 
+        <!--Animation for yes button ending-->
         <ThicknessAnimationUsingKeyFrames x:Key="YesButtonReturnAnim" Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Border.Margin)">
             <SplineThicknessKeyFrame KeyTime="0:0:0.5" Value="0,0,0,45" KeySpline="0.5,0 0.3,1"/>
             <SplineThicknessKeyFrame KeyTime="0:0:0" Value="0,0,0,70"/>
         </ThicknessAnimationUsingKeyFrames>
 
+        
+        <!--Animation for yes button width when ending-->
         <DoubleAnimationUsingKeyFrames x:Key="YesButtonWidthAnim" Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Border.Width)">
             <SplineDoubleKeyFrame KeyTime="0:0:0" Value="110" />
             <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="120" KeySpline="0.5,0 0.3,1"/>
         </DoubleAnimationUsingKeyFrames>
         
+        <!--Animation for No button position/ fade out-->
         <ThicknessAnimationUsingKeyFrames x:Key="NoButtonAnim" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Border.Margin)">
             <SplineThicknessKeyFrame KeyTime="0:0:0" Value="0,0,0,0" />
             <SplineThicknessKeyFrame KeyTime="0:0:0.2" Value="0,75,0,0" KeySpline="0.5,0 0.3,1"/>

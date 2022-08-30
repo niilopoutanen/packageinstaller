@@ -27,14 +27,12 @@ namespace WPFinstaller
         string Exename = "Tetris.exe";
 
 
-        /// <summary>
-        /// Test method if user prompt for install folder will be implemented.
-        /// </summary>
 
 
         /// <summary>
-        /// Adds the given ZIP file to temp folder for later moving.
+        /// Checks if app is installed to the computer. Runs when launching the app.
         /// </summary>
+        /// <returns></returns>
         public bool IsAppInstalled()
         {
             //0 = same version exists = false
@@ -60,15 +58,28 @@ namespace WPFinstaller
             }
             return false;
         }
+
+        /// <summary>
+        /// Returns the installation path of the app.
+        /// </summary>
+        /// <returns></returns>
         public string GetInstallPath()
         {
 
             return ProgramFiles;
         }
+
+        /// <summary>
+        /// Returns the name of the app being installed.
+        /// </summary>
+        /// <returns></returns>
         public string GetProductName()
         {
             return ProductName;
         }
+        /// <summary>
+        /// Adds the given ZIP file to temp folder for later moving.
+        /// </summary>
         public int UnZipResource(bool forceinstall)
         {
             if (forceinstall == true)
@@ -102,6 +113,12 @@ namespace WPFinstaller
             }
             return 1;
         }
+
+        /// <summary>
+        /// Gets the version app.
+        /// </summary>
+        /// <param name="IsLocal"></param>
+        /// <returns></returns>
         public float GetVersion(bool IsLocal)
         {
             if (IsLocal == false)
@@ -230,6 +247,10 @@ namespace WPFinstaller
                 CreateShortcut();
             }
         }
+
+        /// <summary>
+        /// Uninstalls all the related data to the app.
+        /// </summary>
         public void UninstallApp()
         {
             string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
