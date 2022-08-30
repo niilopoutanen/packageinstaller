@@ -94,6 +94,7 @@ namespace WPFinstaller
         }
         private async void InstallApp()
         {
+            InstallButton.IsEnabled = false;
             int successful = filemanager.UnZipResource(false);
             DoubleAnimationUsingKeyFrames widthAnim = (this.FindResource("MainButtonWidthAnim") as DoubleAnimationUsingKeyFrames).Clone();
             ThicknessAnimationUsingKeyFrames marginAnim = (this.FindResource("MainButtonMarginAnim") as ThicknessAnimationUsingKeyFrames).Clone();
@@ -135,6 +136,7 @@ namespace WPFinstaller
         }
         private async void UninstallApp()
         {
+            UninstallButton.IsEnabled = false;
             DoubleAnimationUsingKeyFrames widthAnim = (this.FindResource("MainButtonWidthAnim") as DoubleAnimationUsingKeyFrames).Clone();
             ThicknessAnimationUsingKeyFrames marginAnim = (this.FindResource("MainButtonMarginAnim") as ThicknessAnimationUsingKeyFrames).Clone();
             DoubleAnimation fadeout = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();

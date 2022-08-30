@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFinstaller"
         mc:Ignorable="d"
-        Title="MainWindow" Height="320" Width="515" WindowStyle="None" Background="Transparent" MouseDown="Window_MouseDown" ResizeMode="CanResize" AllowsTransparency="True">
+        Title="MainWindow" Height="320" Width="515" WindowStyle="None" Background="Transparent" MouseDown="Window_MouseDown" ResizeMode="CanMinimize" AllowsTransparency="True">
 
     <Grid x:Name="MainGrid">
         <Border x:Name="BackGround" Width="515" Height="320" CornerRadius="30" Panel.ZIndex="0">
