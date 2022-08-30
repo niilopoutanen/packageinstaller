@@ -37,7 +37,7 @@ namespace WPFinstaller
             UninstallPanel.Margin = new Thickness(0, 0, 0, 0);
             UninstallDonePanel.Visibility = Visibility.Hidden;
             UninstallDonePanel.Margin = new Thickness(0, 0, 0, 0);
-
+            AppInstalledToText.Text = "App installed to: \n" + filemanager.GetInstallPath();
             ProductName.Text = filemanager.GetProductName();
             float version = filemanager.GetVersion(true);
             Version.Text = version.ToString();
@@ -73,15 +73,22 @@ namespace WPFinstaller
         {
             DoubleAnimation fadein = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
             DoubleAnimation fadein2 = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
+            DoubleAnimation fadein3 = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
+
             Storyboard storyboard = new Storyboard();
             storyboard.Children.Add(fadein);
             storyboard.Children.Add(fadein2);
+            storyboard.Children.Add(fadein3);
 
             Storyboard.SetTargetName(fadein, InstallationDoneText.Name);
             Storyboard.SetTargetName(fadein2, QuitButtonText2.Name);
+            Storyboard.SetTargetName(fadein3, AppInstalledToText.Name);
+
 
             Storyboard.SetTargetProperty(fadein, new PropertyPath(TextBlock.OpacityProperty));
             Storyboard.SetTargetProperty(fadein2, new PropertyPath(TextBlock.OpacityProperty));
+            Storyboard.SetTargetProperty(fadein3, new PropertyPath(TextBlock.OpacityProperty));
+
 
             storyboard.Begin(this);
         }
@@ -242,7 +249,7 @@ namespace WPFinstaller
 
             OlderVersionPanel.Visibility = Visibility.Hidden;
             InstallDonePanel.Visibility = Visibility.Visible;
-            //filemanager.UnZipResource(true);
+            filemanager.UnZipResource(true);
 
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
