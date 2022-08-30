@@ -293,5 +293,11 @@ namespace WPFinstaller
         {
             UninstallApp();
         }
+        private void ReportIssueButton(object sender, MouseButtonEventArgs e)
+        {
+            MessageBox.Show("Plese report the issue to my github.");
+            Process.Start(new ProcessStartInfo("https://github.com/niilopoutanen/PackageInstaller/issues/new") { UseShellExecute = true });
+
+        }
     }
 }
