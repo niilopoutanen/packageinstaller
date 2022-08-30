@@ -63,54 +63,6 @@ namespace Installer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        public static byte[] CloseIcon {
-            get {
-                object obj = ResourceManager.GetObject("CloseIcon", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] GitHubLogo {
-            get {
-                object obj = ResourceManager.GetObject("GitHubLogo", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
-        ///&lt;!--This file is NOT compatible with Silverlight--&gt;
-        ///&lt;Viewbox xmlns=&quot;http://schemas.microsoft.com/winfx/2006/xaml/presentation&quot; Stretch=&quot;Uniform&quot;&gt;
-        ///  &lt;Canvas Name=&quot;Layer_1&quot; Canvas.Left=&quot;0&quot; Canvas.Top=&quot;0&quot; Width=&quot;8192&quot; Height=&quot;8192&quot;&gt;
-        ///    &lt;Canvas.RenderTransform&gt;
-        ///      &lt;TranslateTransform X=&quot;0&quot; Y=&quot;0&quot;/&gt;
-        ///    &lt;/Canvas.RenderTransform&gt;
-        ///    &lt;Canvas.Resources/&gt;
-        ///    &lt;!--Unknown tag: sodipodi:namedview--&gt;
-        ///    &lt;Path xmlns:x=&quot;http://schemas.microsoft.com/winfx/2006/xaml&quot; Nam [rest of string was truncated]&quot;;.
-        /// </summary>
-        public static string Logo {
-            get {
-                return ResourceManager.GetString("Logo", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        public static byte[] MinimizeIcon {
-            get {
-                object obj = ResourceManager.GetObject("MinimizeIcon", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         public static byte[] Package {
             get {
                 object obj = ResourceManager.GetObject("Package", resourceCulture);
