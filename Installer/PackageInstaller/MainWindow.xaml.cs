@@ -90,6 +90,7 @@ namespace WPFinstaller
                 Storyboard.SetTargetProperty(fadein2, new PropertyPath(TextBlock.OpacityProperty));
 
                 storyboard.Begin(this);
+                await Task.Delay(500);
             }
             catch (Exception)
             {
