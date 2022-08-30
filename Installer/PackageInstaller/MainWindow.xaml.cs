@@ -27,109 +27,159 @@ namespace WPFinstaller
         FileManager filemanager = new FileManager();
         public MainWindow()
         {
-            InitializeComponent();
-            InstallPanel.Visibility = Visibility.Hidden;
-            InstallDonePanel.Visibility = Visibility.Hidden;
-            InstallDonePanel.Margin = new Thickness(0, 0, 0, 0);
-            OlderVersionPanel.Visibility = Visibility.Hidden;
-            OlderVersionPanel.Margin = new Thickness(0, 0, 0, 0);
-            UninstallPanel.Visibility = Visibility.Hidden;
-            UninstallPanel.Margin = new Thickness(0, 0, 0, 0);
-            UninstallDonePanel.Visibility = Visibility.Hidden;
-            UninstallDonePanel.Margin = new Thickness(0, 0, 0, 0);
-            AppInstalledToText.Text = "App installed to: \n" + filemanager.GetInstallPath();
-            ProductName.Text = filemanager.GetProductName();
-            float version = filemanager.GetVersion(true);
-            Version.Text = version.ToString();
+            try
+            {
+                InitializeComponent();
+                InstallPanel.Visibility = Visibility.Hidden;
+                InstallDonePanel.Visibility = Visibility.Hidden;
+                InstallDonePanel.Margin = new Thickness(0, 0, 0, 0);
+                OlderVersionPanel.Visibility = Visibility.Hidden;
+                OlderVersionPanel.Margin = new Thickness(0, 0, 0, 0);
+                UninstallPanel.Visibility = Visibility.Hidden;
+                UninstallPanel.Margin = new Thickness(0, 0, 0, 0);
+                UninstallDonePanel.Visibility = Visibility.Hidden;
+                UninstallDonePanel.Margin = new Thickness(0, 0, 0, 0);
+                ErrorGrid.Visibility = Visibility.Hidden;
+                ErrorGrid.Margin = new Thickness(0, 0, 0, 0);
+                AppInstalledToText.Text = "App installed to: \n" + filemanager.GetInstallPath();
+                ProductName.Text = filemanager.GetProductName();
+                float version = filemanager.GetVersion(true);
+                Version.Text = "Version: " + version.ToString();
 
-            bool IsAppInstalled = filemanager.IsAppInstalled();
-            if (IsAppInstalled == true)
-            {
-                UninstallPanel.Visibility = Visibility.Visible;
+                bool IsAppInstalled = filemanager.IsAppInstalled();
+                if (IsAppInstalled == true)
+                {
+                    UninstallPanel.Visibility = Visibility.Visible;
+                }
+                else if (IsAppInstalled == false)
+                {
+                    InstallPanel.Visibility = Visibility.Visible;
+                }
             }
-            else if (IsAppInstalled == false)
+            catch (Exception)
             {
-                InstallPanel.Visibility = Visibility.Visible;
+                HideAll();
+                MessageBox.Show("Create a new issue and specify what happened during the error", "Plese report the issue to my github.", MessageBoxButton.OK);
+
+                ErrorGrid.Visibility = Visibility.Visible;
             }
         }
-
+        private void HideAll()
+        {
+            InstallPanel.Visibility = Visibility.Hidden;
+            InstallDonePanel.Visibility = Visibility.Hidden;
+            OlderVersionPanel.Visibility = Visibility.Hidden;
+            UninstallPanel.Visibility = Visibility.Hidden;
+            UninstallDonePanel.Visibility = Visibility.Hidden;
+            ErrorGrid.Visibility = Visibility.Hidden;
+        }
         private async void UninstallDoneAnim()
         {
-            DoubleAnimation fadein = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
-            DoubleAnimation fadein2 = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
-            Storyboard storyboard = new Storyboard();
-            storyboard.Children.Add(fadein);
-            storyboard.Children.Add(fadein2);
+            try
+            {
+                DoubleAnimation fadein = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
+                DoubleAnimation fadein2 = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
+                Storyboard storyboard = new Storyboard();
+                storyboard.Children.Add(fadein);
+                storyboard.Children.Add(fadein2);
 
-            Storyboard.SetTargetName(fadein, AppUninstalledText.Name);
-            Storyboard.SetTargetName(fadein2, QuitButtonText.Name);
+                Storyboard.SetTargetName(fadein, AppUninstalledText.Name);
+                Storyboard.SetTargetName(fadein2, QuitButtonText.Name);
 
-            Storyboard.SetTargetProperty(fadein, new PropertyPath(TextBlock.OpacityProperty));
-            Storyboard.SetTargetProperty(fadein2, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(fadein, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(fadein2, new PropertyPath(TextBlock.OpacityProperty));
 
-            storyboard.Begin(this);
+                storyboard.Begin(this);
+            }
+            catch (Exception)
+            {
+                HideAll();
+                MessageBox.Show("Create a new issue and specify what happened during the error", "Plese report the issue to my github.", MessageBoxButton.OK);
+
+                ErrorGrid.Visibility = Visibility.Visible;
+            }
         }
         private void InstallDoneAnim()
         {
-            DoubleAnimation fadein = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
-            DoubleAnimation fadein2 = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
-            DoubleAnimation fadein3 = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
+            try
+            {
+                DoubleAnimation fadein = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
+                DoubleAnimation fadein2 = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
+                DoubleAnimation fadein3 = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
 
-            Storyboard storyboard = new Storyboard();
-            storyboard.Children.Add(fadein);
-            storyboard.Children.Add(fadein2);
-            storyboard.Children.Add(fadein3);
+                Storyboard storyboard = new Storyboard();
+                storyboard.Children.Add(fadein);
+                storyboard.Children.Add(fadein2);
+                storyboard.Children.Add(fadein3);
 
-            Storyboard.SetTargetName(fadein, InstallationDoneText.Name);
-            Storyboard.SetTargetName(fadein2, QuitButtonText2.Name);
-            Storyboard.SetTargetName(fadein3, AppInstalledToText.Name);
-
-
-            Storyboard.SetTargetProperty(fadein, new PropertyPath(TextBlock.OpacityProperty));
-            Storyboard.SetTargetProperty(fadein2, new PropertyPath(TextBlock.OpacityProperty));
-            Storyboard.SetTargetProperty(fadein3, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetName(fadein, InstallationDoneText.Name);
+                Storyboard.SetTargetName(fadein2, QuitButtonText2.Name);
+                Storyboard.SetTargetName(fadein3, AppInstalledToText.Name);
 
 
-            storyboard.Begin(this);
+                Storyboard.SetTargetProperty(fadein, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(fadein2, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(fadein3, new PropertyPath(TextBlock.OpacityProperty));
+
+
+                storyboard.Begin(this);
+            }
+            catch (Exception)
+            {
+                HideAll();
+                MessageBox.Show("Create a new issue and specify what happened during the error", "Plese report the issue to my github.", MessageBoxButton.OK);
+
+                ErrorGrid.Visibility = Visibility.Visible;
+            }
         }
         private async void InstallApp()
         {
-            InstallButton.IsEnabled = false;
-            DoubleAnimationUsingKeyFrames widthAnim = (this.FindResource("MainButtonWidthAnim") as DoubleAnimationUsingKeyFrames).Clone();
-            ThicknessAnimationUsingKeyFrames marginAnim = (this.FindResource("MainButtonMarginAnim") as ThicknessAnimationUsingKeyFrames).Clone();
-            DoubleAnimation fadeout = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
-
-
-            Storyboard storyboard = new Storyboard();
-            storyboard.Children.Add(fadeout);
-            storyboard.Children.Add(widthAnim);
-            storyboard.Children.Add(marginAnim);
-            Storyboard.SetTargetName(fadeout, InstallText.Name);
-            Storyboard.SetTargetName(widthAnim, InstallButton.Name);
-            Storyboard.SetTargetName(marginAnim, InstallButton.Name);
-
-            Storyboard.SetTargetProperty(fadeout, new PropertyPath(TextBlock.OpacityProperty));
-
-            Storyboard.SetTargetProperty(widthAnim, new PropertyPath(Border.WidthProperty));
-            Storyboard.SetTargetProperty(marginAnim, new PropertyPath(Border.MarginProperty));
-
-
-            storyboard.Begin(this);
-            await Task.Delay(500);
-            int successful = filemanager.UnZipResource(false);
-
-            InstallDoneAnim();
-
-            if(successful == 1)
+            try
             {
-                InstallPanel.Visibility = Visibility.Hidden;
-                InstallDonePanel.Visibility = Visibility.Visible;
+                InstallButton.IsEnabled = false;
+                DoubleAnimationUsingKeyFrames widthAnim = (this.FindResource("MainButtonWidthAnim") as DoubleAnimationUsingKeyFrames).Clone();
+                ThicknessAnimationUsingKeyFrames marginAnim = (this.FindResource("MainButtonMarginAnim") as ThicknessAnimationUsingKeyFrames).Clone();
+                DoubleAnimation fadeout = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
+
+
+                Storyboard storyboard = new Storyboard();
+                storyboard.Children.Add(fadeout);
+                storyboard.Children.Add(widthAnim);
+                storyboard.Children.Add(marginAnim);
+                Storyboard.SetTargetName(fadeout, InstallText.Name);
+                Storyboard.SetTargetName(widthAnim, InstallButton.Name);
+                Storyboard.SetTargetName(marginAnim, InstallButton.Name);
+
+                Storyboard.SetTargetProperty(fadeout, new PropertyPath(TextBlock.OpacityProperty));
+
+                Storyboard.SetTargetProperty(widthAnim, new PropertyPath(Border.WidthProperty));
+                Storyboard.SetTargetProperty(marginAnim, new PropertyPath(Border.MarginProperty));
+
+
+                storyboard.Begin(this);
+                await Task.Delay(500);
+                int successful = filemanager.UnZipResource(false);
+
+                InstallDoneAnim();
+
+                if (successful == 1)
+                {
+                    InstallPanel.Visibility = Visibility.Hidden;
+                    InstallDonePanel.Visibility = Visibility.Visible;
+                }
+                else if (successful == 2)
+                {
+                    NewerVersionExists();
+                    InstallPanel.Visibility = Visibility.Hidden;
+                    OlderVersionPanel.Visibility = Visibility.Visible;
+                }
             }
-            else if(successful == 2)
+            catch (Exception)
             {
-                NewerVersionExists();
-                InstallPanel.Visibility = Visibility.Hidden;
-                OlderVersionPanel.Visibility = Visibility.Visible;
+                HideAll();
+                MessageBox.Show("Create a new issue and specify what happened during the error", "Plese report the issue to my github.", MessageBoxButton.OK);
+
+                ErrorGrid.Visibility = Visibility.Visible;
             }
 
 
@@ -137,123 +187,162 @@ namespace WPFinstaller
         }
         private async void UninstallApp()
         {
-            UninstallButton.IsEnabled = false;
-            DoubleAnimationUsingKeyFrames widthAnim = (this.FindResource("MainButtonWidthAnim") as DoubleAnimationUsingKeyFrames).Clone();
-            ThicknessAnimationUsingKeyFrames marginAnim = (this.FindResource("MainButtonMarginAnim") as ThicknessAnimationUsingKeyFrames).Clone();
-            DoubleAnimation fadeout = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
+            try
+            {
+                UninstallButton.IsEnabled = false;
+                DoubleAnimationUsingKeyFrames widthAnim = (this.FindResource("MainButtonWidthAnim") as DoubleAnimationUsingKeyFrames).Clone();
+                ThicknessAnimationUsingKeyFrames marginAnim = (this.FindResource("MainButtonMarginAnim") as ThicknessAnimationUsingKeyFrames).Clone();
+                DoubleAnimation fadeout = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
 
 
-            Storyboard storyboard = new Storyboard();
-            storyboard.Children.Add(fadeout);
-            storyboard.Children.Add(widthAnim);
-            storyboard.Children.Add(marginAnim);
-            Storyboard.SetTargetName(fadeout, UninstallText.Name);
-            Storyboard.SetTargetName(widthAnim, UninstallButton.Name);
-            Storyboard.SetTargetName(marginAnim, UninstallButton.Name);
+                Storyboard storyboard = new Storyboard();
+                storyboard.Children.Add(fadeout);
+                storyboard.Children.Add(widthAnim);
+                storyboard.Children.Add(marginAnim);
+                Storyboard.SetTargetName(fadeout, UninstallText.Name);
+                Storyboard.SetTargetName(widthAnim, UninstallButton.Name);
+                Storyboard.SetTargetName(marginAnim, UninstallButton.Name);
 
-            Storyboard.SetTargetProperty(fadeout, new PropertyPath(TextBlock.OpacityProperty));
-            Storyboard.SetTargetProperty(widthAnim, new PropertyPath(Border.WidthProperty));
-            Storyboard.SetTargetProperty(marginAnim, new PropertyPath(Border.MarginProperty));
-
-
-            storyboard.Begin(this);
-            await Task.Delay(500);
+                Storyboard.SetTargetProperty(fadeout, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(widthAnim, new PropertyPath(Border.WidthProperty));
+                Storyboard.SetTargetProperty(marginAnim, new PropertyPath(Border.MarginProperty));
 
 
-            filemanager.UninstallApp();
-            UninstallPanel.Visibility = Visibility.Hidden;
-            UninstallDonePanel.Visibility = Visibility.Visible;
-            UninstallDoneAnim();
+                storyboard.Begin(this);
+                await Task.Delay(500);
+
+
+                filemanager.UninstallApp();
+                UninstallPanel.Visibility = Visibility.Hidden;
+                UninstallDonePanel.Visibility = Visibility.Visible;
+                UninstallDoneAnim();
+            }
+            catch (Exception)
+            {
+                HideAll();
+                MessageBox.Show("Create a new issue and specify what happened during the error", "Plese report the issue to my github.", MessageBoxButton.OK);
+
+                ErrorGrid.Visibility = Visibility.Visible;
+            }
         }
 
         private void NewerVersionExists()
         {
-            VersionXInstalledText.Text = "Version " + filemanager.GetVersion(false) + " installed.";
-            DowngradeToVersion.Text = "Do you want to downgrade to version " + filemanager.GetVersion(true) + " ?";
-            NewerVersionExistsAnim();
+            try
+            {
+                VersionXInstalledText.Text = "Version " + filemanager.GetVersion(false) + " installed.";
+                DowngradeToVersion.Text = "Do you want to downgrade to version " + filemanager.GetVersion(true) + " ?";
+                NewerVersionExistsAnim();
+            }
+            catch (Exception)
+            {
+                HideAll();
+                MessageBox.Show("Create a new issue and specify what happened during the error", "Plese report the issue to my github.", MessageBoxButton.OK);
+
+                ErrorGrid.Visibility = Visibility.Visible;
+            }
         }
 
         private async void NewerVersionExistsAnim()
         {
-            DoubleAnimation fadein = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
-            DoubleAnimation fadein2 = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
-            ThicknessAnimationUsingKeyFrames YesSlide = (this.FindResource("YesButtonAnim") as ThicknessAnimationUsingKeyFrames).Clone();
-            ThicknessAnimationUsingKeyFrames NoSlide = (this.FindResource("NoButtonAnim") as ThicknessAnimationUsingKeyFrames).Clone();
+            try
+            {
+                DoubleAnimation fadein = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
+                DoubleAnimation fadein2 = (this.FindResource("TextFadeIn") as DoubleAnimation).Clone();
+                ThicknessAnimationUsingKeyFrames YesSlide = (this.FindResource("YesButtonAnim") as ThicknessAnimationUsingKeyFrames).Clone();
+                ThicknessAnimationUsingKeyFrames NoSlide = (this.FindResource("NoButtonAnim") as ThicknessAnimationUsingKeyFrames).Clone();
 
-            Storyboard storyboard = new Storyboard();
-            storyboard.Children.Add(fadein);
-            storyboard.Children.Add(fadein2);
-            storyboard.Children.Add(YesSlide);
-            storyboard.Children.Add(NoSlide);
-
-
-            Storyboard.SetTargetName(fadein, VersionXInstalledText.Name);
-            Storyboard.SetTargetName(fadein2, DowngradeToVersion.Name);
-            Storyboard.SetTargetName(YesSlide, YesButton.Name);
-            Storyboard.SetTargetName(NoSlide, NoButton.Name);
+                Storyboard storyboard = new Storyboard();
+                storyboard.Children.Add(fadein);
+                storyboard.Children.Add(fadein2);
+                storyboard.Children.Add(YesSlide);
+                storyboard.Children.Add(NoSlide);
 
 
-
-            Storyboard.SetTargetProperty(fadein, new PropertyPath(TextBlock.OpacityProperty));
-            Storyboard.SetTargetProperty(fadein2, new PropertyPath(TextBlock.OpacityProperty));
-            Storyboard.SetTargetProperty(YesSlide, new PropertyPath(Border.MarginProperty));
-            Storyboard.SetTargetProperty(NoSlide, new PropertyPath(Border.MarginProperty));
+                Storyboard.SetTargetName(fadein, VersionXInstalledText.Name);
+                Storyboard.SetTargetName(fadein2, DowngradeToVersion.Name);
+                Storyboard.SetTargetName(YesSlide, YesButton.Name);
+                Storyboard.SetTargetName(NoSlide, NoButton.Name);
 
 
 
-            storyboard.Begin(this);
-            await Task.Delay(1000);
+                Storyboard.SetTargetProperty(fadein, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(fadein2, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(YesSlide, new PropertyPath(Border.MarginProperty));
+                Storyboard.SetTargetProperty(NoSlide, new PropertyPath(Border.MarginProperty));
+
+
+
+                storyboard.Begin(this);
+                await Task.Delay(1000);
+            }
+            catch (Exception)
+            {
+                HideAll();
+                MessageBox.Show("Create a new issue and specify what happened during the error", "Plese report the issue to my github.", MessageBoxButton.OK);
+
+                ErrorGrid.Visibility = Visibility.Visible;
+            }
         }
         private async void DownGradeAnim()
         {
-            DoubleAnimation fadeout = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
-            DoubleAnimation fadeout2 = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
-            DoubleAnimation fadeout3 = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
-            DoubleAnimation fadeout4 = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
-            ThicknessAnimationUsingKeyFrames OkSlideBack = (this.FindResource("YesButtonReturnAnim") as ThicknessAnimationUsingKeyFrames).Clone();
-            DoubleAnimationUsingKeyFrames OkWidthReturn = (this.FindResource("YesButtonWidthAnim") as DoubleAnimationUsingKeyFrames).Clone();
+            try
+            {
+                DoubleAnimation fadeout = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
+                DoubleAnimation fadeout2 = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
+                DoubleAnimation fadeout3 = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
+                DoubleAnimation fadeout4 = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
+                ThicknessAnimationUsingKeyFrames OkSlideBack = (this.FindResource("YesButtonReturnAnim") as ThicknessAnimationUsingKeyFrames).Clone();
+                DoubleAnimationUsingKeyFrames OkWidthReturn = (this.FindResource("YesButtonWidthAnim") as DoubleAnimationUsingKeyFrames).Clone();
 
-            Storyboard storyboard = new Storyboard();
-            storyboard.Children.Add(fadeout);
-            storyboard.Children.Add(fadeout2);
-            storyboard.Children.Add(fadeout4);
-            storyboard.Children.Add(fadeout3);
-            storyboard.Children.Add(OkSlideBack);
-            storyboard.Children.Add(OkWidthReturn);
-
-
-
-
-            Storyboard.SetTargetName(fadeout, NoButton.Name);
-            Storyboard.SetTargetName(fadeout2, VersionXInstalledText.Name);
-            Storyboard.SetTargetName(fadeout3, DowngradeToVersion.Name);
-            Storyboard.SetTargetName(fadeout3, DowngradeToVersion.Name);
-            Storyboard.SetTargetName(fadeout4, YesButtonText.Name);
-            Storyboard.SetTargetName(OkSlideBack, YesButton.Name);
-            Storyboard.SetTargetName(OkWidthReturn, YesButton.Name);
+                Storyboard storyboard = new Storyboard();
+                storyboard.Children.Add(fadeout);
+                storyboard.Children.Add(fadeout2);
+                storyboard.Children.Add(fadeout4);
+                storyboard.Children.Add(fadeout3);
+                storyboard.Children.Add(OkSlideBack);
+                storyboard.Children.Add(OkWidthReturn);
 
 
 
 
-
-            Storyboard.SetTargetProperty(fadeout, new PropertyPath(Border.OpacityProperty));
-            Storyboard.SetTargetProperty(fadeout2, new PropertyPath(TextBlock.OpacityProperty));
-            Storyboard.SetTargetProperty(fadeout3, new PropertyPath(TextBlock.OpacityProperty));
-            Storyboard.SetTargetProperty(fadeout4, new PropertyPath(TextBlock.OpacityProperty));
-            Storyboard.SetTargetProperty(OkSlideBack, new PropertyPath(Border.MarginProperty));
-            Storyboard.SetTargetProperty(OkWidthReturn, new PropertyPath(Border.WidthProperty));
-
-
+                Storyboard.SetTargetName(fadeout, NoButton.Name);
+                Storyboard.SetTargetName(fadeout2, VersionXInstalledText.Name);
+                Storyboard.SetTargetName(fadeout3, DowngradeToVersion.Name);
+                Storyboard.SetTargetName(fadeout3, DowngradeToVersion.Name);
+                Storyboard.SetTargetName(fadeout4, YesButtonText.Name);
+                Storyboard.SetTargetName(OkSlideBack, YesButton.Name);
+                Storyboard.SetTargetName(OkWidthReturn, YesButton.Name);
 
 
-            storyboard.Begin(this);
-            await Task.Delay(600);
 
 
-            OlderVersionPanel.Visibility = Visibility.Hidden;
-            InstallDonePanel.Visibility = Visibility.Visible;
-            filemanager.UnZipResource(true);
 
+                Storyboard.SetTargetProperty(fadeout, new PropertyPath(Border.OpacityProperty));
+                Storyboard.SetTargetProperty(fadeout2, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(fadeout3, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(fadeout4, new PropertyPath(TextBlock.OpacityProperty));
+                Storyboard.SetTargetProperty(OkSlideBack, new PropertyPath(Border.MarginProperty));
+                Storyboard.SetTargetProperty(OkWidthReturn, new PropertyPath(Border.WidthProperty));
+
+
+
+
+                storyboard.Begin(this);
+                await Task.Delay(600);
+
+
+                OlderVersionPanel.Visibility = Visibility.Hidden;
+                InstallDonePanel.Visibility = Visibility.Visible;
+                filemanager.UnZipResource(true);
+            }
+            catch (Exception)
+            {
+                HideAll();
+                MessageBox.Show("Create a new issue and specify what happened during the error", "Plese report the issue to my github.", MessageBoxButton.OK);
+
+                ErrorGrid.Visibility = Visibility.Visible;
+            }
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -279,7 +368,16 @@ namespace WPFinstaller
         }
         private void OpenLink(object sender, MouseButtonEventArgs e)
         {
-            Process.Start(new ProcessStartInfo("https://github.com/niilopoutanen") { UseShellExecute = true });
+            try
+            {
+                Process.Start(new ProcessStartInfo("https://github.com/niilopoutanen") { UseShellExecute = true });
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Create a new issue and specify what happened during the error", "Plese report the issue to my github.", MessageBoxButton.OK);
+                HideAll();
+                ErrorGrid.Visibility = Visibility.Visible;
+            }
         }
         private void InstallButton_Click(object sender, MouseButtonEventArgs e)
         {
@@ -295,7 +393,6 @@ namespace WPFinstaller
         }
         private void ReportIssueButton(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("Plese report the issue to my github.");
             Process.Start(new ProcessStartInfo("https://github.com/niilopoutanen/PackageInstaller/issues/new") { UseShellExecute = true });
 
         }

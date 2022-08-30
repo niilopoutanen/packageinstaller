@@ -108,12 +108,6 @@
         </Style>
 
         
-        <!--Animation for main install & uninstall buttons-->
-
-        <!--<Storyboard x:Key="TextFadeOut">
-            <DoubleAnimation From="1" To="0" Duration="0:0:0.3" FillBehavior="HoldEnd" Storyboard.TargetProperty="Opacity" />
-        </Storyboard>-->
-
         <DoubleAnimationUsingKeyFrames Duration="0:0:0.5" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Border.Width)" x:Key="MainButtonWidthAnim">
             <SplineDoubleKeyFrame KeyTime="0:0:0" Value="400"/>
             <SplineDoubleKeyFrame KeyTime="0:0:0.5" Value="120" KeySpline="0.5,0 0.3,1"/>

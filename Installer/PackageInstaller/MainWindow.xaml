@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPFinstaller"
         mc:Ignorable="d"
-        Title="MainWindow" Height="320" Width="515" WindowStyle="None" Background="Transparent" MouseDown="Window_MouseDown" ResizeMode="CanMinimize" AllowsTransparency="True">
+        Title="MainWindow" Height="320" Width="515" WindowStyle="None" Background="Transparent" MouseLeftButtonDown="Window_MouseDown" ResizeMode="CanMinimize" AllowsTransparency="True">
 
     <Grid x:Name="MainGrid">
         <Border x:Name="BackGround" Width="515" Height="320" CornerRadius="30" Panel.ZIndex="0">
@@ -65,7 +65,12 @@
                         <TextBlock x:Name="QuitButtonText2" Style="{StaticResource InteractButtonText}">Quit</TextBlock>
                     </Border>
                 </Grid>
-
+                <Grid x:Name="ErrorGrid" Style="{StaticResource InteractGrid}" Margin="-5500,0,0,0">
+                    <TextBlock Style="{StaticResource InformationHeaderText}">Error</TextBlock>
+                    <Border Style="{StaticResource InteractButton}" Width="200" HorizontalAlignment="Right" MouseLeftButtonDown="ReportIssueButton">
+                        <TextBlock Style="{StaticResource InteractButtonText}">Report error</TextBlock>
+                    </Border>
+                </Grid>
                 <Grid x:Name="OlderVersionPanel" Style="{StaticResource InteractGrid}" Margin="-3300,0,0,0">
                     <TextBlock x:Name="VersionXInstalledText" Style="{StaticResource InformationHeaderText}" Margin="0,44,0,0" VerticalAlignment="Top">Version 0.0 installed.</TextBlock>
                     <TextBlock x:Name="DowngradeToVersion" Style="{StaticResource InformationSubText}" Margin="0,76,0,0" VerticalAlignment="Top">Do you want to downgrade to version 0.1?</TextBlock>
