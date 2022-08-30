@@ -18,7 +18,7 @@ namespace WPFinstaller
         //Path to temp file with the zip for moving
         string tempfile = Path.GetTempPath() + "\\temp.zip";
         //Version of the program being installed
-        float version = 0.05f;
+        float version = 0.02f;
         //Name of the program being installed
         static string ProductName = "Testi";
         //Path to Program files folder with product name
@@ -37,24 +37,18 @@ namespace WPFinstaller
         /// </summary>
         public bool IsAppInstalled()
         {
+            //0 = same version exists = false
+            //1 = older version exists but installed is newer = true
+            //2 = older version is newer than installed = false
             if (Directory.Exists(ProgramFiles))
             {
-                string[] versionarray;
-                try
+                int versioncompare = CompareVersion(version);
+                
+                if(versioncompare == 0)
                 {
-                    versionarray = System.IO.File.ReadAllLines(ProgramFiles + "\\version.txt");
-
-                }
-                catch
-                {
-                    return false;
-                }
-                try
-                {
-                    float oldversion = Convert.ToSingle(versionarray[0]);
                     return true;
                 }
-                catch
+                else if (versioncompare == 1 || versioncompare == 2)
                 {
                     return false;
                 }

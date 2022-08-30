@@ -130,5 +130,15 @@
 
 
         <DoubleAnimation From="0" To="1" Duration="0:0:0.3" FillBehavior="HoldEnd" Storyboard.TargetProperty="Opacity" x:Key="TextFadeIn" />
+
+        <ThicknessAnimationUsingKeyFrames x:Key="YesButtonAnim" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Border.Margin)">
+            <SplineThicknessKeyFrame KeyTime="0:0:0" Value="0,0,0,0" />
+            <SplineThicknessKeyFrame KeyTime="0:0:0.2" Value="0,0,0,60" KeySpline="0.5,0 0.3,1"/>
+        </ThicknessAnimationUsingKeyFrames>
+
+        <ThicknessAnimationUsingKeyFrames x:Key="NoButtonAnim" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="(Border.Margin)">
+            <SplineThicknessKeyFrame KeyTime="0:0:0" Value="0,0,0,0" />
+            <SplineThicknessKeyFrame KeyTime="0:0:0.2" Value="0,75,0,0" KeySpline="0.5,0 0.3,1"/>
+        </ThicknessAnimationUsingKeyFrames>
     </Application.Resources>
 </Application>

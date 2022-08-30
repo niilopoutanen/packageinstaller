@@ -52,31 +52,26 @@
                         <TextBlock x:Name="UninstallText" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center">Uninstall</TextBlock>
                     </Border>
                 </Grid>
-                <Grid x:Name="UninstallDonePanel" Style="{StaticResource InteractGrid}" Margin="-5500,0,0,0">
+                <Grid x:Name="UninstallDonePanel" Style="{StaticResource InteractGrid}" Margin="-2200,0,0,0">
                     <TextBlock x:Name="AppUninstalledText" Style="{StaticResource InformationHeaderText}" Margin="0,49,0,0" VerticalAlignment="Top">App uninstalled.</TextBlock>
-                    <Border Style="{StaticResource InteractButton}" Width="120" HorizontalAlignment="Right" MouseLeftButtonDown="CloseApp">
+                    <Border Style="{StaticResource InteractButton}" Width="120" HorizontalAlignment="Right" MouseLeftButtonDown="CloseApp" Cursor="Hand">
                         <TextBlock x:Name="QuitButtonText" Style="{StaticResource InteractButtonText}">Quit</TextBlock>
                     </Border>
                 </Grid>
                 <Grid x:Name="InstallDonePanel" Style="{StaticResource InteractGrid}" Margin="-1100,0,0,0">
                     <TextBlock x:Name="InstallationDoneText" VerticalAlignment="Top" FontSize="24" FontWeight="Bold" Margin="0,44,0,0">Installation done.</TextBlock>
-                    <Border Style="{StaticResource InteractButton}" Width="120" HorizontalAlignment="Right" MouseLeftButtonDown="CloseApp">
+                    <Border Style="{StaticResource InteractButton}" Width="120" HorizontalAlignment="Right" MouseLeftButtonDown="CloseApp" Cursor="Hand">
                         <TextBlock x:Name="QuitButtonText2" Style="{StaticResource InteractButtonText}">Quit</TextBlock>
                     </Border>
                 </Grid>
-                <Grid x:Name="SameVersionPanel" Style="{StaticResource InteractGrid}" Margin="-2200,0,0,0">
-                    <TextBlock Style="{StaticResource InformationHeaderText}" Margin="0,33,0,0" VerticalAlignment="Top">Same version already <LineBreak/> installed.</TextBlock>
-                    <Border Style="{StaticResource InteractButton}" Width="120" HorizontalAlignment="Right" MouseLeftButtonDown="CloseApp">
-                        <TextBlock Style="{StaticResource InteractButtonText}">OK</TextBlock>
-                    </Border>
-                </Grid>
+
                 <Grid x:Name="OlderVersionPanel" Style="{StaticResource InteractGrid}" Margin="-3300,0,0,0">
-                    <TextBlock Style="{StaticResource InformationHeaderText}" Margin="0,44,0,0" VerticalAlignment="Top">Version 0.0 installed.</TextBlock>
-                    <TextBlock Style="{StaticResource InformationSubText}" Margin="0,76,0,0" VerticalAlignment="Top">Do you want to downgrade to version 0.1?</TextBlock>
-                    <Border Style="{StaticResource InteractButton}" Width="110" HorizontalAlignment="Right" Margin="0,0,0,70">
+                    <TextBlock x:Name="VersionXInstalledText" Style="{StaticResource InformationHeaderText}" Margin="0,44,0,0" VerticalAlignment="Top">Version 0.0 installed.</TextBlock>
+                    <TextBlock x:Name="DowngradeToVersion" Style="{StaticResource InformationSubText}" Margin="0,76,0,0" VerticalAlignment="Top">Do you want to downgrade to version 0.1?</TextBlock>
+                    <Border x:Name="YesButton" Style="{StaticResource InteractButton}" Width="110" HorizontalAlignment="Right" Margin="0,0,0,60" Panel.ZIndex="2" VerticalAlignment="Center" MouseLeftButtonDown="ForceInstallApp" Cursor="Hand">
                         <TextBlock Style="{StaticResource InteractButtonText}">Yes</TextBlock>
                     </Border>
-                    <Border Style="{StaticResource ResourceKey=InteractButton}" Width="110" HorizontalAlignment="Right" Margin="0,0,0,4">
+                    <Border x:Name="NoButton" Style="{StaticResource ResourceKey=InteractButton}" Width="110" HorizontalAlignment="Right" Margin="0,75,0,0" Panel.ZIndex="1" VerticalAlignment="Center" MouseLeftButtonDown="CloseApp" Cursor="Hand">
                         <TextBlock Style="{StaticResource ResourceKey=InteractButtonText}">No</TextBlock>
                     </Border>
                 </Grid>
