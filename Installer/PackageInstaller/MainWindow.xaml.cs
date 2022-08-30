@@ -194,6 +194,57 @@ namespace WPFinstaller
             storyboard.Begin(this);
             await Task.Delay(1000);
         }
+        private async void DownGradeAnim()
+        {
+            DoubleAnimation fadeout = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
+            DoubleAnimation fadeout2 = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
+            DoubleAnimation fadeout3 = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
+            DoubleAnimation fadeout4 = (this.FindResource("TextFadeOut") as DoubleAnimation).Clone();
+            ThicknessAnimationUsingKeyFrames OkSlideBack = (this.FindResource("YesButtonReturnAnim") as ThicknessAnimationUsingKeyFrames).Clone();
+            DoubleAnimationUsingKeyFrames OkWidthReturn = (this.FindResource("YesButtonWidthAnim") as DoubleAnimationUsingKeyFrames).Clone();
+
+            Storyboard storyboard = new Storyboard();
+            storyboard.Children.Add(fadeout);
+            storyboard.Children.Add(fadeout2);
+            storyboard.Children.Add(fadeout4);
+            storyboard.Children.Add(fadeout3);
+            storyboard.Children.Add(OkSlideBack);
+            storyboard.Children.Add(OkWidthReturn);
+
+
+
+
+            Storyboard.SetTargetName(fadeout, NoButton.Name);
+            Storyboard.SetTargetName(fadeout2, VersionXInstalledText.Name);
+            Storyboard.SetTargetName(fadeout3, DowngradeToVersion.Name);
+            Storyboard.SetTargetName(fadeout3, DowngradeToVersion.Name);
+            Storyboard.SetTargetName(fadeout4, YesButtonText.Name);
+            Storyboard.SetTargetName(OkSlideBack, YesButton.Name);
+            Storyboard.SetTargetName(OkWidthReturn, YesButton.Name);
+
+
+
+
+
+            Storyboard.SetTargetProperty(fadeout, new PropertyPath(Border.OpacityProperty));
+            Storyboard.SetTargetProperty(fadeout2, new PropertyPath(TextBlock.OpacityProperty));
+            Storyboard.SetTargetProperty(fadeout3, new PropertyPath(TextBlock.OpacityProperty));
+            Storyboard.SetTargetProperty(fadeout4, new PropertyPath(TextBlock.OpacityProperty));
+            Storyboard.SetTargetProperty(OkSlideBack, new PropertyPath(Border.MarginProperty));
+            Storyboard.SetTargetProperty(OkWidthReturn, new PropertyPath(Border.WidthProperty));
+
+
+
+
+            storyboard.Begin(this);
+            await Task.Delay(600);
+
+
+            OlderVersionPanel.Visibility = Visibility.Hidden;
+            InstallDonePanel.Visibility = Visibility.Visible;
+            //filemanager.UnZipResource(true);
+
+        }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if(e.ChangedButton == MouseButton.Left)
@@ -226,7 +277,7 @@ namespace WPFinstaller
         }
         private void ForceInstallApp(object sender, MouseButtonEventArgs e)
         {
-            filemanager.UnZipResource(true);
+            DownGradeAnim();
         }
         private void UninstallButton_Click(object sender, MouseButtonEventArgs e)
         {
