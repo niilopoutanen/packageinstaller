@@ -18,13 +18,13 @@ namespace WPFinstaller
         //Path to temp file with the zip for moving
         string tempfile = Path.GetTempPath() + "\\temp.zip";
         //Version of the program being installed
-        float version = 0.9f;
+        float version = 1.0f;
         //Name of the program being installed
-        static string ProductName = "Tetris";
+        static string ProductName = "Template";
         //Path to Program files folder with product name
         string ProgramFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\NiiloPoutanen\\" + ProductName;
         //Name of the main .EXE of the program. Will be used in creating the shortcut to the app.
-        string Exename = "Tetris.exe";
+        string Exename = "Template.exe";
 
 
 
