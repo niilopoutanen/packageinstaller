@@ -16,6 +16,7 @@
     <None Remove="Resources\interbold.ttf" />
     <None Remove="Resources\intermedium.ttf" />
     <None Remove="Resources\intersemibold.ttf" />
+    <None Remove="Resources\loading.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -25,6 +26,9 @@
     </Resource>
     <Resource Include="Resources\intermedium.ttf" />
     <Resource Include="Resources\intersemibold.ttf" />
+    <Resource Include="Resources\loading.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

@@ -8,7 +8,13 @@
         AllowsTransparency="True"
         Title="MainWindow" Height="430" Width="335" WindowStyle="None" Background="Transparent"
         MouseLeftButtonDown="Window_MouseDown">
-
+    <Window.Resources>
+        <Storyboard x:Key="LoadAnim" BeginTime="00:00:00.000">
+            <DoubleAnimation Storyboard.TargetName="LoadSpinner" 
+                             Storyboard.TargetProperty="(UIElement.RenderTransform).(RotateTransform.Angle)" 
+                             From="0" To="360" Duration="00:00:02.000" RepeatBehavior="Forever"/>
+        </Storyboard>
+    </Window.Resources>
     <Border
         Background="#121212"
         BorderBrush="#3a3a3a"
@@ -69,7 +75,17 @@
                     Height="130"
                     Visibility="Hidden"
                     VerticalAlignment="Bottom">
-
+                    <Image 
+                        RenderTransformOrigin="0.5, 0.5"
+                        x:Name="LoadSpinner"
+                        Stretch="Uniform"
+                        Source="/Resources/loading.png"
+                        Width="80"
+                        Height="80">
+                        <Image.RenderTransform>
+                            <RotateTransform Angle="90" />
+                        </Image.RenderTransform>
+                    </Image>
                 </StackPanel>
 
                 <StackPanel
