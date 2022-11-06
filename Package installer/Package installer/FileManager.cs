@@ -91,7 +91,7 @@ namespace WPFinstaller
                 //0 = same version exists = false
                 //1 = older version exists but installed is newer = true
                 //2 = older version is newer than installed = false
-                Stream stream = new MemoryStream(Installer.Properties.Resources.Package);
+                Stream stream = new MemoryStream(Package_installer.Properties.Resources.Package);
                 FileStream fileStream = new FileStream(tempfile, FileMode.Create);
                 for (int i = 0; i < stream.Length; i++)
                     fileStream.WriteByte((byte)stream.ReadByte());

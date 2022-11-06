@@ -23,7 +23,25 @@ namespace Package_installer
         public MainWindow()
         {
             InitializeComponent();
-            this.PreviewMouseLeftButtonDown += (s, e) => DragMove();
+        }
+
+        private void CloseApp(object sender, MouseButtonEventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
+        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                try
+                {
+                    DragMove();
+                }
+                catch (Exception)
+                {
+
+                }
+            }
         }
     }
 }

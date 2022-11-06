@@ -4,6 +4,20 @@
              xmlns:local="clr-namespace:Package_installer"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="TextBlock">
+            <Setter Property="Foreground" Value="White"></Setter>
+        </Style>
+        <Style x:Key="interBold">
+            <Setter Property="TextElement.FontFamily" Value="Resources/#Inter bold"/>
+            <Setter Property="TextElement.Foreground" Value="White"></Setter>
+        </Style>
+        <Style x:Key="interSemiBold">
+            <Setter Property="TextElement.FontFamily" Value="Resources/#Inter semibold"/>
+            <Setter Property="TextElement.Foreground" Value="White"></Setter>
+        </Style>
+        <Style x:Key="interMedium">
+            <Setter Property="TextElement.FontFamily" Value="Resources/#Inter medium"/>
+            <Setter Property="TextElement.Foreground" Value="White"></Setter>
+        </Style>
     </Application.Resources>
 </Application>

@@ -6,15 +6,63 @@
         xmlns:local="clr-namespace:Package_installer"
         mc:Ignorable="d"
         AllowsTransparency="True"
-        Title="MainWindow" Height="430" Width="335" WindowStyle="None" Background="Transparent">
+        Title="MainWindow" Height="430" Width="335" WindowStyle="None" Background="Transparent"
+        MouseLeftButtonDown="Window_MouseDown">
+
     <Border
         Background="#121212"
         BorderBrush="#3a3a3a"
         BorderThickness="2"
         CornerRadius="30">
         <Grid>
-
+            <StackPanel
+                VerticalAlignment="Top"
+                Height="250">
+                <Image
+                    Margin="0,20,0,40"
+                    Width="120"
+                    Height="120" 
+                    Source="/Resources/icon.png"/>
+                <TextBlock
+                    Text="Unity tetris"
+                    VerticalAlignment="Center"
+                    TextAlignment="Center"
+                    FontSize="30"
+                    Style="{StaticResource interBold}"/>
+            </StackPanel>
+            <StackPanel
+                Height="120"
+                VerticalAlignment="Bottom">
+                <Border
+                    Margin="0,0,0,15"
+                    Width="280"
+                    Height="40"
+                    CornerRadius="10"
+                    Background="#3662FF">
+                    <TextBlock 
+                        Text="Install"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource interSemiBold}"
+                        FontSize="18"/>
+                </Border>
+                <Border
+                    MouseLeftButtonDown="CloseApp"
+                    Width="280"
+                    Height="40"
+                    CornerRadius="10"
+                    Background="#343434">
+                    <TextBlock 
+                        Text="Cancel"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource interMedium}"
+                        FontSize="18"/>
+                </Border>
+            </StackPanel>
         </Grid>
+
+
     </Border>
 
 </Window>

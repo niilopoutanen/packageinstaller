@@ -8,4 +8,36 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="FileManager.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\interbold.ttf" />
+    <None Remove="Resources\intermedium.ttf" />
+    <None Remove="Resources\intersemibold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\icon.png" />
+    <Resource Include="Resources\interbold.ttf" />
+    <Resource Include="Resources\intermedium.ttf" />
+    <Resource Include="Resources\intersemibold.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>
