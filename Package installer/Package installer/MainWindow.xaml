@@ -30,36 +30,83 @@
                     FontSize="40"
                     Style="{StaticResource interBold}"/>
             </StackPanel>
-            <StackPanel
-                Height="130"
-                VerticalAlignment="Bottom">
-                <Border
-                    Margin="0,0,0,15"
-                    Width="280"
-                    Height="40"
-                    CornerRadius="12"
-                    Background="#3662FF">
-                    <TextBlock 
-                        Text="Install"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Style="{StaticResource interSemiBold}"
-                        FontSize="20"/>
-                </Border>
-                <Border
-                    MouseLeftButtonDown="CloseApp"
-                    Width="280"
-                    Height="40"
-                    CornerRadius="12"
-                    Background="#343434">
-                    <TextBlock 
-                        Text="Cancel"
-                        VerticalAlignment="Center"
-                        HorizontalAlignment="Center"
-                        Style="{StaticResource interMedium}"
-                        FontSize="20"/>
-                </Border>
-            </StackPanel>
+            <Grid>
+                <StackPanel
+                    x:Name="MainView"
+                    Height="130"
+                    VerticalAlignment="Bottom">
+                    <Border
+                        MouseLeftButtonDown="InstallApp"
+                        Margin="0,0,0,15"
+                        Width="280"
+                        Height="40"
+                        CornerRadius="12"
+                        Background="#3662FF">
+                        <TextBlock 
+                            Text="Install"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource interSemiBold}"
+                            FontSize="20"/>
+                    </Border>
+                    <Border
+                        MouseLeftButtonDown="CloseApp"
+                        Width="280"
+                        Height="40"
+                        CornerRadius="12"
+                        Background="#343434">
+                        <TextBlock 
+                            Text="Cancel"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource interMedium}"
+                            FontSize="20"/>
+                    </Border>
+                </StackPanel>
+
+                <StackPanel
+                    x:Name="InstallingView"
+                    Height="130"
+                    Visibility="Hidden"
+                    VerticalAlignment="Bottom">
+
+                </StackPanel>
+
+                <StackPanel
+                    x:Name="InstallDoneView"
+                    Height="130"
+                    Visibility="Hidden"
+                    VerticalAlignment="Bottom">
+                    <Border
+                        MouseLeftButtonDown="OpenApp"
+                        Margin="0,0,0,15"
+                        Width="280"
+                        Height="40"
+                        CornerRadius="12"
+                        Background="#3662FF">
+                        <TextBlock 
+                            Text="Open app"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource interSemiBold}"
+                            FontSize="20"/>
+                    </Border>
+                    <Border
+                        MouseLeftButtonDown="CloseApp"
+                        Width="280"
+                        Height="40"
+                        CornerRadius="12"
+                        Background="#343434">
+                        <TextBlock 
+                            Text="Quit"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            Style="{StaticResource interMedium}"
+                            FontSize="20"/>
+                    </Border>
+                </StackPanel>
+            </Grid>
+
         </Grid>
 
 

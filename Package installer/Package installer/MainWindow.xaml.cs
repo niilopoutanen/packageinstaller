@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -28,6 +29,16 @@ namespace Package_installer
         private void CloseApp(object sender, MouseButtonEventArgs e)
         {
             Application.Current.Shutdown();
+        }
+        private void InstallApp(object sender, MouseButtonEventArgs e)
+        {
+            MainView.Visibility = Visibility.Hidden;
+            InstallingView.Visibility = Visibility.Visible;
+
+        }
+        private void OpenApp(object sender, MouseButtonEventArgs e)
+        {
+
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
