@@ -19,45 +19,45 @@
                 VerticalAlignment="Top"
                 Height="250">
                 <Image
-                    Margin="0,20,0,40"
-                    Width="120"
-                    Height="120" 
+                    Margin="0,30,0,20"
+                    Width="150"
+                    Height="150" 
                     Source="/Resources/icon.png"/>
                 <TextBlock
                     Text="Unity tetris"
                     VerticalAlignment="Center"
                     TextAlignment="Center"
-                    FontSize="30"
+                    FontSize="40"
                     Style="{StaticResource interBold}"/>
             </StackPanel>
             <StackPanel
-                Height="120"
+                Height="130"
                 VerticalAlignment="Bottom">
                 <Border
                     Margin="0,0,0,15"
                     Width="280"
                     Height="40"
-                    CornerRadius="10"
+                    CornerRadius="12"
                     Background="#3662FF">
                     <TextBlock 
                         Text="Install"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Style="{StaticResource interSemiBold}"
-                        FontSize="18"/>
+                        FontSize="20"/>
                 </Border>
                 <Border
                     MouseLeftButtonDown="CloseApp"
                     Width="280"
                     Height="40"
-                    CornerRadius="10"
+                    CornerRadius="12"
                     Background="#343434">
                     <TextBlock 
                         Text="Cancel"
                         VerticalAlignment="Center"
                         HorizontalAlignment="Center"
                         Style="{StaticResource interMedium}"
-                        FontSize="18"/>
+                        FontSize="20"/>
                 </Border>
             </StackPanel>
         </Grid>

@@ -19,8 +19,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Resources\icon.png" />
-    <Resource Include="Resources\interbold.ttf" />
+    <Resource Include="Resources\icon.png" />
+    <Resource Include="Resources\interbold.ttf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Resources\intermedium.ttf" />
     <Resource Include="Resources\intersemibold.ttf" />
   </ItemGroup>
