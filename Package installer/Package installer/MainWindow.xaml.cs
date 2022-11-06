@@ -27,11 +27,11 @@ namespace Package_installer
             InitializeComponent();
         }
 
-        private void CloseApp(object sender, MouseButtonEventArgs e)
+        private void CloseApp(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }
-        private async void InstallApp(object sender, MouseButtonEventArgs e)
+        private async void InstallApp(object sender, RoutedEventArgs e)
         {
             MainView.Visibility = System.Windows.Visibility.Visible;
 
@@ -58,7 +58,7 @@ namespace Package_installer
             InstallingView.Visibility = Visibility.Hidden;
             InstallDoneView.Visibility = Visibility.Visible;
         }
-        private void OpenApp(object sender, MouseButtonEventArgs e)
+        private void OpenApp(object sender, RoutedEventArgs e)
         {
 
         }

@@ -19,11 +19,91 @@
         </Style>
         
         <Style x:Key="interMedium">
-            <Setter Property="TextElement.FontFamily" Value="Resources/#Inter medium"/>
-            <Setter Property="TextElement.Foreground" Value="White"></Setter>
+            <Setter Property="TextBlock.FontFamily" Value="Resources/#Inter medium"/>
+            <Setter Property="TextBlock.Foreground" Value="White"></Setter>
         </Style>
-        
-        
-        
+
+        <Style TargetType="Button" x:Key="PrimaryButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            x:Name="background"
+                            Margin="0,0,0,15"
+                            Width="280"
+                            Height="40"
+                            CornerRadius="12"
+                            Background="#3662FF">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#1A41CA" TargetName="background"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation From="#3662FF" To="#5177FF" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="Background.Color" Storyboard.TargetName="background"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation From="#5177FF" To="#3662FF" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="Background.Color" Storyboard.TargetName="background"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+
+        <Style TargetType="Button" x:Key="SecondaryButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            x:Name="background"
+                            Margin="0,0,0,15"
+                            Width="280"
+                            Height="40"
+                            CornerRadius="12"
+                            Background="#343434">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#232323" TargetName="background"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation From="#343434" To="#404040" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="Background.Color" Storyboard.TargetName="background"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation From="#404040" To="#343434" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="Background.Color" Storyboard.TargetName="background"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Application.Resources>
 </Application>
