@@ -23,6 +23,7 @@ namespace Package_installer
         public MainWindow()
         {
             InitializeComponent();
+            this.PreviewMouseLeftButtonDown += (s, e) => DragMove();
         }
     }
 }
