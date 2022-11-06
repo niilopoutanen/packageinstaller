@@ -1,0 +1,20 @@
+﻿<Window x:Class="Package_installer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Package_installer"
+        mc:Ignorable="d"
+        AllowsTransparency="True"
+        Title="MainWindow" Height="430" Width="335" WindowStyle="None" Background="Transparent">
+    <Border
+        Background="#121212"
+        BorderBrush="#3a3a3a"
+        BorderThickness="2"
+        CornerRadius="30">
+        <Grid>
+
+        </Grid>
+    </Border>
+
+</Window>
