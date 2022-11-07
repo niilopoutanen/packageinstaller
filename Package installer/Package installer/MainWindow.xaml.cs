@@ -44,7 +44,7 @@ namespace Package_installer
                 Duration = new Duration(TimeSpan.FromSeconds(0.3))
             };
             ExponentialEase ease = new ExponentialEase();
-            ease.EasingMode = EasingMode.EaseIn;
+            ease.EasingMode = EasingMode.EaseOut;
             fadeout.EasingFunction = ease;
             Storyboard storyboard = new Storyboard();
 
