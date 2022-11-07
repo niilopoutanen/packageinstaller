@@ -31,32 +31,78 @@ namespace Package_installer
         {
             Application.Current.Shutdown();
         }
-        private async void InstallApp(object sender, RoutedEventArgs e)
+        private void InstallApp(object sender, RoutedEventArgs e)
         {
-            MainView.Visibility = System.Windows.Visibility.Visible;
+            installButton.IsEnabled = false;
+            DoubleAnimation fadeout1 = (this.FindResource("FadeOut") as DoubleAnimation).Clone();
+            DoubleAnimation fadeout2 = (this.FindResource("FadeOut") as DoubleAnimation).Clone();
+            DoubleAnimation primaryButtonToCircleW = (this.FindResource("PrimaryButtonToCircleW") as DoubleAnimation).Clone();
+            DoubleAnimation primaryButtonToCircleH = (this.FindResource("PrimaryButtonToCircleH") as DoubleAnimation).Clone();
 
-            DoubleAnimation fadeout = new DoubleAnimation
-            {
-                From = 1.0,
-                To = 0.0,
-                FillBehavior = FillBehavior.Stop,
-                Duration = new Duration(TimeSpan.FromSeconds(0.5))
-            };
+
+
             Storyboard storyboard = new Storyboard();
+            storyboard.Children.Add(fadeout1);
+            storyboard.Children.Add(fadeout2);
+            storyboard.Children.Add(primaryButtonToCircleW);
+            storyboard.Children.Add(primaryButtonToCircleH);
 
-            storyboard.Children.Add(fadeout);
-            Storyboard.SetTarget(fadeout, MainView);
-            Storyboard.SetTargetProperty(fadeout, new PropertyPath(OpacityProperty));
-            storyboard.Completed += delegate { 
-                MainView.Visibility = System.Windows.Visibility.Hidden;
-                InstallingView.Visibility = Visibility.Visible;
-                ((Storyboard)Resources["LoadAnim"]).Begin();
+
+            Storyboard.SetTarget(fadeout1, cancelButton);
+            Storyboard.SetTarget(fadeout2, installButtonText);
+            Storyboard.SetTarget(primaryButtonToCircleW, installButton);
+            Storyboard.SetTarget(primaryButtonToCircleH, installButton);
+
+            storyboard.Completed += delegate
+            {
+                InstallingViewAnim();
+            };
+            storyboard.Begin();
+            //MainView.Visibility = System.Windows.Visibility.Visible;
+
+            //DoubleAnimation fadeout = new DoubleAnimation
+            //{
+            //    From = 1.0,
+            //    To = 0.0,
+            //    FillBehavior = FillBehavior.Stop,
+            //    Duration = new Duration(TimeSpan.FromSeconds(0.5))
+            //};
+            //Storyboard storyboard = new Storyboard();
+
+            //storyboard.Children.Add(fadeout);
+            //Storyboard.SetTarget(fadeout, MainView);
+            //Storyboard.SetTargetProperty(fadeout, new PropertyPath(OpacityProperty));
+            //storyboard.Completed += delegate { 
+            //    MainView.Visibility = System.Windows.Visibility.Hidden;
+            //    InstallingView.Visibility = Visibility.Visible;
+            //    ((Storyboard)Resources["LoadAnim"]).Begin();
+            //};
+            //storyboard.Begin();
+
+            //await Task.Delay(5000);
+            //InstallingView.Visibility = Visibility.Hidden;
+            //InstallDoneView.Visibility = Visibility.Visible;
+        }
+        private async void InstallingViewAnim()
+        {
+            MainView.Visibility = Visibility.Hidden;
+            InstallingView.Visibility = Visibility.Visible;
+
+            LoadSpinner.Visibility = Visibility.Visible;
+            DoubleAnimation fadein = (this.FindResource("FadeIn") as DoubleAnimation).Clone();
+
+            Storyboard storyboard = new Storyboard();
+            ((Storyboard)Resources["LoadAnim"]).Begin();
+            storyboard.Children.Add(fadein);
+            Storyboard.SetTarget(fadein, LoadSpinner);
+            Storyboard.SetTargetProperty(fadein, new PropertyPath(OpacityProperty));
+            storyboard.Completed += delegate
+            {
+                
             };
             storyboard.Begin();
 
-            await Task.Delay(5000);
-            InstallingView.Visibility = Visibility.Hidden;
-            InstallDoneView.Visibility = Visibility.Visible;
+
         }
         private void OpenApp(object sender, RoutedEventArgs e)
         {

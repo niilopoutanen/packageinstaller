@@ -103,9 +103,9 @@ namespace Package_installer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] loading {
+        internal static byte[] spinner {
             get {
-                object obj = ResourceManager.GetObject("loading", resourceCulture);
+                object obj = ResourceManager.GetObject("spinner", resourceCulture);
                 return ((byte[])(obj));
             }
         }

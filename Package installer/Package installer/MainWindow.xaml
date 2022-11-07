@@ -37,35 +37,47 @@
                     Style="{StaticResource interBold}"/>
             </StackPanel>
             <Grid>
-                <StackPanel
-                    x:Name="MainView"
-                    Height="130"
-                    VerticalAlignment="Bottom">
-                    <Button Style="{StaticResource PrimaryButton}" Click="InstallApp">
-                        <TextBlock Text="Install" FontSize="20" FontFamily="Inter SemiBold"/>
-                    </Button>
-                    <Button Style="{StaticResource SecondaryButton}" Click="CloseApp">
-                        <TextBlock Text="Cancel" FontSize="18" FontFamily="Inter SemiBold"/>
-                    </Button>
+                <Border BorderThickness="20">
+                    <StackPanel
+                        Visibility="Visible"
+                        x:Name="MainView"
+                        Height="auto"
+                        VerticalAlignment="Bottom">
+                        <Button x:Name="installButton" Style="{StaticResource PrimaryButton}" Click="InstallApp">
+                            <TextBlock x:Name="installButtonText" Text="Install" FontSize="20" FontFamily="Inter SemiBold"/>
+                        </Button>
+                        <Button x:Name="cancelButton" Style="{StaticResource SecondaryButton}" Click="CloseApp">
+                            <TextBlock Text="Cancel" FontSize="18" FontFamily="Inter SemiBold"/>
+                        </Button>
 
-                </StackPanel>
+                    </StackPanel>
+                </Border>
+
 
                 <StackPanel
                     x:Name="InstallingView"
                     Height="130"
                     Visibility="Hidden"
                     VerticalAlignment="Bottom">
-                    <Image 
-                        RenderTransformOrigin="0.5, 0.5"
-                        x:Name="LoadSpinner"
-                        Stretch="Uniform"
-                        Source="/Resources/loading.png"
-                        Width="80"
-                        Height="80">
-                        <Image.RenderTransform>
-                            <RotateTransform Angle="90" />
-                        </Image.RenderTransform>
-                    </Image>
+                    <Border
+                        Margin="0,5,0,0"
+                        x:Name="loadingBG"
+                        Width="50"
+                        Height="50"
+                        CornerRadius="12"
+                        Background="#3662FF">
+                        <Image
+                            RenderTransformOrigin="0.5, 0.5"
+                            x:Name="LoadSpinner"
+                            Stretch="Uniform"
+                            Source="/Resources/spinner.png"
+                            Width="40"
+                            Height="40">
+                            <Image.RenderTransform>
+                                <RotateTransform Angle="90" />
+                            </Image.RenderTransform>
+                        </Image>
+                    </Border>
                 </StackPanel>
 
                 <StackPanel

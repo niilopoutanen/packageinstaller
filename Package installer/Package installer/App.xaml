@@ -23,6 +23,20 @@
             <Setter Property="TextBlock.Foreground" Value="White"></Setter>
         </Style>
 
+        <DoubleAnimation From="1" To="0" Duration="0:0:0.3" FillBehavior="HoldEnd" Storyboard.TargetProperty="Opacity" x:Key="FadeOut" />
+        <DoubleAnimation From="0" To="1" Duration="0:0:0.3" FillBehavior="HoldEnd" Storyboard.TargetProperty="Opacity" x:Key="FadeIn" />
+
+        <DoubleAnimation From="280" To="50" Duration="0:0:0.4" FillBehavior="HoldEnd" Storyboard.TargetProperty="Width" x:Key="PrimaryButtonToCircleW">
+            <DoubleAnimation.EasingFunction>
+                <QuadraticEase EasingMode="EaseInOut"/>
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+        <DoubleAnimation From="55" To="60" Duration="0:0:0.4" FillBehavior="HoldEnd" Storyboard.TargetProperty="Height" x:Key="PrimaryButtonToCircleH">
+            <DoubleAnimation.EasingFunction>
+                <QuadraticEase EasingMode="EaseInOut"/>
+            </DoubleAnimation.EasingFunction>
+        </DoubleAnimation>
+
         <Style TargetType="Button" x:Key="PrimaryButton">
             <Setter Property="Template">
                 <Setter.Value>
@@ -30,8 +44,10 @@
                         <Border
                             x:Name="background"
                             Margin="0,0,0,15"
-                            Width="280"
-                            Height="40"
+                            Width="auto"
+                            Height="auto"
+                            MinWidth="50"
+                            MinHeight="40"
                             CornerRadius="12"
                             Background="#3662FF">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
@@ -70,8 +86,8 @@
                     <ControlTemplate TargetType="Button">
                         <Border
                             x:Name="background"
-                            Margin="0,0,0,15"
-                            Width="280"
+                            Width="auto"
+                            MinWidth="50"
                             Height="40"
                             CornerRadius="12"
                             Background="#343434">
