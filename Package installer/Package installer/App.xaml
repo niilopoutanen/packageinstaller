@@ -26,16 +26,8 @@
         <DoubleAnimation From="1" To="0" Duration="0:0:0.3" FillBehavior="HoldEnd" Storyboard.TargetProperty="Opacity" x:Key="FadeOut" />
         <DoubleAnimation From="0" To="1" Duration="0:0:0.3" FillBehavior="HoldEnd" Storyboard.TargetProperty="Opacity" x:Key="FadeIn" />
 
-        <DoubleAnimation From="280" To="50" Duration="0:0:0.4" FillBehavior="HoldEnd" Storyboard.TargetProperty="Width" x:Key="PrimaryButtonToCircleW">
-            <DoubleAnimation.EasingFunction>
-                <QuadraticEase EasingMode="EaseInOut"/>
-            </DoubleAnimation.EasingFunction>
-        </DoubleAnimation>
-        <DoubleAnimation From="55" To="60" Duration="0:0:0.4" FillBehavior="HoldEnd" Storyboard.TargetProperty="Height" x:Key="PrimaryButtonToCircleH">
-            <DoubleAnimation.EasingFunction>
-                <QuadraticEase EasingMode="EaseInOut"/>
-            </DoubleAnimation.EasingFunction>
-        </DoubleAnimation>
+        <DoubleAnimation From="50" To="100" Duration="0:0:0.1" FillBehavior="HoldEnd" Storyboard.TargetProperty="Width" x:Key="resultOpen"/>
+        <DoubleAnimation From="100" To="50" Duration="0:0:0.1" FillBehavior="HoldEnd" Storyboard.TargetProperty="Width" x:Key="resultClose"/>
 
         <Style TargetType="Button" x:Key="PrimaryButton">
             <Setter Property="Template">

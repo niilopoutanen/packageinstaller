@@ -65,6 +65,9 @@ namespace Package_installer
 
             LoadSpinner.Visibility = Visibility.Visible;
             DoubleAnimation fadein = (this.FindResource("FadeIn") as DoubleAnimation).Clone();
+            DoubleAnimation fadeout = (this.FindResource("FadeOut") as DoubleAnimation).Clone();
+            DoubleAnimation resultOpen = (this.FindResource("resultOpen") as DoubleAnimation).Clone();
+            DoubleAnimation resultClose = (this.FindResource("resultClose") as DoubleAnimation).Clone();
 
             Storyboard storyboard = new Storyboard();
             ((Storyboard)Resources["LoadAnim"]).Begin();
@@ -77,7 +80,45 @@ namespace Package_installer
             };
             storyboard.Begin();
 
+            await Task.Delay(5000);
+            LoadSpinner.Visibility = Visibility.Hidden;
+            ((Storyboard)Resources["LoadAnim"]).Stop();
 
+
+            Storyboard resultBoard = new Storyboard();
+            resultBoard.Children.Add(resultOpen);
+            resultBoard.Children.Add(fadein);
+            Storyboard.SetTarget(resultOpen, loadingBG);
+            Storyboard.SetTarget(fadein, successIcon);
+            resultBoard.Completed += async delegate
+            {
+                Storyboard fadeinresult = new Storyboard();
+                fadeinresult.Children.Add(fadein);
+                Storyboard.SetTarget(fadein, successIcon);
+                successIcon.Visibility = Visibility.Visible;
+                fadeinresult.Begin();
+                await Task.Delay(2000);
+                Storyboard resultBoardClose = new Storyboard();
+                resultBoardClose.Children.Add(resultClose);
+                resultBoardClose.Children.Add(fadeout);
+                Storyboard.SetTarget(resultClose, loadingBG);
+                Storyboard.SetTarget(fadeout, successIcon);
+                resultBoardClose.Completed += delegate
+                {
+                    Storyboard fadeOutResult = new Storyboard();
+                    fadeOutResult.Children.Add(fadeout);
+                    Storyboard.SetTarget(fadeout, loadingBG);
+                    fadeOutResult.Completed += delegate
+                    {
+                        InstallingView.Visibility = Visibility.Hidden;
+                        InstallDoneView.Visibility = Visibility.Visible;
+                    };
+                    fadeOutResult.Begin();
+
+                };
+                resultBoardClose.Begin();
+            };
+            resultBoard.Begin();
         }
         private void OpenApp(object sender, RoutedEventArgs e)
         {
