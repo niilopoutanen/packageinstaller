@@ -22,10 +22,23 @@ namespace Package_installer
     /// </summary>
     public partial class MainWindow : Window
     {
-        FileManager fileManager = new FileManager();
+        readonly FileManager fileManager = new();
+        private bool isAppInstalled;
         public MainWindow()
         {
             InitializeComponent();
+            isAppInstalled = fileManager.IsAppInstalled();
+
+            if (isAppInstalled)
+            {
+                MainView.Visibility = Visibility.Hidden;
+                UninstallView.Visibility = Visibility.Visible;
+            }
+            else if (!isAppInstalled)
+            {
+                MainView.Visibility = Visibility.Visible;
+                UninstallView.Visibility = Visibility.Hidden;
+            }
         }
 
         private void CloseApp(object sender, RoutedEventArgs e)
@@ -56,14 +69,14 @@ namespace Package_installer
                 Storyboard.SetTargetProperty(fadeout, new PropertyPath(OpacityProperty));
                 storyboard2.Completed += delegate
                 {
-                    InstallingViewAnim();
+                    StartProgress();
                 };
                 storyboard2.Begin();
             };
             storyboard.Begin();
 
         }
-        private async void InstallingViewAnim()
+        private async void StartProgress()
         {
             MainView.Visibility = Visibility.Hidden;
             InstallingView.Visibility = Visibility.Visible;
@@ -84,16 +97,21 @@ namespace Package_installer
                 
             };
             storyboard.Begin();
-
             //file code
-            bool isAppInstalled = fileManager.IsAppInstalled();
-            if (!isAppInstalled)
+            new Thread(async () =>
             {
-                int successful = fileManager.UnZipResource(false);
-            }
+                Thread.CurrentThread.IsBackground = true;
+                await fileManager.StartInstall();
+            }).Start();
+            FinishProgress();
+        }
+        private void FinishProgress()
+        {
+            DoubleAnimation fadein = (this.FindResource("FadeIn") as DoubleAnimation).Clone();
+            DoubleAnimation fadeout = (this.FindResource("FadeOut") as DoubleAnimation).Clone();
+            DoubleAnimation resultOpen = (this.FindResource("resultOpen") as DoubleAnimation).Clone();
+            DoubleAnimation resultClose = (this.FindResource("resultClose") as DoubleAnimation).Clone();
 
-
-            await Task.Delay(5000);
             LoadSpinner.Visibility = Visibility.Hidden;
             ((Storyboard)Resources["LoadAnim"]).Stop();
 
@@ -166,7 +184,7 @@ namespace Package_installer
         }
         private void OpenApp(object sender, RoutedEventArgs e)
         {
-            fileManager.OpenApp();
+
         }
         private void UninstallApp(object sender, RoutedEventArgs e)
         {
