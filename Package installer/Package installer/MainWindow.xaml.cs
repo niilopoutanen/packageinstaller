@@ -44,8 +44,6 @@ namespace Package_installer
                 Duration = new Duration(TimeSpan.FromSeconds(0.3))
             };
             ExponentialEase ease = new ExponentialEase();
-            ease.EasingMode = EasingMode.EaseOut;
-            fadeout.EasingFunction = ease;
             Storyboard storyboard = new Storyboard();
             storyboard.Children.Add(secondarySlide);
             Storyboard.SetTarget(secondarySlide, cancelButton);
@@ -117,7 +115,7 @@ namespace Package_installer
                     fadeOutResult.Completed += delegate
                     {
                         InstallingView.Visibility = Visibility.Hidden;
-                        InstallDoneView.Visibility = Visibility.Visible;
+                        InstallDoneAnim();
                     };
                     fadeOutResult.Begin();
 
@@ -125,6 +123,37 @@ namespace Package_installer
                 resultBoardClose.Begin();
             };
             resultBoard.Begin();
+        }
+        private void InstallDoneAnim()
+        {
+            InstallDoneView.Visibility = Visibility.Visible;
+            ThicknessAnimationUsingKeyFrames secondarySlide = (this.FindResource("secondaryButtonSlideOut") as ThicknessAnimationUsingKeyFrames).Clone();
+            DoubleAnimation fadein = new DoubleAnimation
+            {
+                From = 0.0,
+                To = 1.0,
+                FillBehavior = FillBehavior.Stop,
+                Duration = new Duration(TimeSpan.FromSeconds(0.3))
+            };
+            ExponentialEase ease = new ExponentialEase();
+            ease.EasingMode = EasingMode.EaseOut;
+            fadein.EasingFunction = ease;
+            Storyboard storyboard = new Storyboard();
+            storyboard.Children.Add(fadein);
+            Storyboard.SetTarget(fadein, InstallDoneView);
+            Storyboard.SetTargetProperty(fadein, new PropertyPath(OpacityProperty));
+            storyboard.Completed += delegate
+            {
+                Storyboard storyboard2 = new Storyboard();
+                storyboard2.Children.Add(secondarySlide);
+                Storyboard.SetTarget(secondarySlide, quitButton);
+                storyboard2.Completed += delegate
+                {
+
+                };
+                storyboard2.Begin();
+            };
+            storyboard.Begin();
         }
         private void OpenApp(object sender, RoutedEventArgs e)
         {

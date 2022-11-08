@@ -50,7 +50,6 @@
                         <Button Panel.ZIndex="1" x:Name="cancelButton" Style="{StaticResource SecondaryButton}" Click="CloseApp" Width="290" Margin="0,55,0,0">
                             <TextBlock Text="Cancel" FontSize="18" FontFamily="Inter SemiBold"/>
                         </Button>
-
                     </Canvas>
                 </Border>
 
@@ -95,18 +94,18 @@
                 </StackPanel>
 
                 <Border BorderThickness="20">
-                    <StackPanel
-                    x:Name="InstallDoneView"
-                    Height="auto"
-                    Visibility="Hidden"
-                    VerticalAlignment="Bottom">
-                        <Button Style="{StaticResource PrimaryButton}" Click="OpenApp">
+                    <Canvas
+                        Visibility="Hidden"
+                        x:Name="InstallDoneView"
+                        Height="95"
+                        VerticalAlignment="Bottom">
+                        <Button Panel.ZIndex="2" x:Name="openAppButton" Style="{StaticResource PrimaryButton}" Click="OpenApp" Width="290">
                             <TextBlock Text="Open app" FontSize="20" FontFamily="Inter SemiBold"/>
                         </Button>
-                        <Button Style="{StaticResource SecondaryButton}" Click="CloseApp">
+                        <Button Panel.ZIndex="1" x:Name="quitButton" Style="{StaticResource SecondaryButton}" Click="CloseApp" Width="290" Margin="0,0,0,0">
                             <TextBlock Text="Quit" FontSize="18" FontFamily="Inter SemiBold"/>
                         </Button>
-                    </StackPanel>
+                    </Canvas>
                 </Border>
             </Grid>
 

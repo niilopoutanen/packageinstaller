@@ -28,6 +28,7 @@
 
         <DoubleAnimation From="50" To="100" Duration="0:0:0.1" FillBehavior="HoldEnd" Storyboard.TargetProperty="Width" x:Key="resultOpen"/>
         <DoubleAnimation From="100" To="50" Duration="0:0:0.1" FillBehavior="HoldEnd" Storyboard.TargetProperty="Width" x:Key="resultClose"/>
+        
         <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="0:0:0" x:Key="secondaryButtonSlide">
             <EasingThicknessKeyFrame KeyTime="0:0:0" Value="0,55,0,0">
                 <EasingThicknessKeyFrame.EasingFunction>
@@ -40,6 +41,20 @@
                     <QuarticEase EasingMode="EaseInout"/>
                 </EasingThicknessKeyFrame.EasingFunction>
             </EasingThicknessKeyFrame> 
+        </ThicknessAnimationUsingKeyFrames>
+        
+        <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="0:0:0" x:Key="secondaryButtonSlideOut">
+            <EasingThicknessKeyFrame KeyTime="0:0:0" Value="0,0,0,0">
+                <EasingThicknessKeyFrame.EasingFunction>
+                    <QuarticEase EasingMode="EaseInout"/>
+                </EasingThicknessKeyFrame.EasingFunction>
+            </EasingThicknessKeyFrame>
+
+            <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="0,55,0,0">
+                <EasingThicknessKeyFrame.EasingFunction>
+                    <QuarticEase EasingMode="EaseInout"/>
+                </EasingThicknessKeyFrame.EasingFunction>
+            </EasingThicknessKeyFrame>
         </ThicknessAnimationUsingKeyFrames>
         <Style TargetType="Button" x:Key="PrimaryButton">
             <Setter Property="Template">
