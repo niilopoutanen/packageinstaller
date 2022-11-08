@@ -7,7 +7,8 @@
         mc:Ignorable="d"
         AllowsTransparency="True"
         Title="MainWindow" Height="430" Width="335" WindowStyle="None" Background="Transparent"
-        MouseLeftButtonDown="Window_MouseDown">
+        MouseLeftButtonDown="Window_MouseDown"
+        WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Storyboard x:Key="LoadAnim" BeginTime="00:00:00.000">
             <DoubleAnimation Storyboard.TargetName="LoadSpinner" 
@@ -38,19 +39,19 @@
             </StackPanel>
             <Grid>
                 <Border BorderThickness="20">
-                    <StackPanel
+                    <Canvas
                         Visibility="Visible"
                         x:Name="MainView"
-                        Height="auto"
+                        Height="95"
                         VerticalAlignment="Bottom">
-                        <Button x:Name="installButton" Style="{StaticResource PrimaryButton}" Click="InstallApp">
+                        <Button Panel.ZIndex="2" x:Name="installButton" Style="{StaticResource PrimaryButton}" Click="InstallApp" Width="290">
                             <TextBlock x:Name="installButtonText" Text="Install" FontSize="20" FontFamily="Inter SemiBold"/>
                         </Button>
-                        <Button x:Name="cancelButton" Style="{StaticResource SecondaryButton}" Click="CloseApp">
+                        <Button Panel.ZIndex="1" x:Name="cancelButton" Style="{StaticResource SecondaryButton}" Click="CloseApp" Width="290" Margin="0,55,0,0">
                             <TextBlock Text="Cancel" FontSize="18" FontFamily="Inter SemiBold"/>
                         </Button>
 
-                    </StackPanel>
+                    </Canvas>
                 </Border>
 
 

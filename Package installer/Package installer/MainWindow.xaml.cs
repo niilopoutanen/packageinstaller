@@ -35,7 +35,7 @@ namespace Package_installer
         {
             installButton.IsEnabled = false;
             MainView.Visibility = Visibility.Visible;
-
+            ThicknessAnimationUsingKeyFrames secondarySlide = (this.FindResource("secondaryButtonSlide") as ThicknessAnimationUsingKeyFrames).Clone();
             DoubleAnimation fadeout = new DoubleAnimation
             {
                 From = 1.0,
@@ -47,13 +47,19 @@ namespace Package_installer
             ease.EasingMode = EasingMode.EaseOut;
             fadeout.EasingFunction = ease;
             Storyboard storyboard = new Storyboard();
-
-            storyboard.Children.Add(fadeout);
-            Storyboard.SetTarget(fadeout, MainView);
-            Storyboard.SetTargetProperty(fadeout, new PropertyPath(OpacityProperty));
+            storyboard.Children.Add(secondarySlide);
+            Storyboard.SetTarget(secondarySlide, cancelButton);
             storyboard.Completed += delegate
             {
-                InstallingViewAnim();
+                Storyboard storyboard2 = new Storyboard();
+                storyboard2.Children.Add(fadeout);
+                Storyboard.SetTarget(fadeout, MainView);
+                Storyboard.SetTargetProperty(fadeout, new PropertyPath(OpacityProperty));
+                storyboard2.Completed += delegate
+                {
+                    InstallingViewAnim();
+                };
+                storyboard2.Begin();
             };
             storyboard.Begin();
 
