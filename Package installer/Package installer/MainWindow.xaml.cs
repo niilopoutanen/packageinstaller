@@ -22,6 +22,7 @@ namespace Package_installer
     /// </summary>
     public partial class MainWindow : Window
     {
+        FileManager fileManager = new FileManager();
         public MainWindow()
         {
             InitializeComponent();
@@ -83,6 +84,14 @@ namespace Package_installer
                 
             };
             storyboard.Begin();
+
+            //file code
+            bool isAppInstalled = fileManager.IsAppInstalled();
+            if (!isAppInstalled)
+            {
+                int successful = fileManager.UnZipResource(false);
+            }
+
 
             await Task.Delay(5000);
             LoadSpinner.Visibility = Visibility.Hidden;
@@ -157,7 +166,7 @@ namespace Package_installer
         }
         private void OpenApp(object sender, RoutedEventArgs e)
         {
-
+            fileManager.OpenApp();
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {

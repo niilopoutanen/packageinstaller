@@ -99,5 +99,15 @@ namespace Package_installer.Properties {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] package {
+            get {
+                object obj = ResourceManager.GetObject("package", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }

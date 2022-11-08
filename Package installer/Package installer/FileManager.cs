@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -8,27 +9,31 @@ using System.Windows;
 using IWshRuntimeLibrary;
 
 
-namespace WPFinstaller
+namespace Package_installer
 {
     public class FileManager
     {
 
         //Path for desktop
-        string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+        readonly string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         //Path to temp file with the zip for moving
-        string tempfile = Path.GetTempPath() + "\\temp.zip";
+        readonly string tempfile = Path.GetTempPath() + "\\temp.zip";
         //Version of the program being installed
-        float version = 1.0f;
+        readonly float version = 0.1f;
         //Name of the program being installed
-        static string ProductName = "Template";
+        readonly static string ProductName = "Template";
         //Path to Program files folder with product name
-        string ProgramFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\NiiloPoutanen\\" + ProductName;
+        readonly string ProgramFiles = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\NiiloPoutanen\\" + ProductName;
         //Name of the main .EXE of the program. Will be used in creating the shortcut to the app.
-        string Exename = "Template.exe";
+        readonly string Exename = "Template.exe";
 
 
 
-
+        public void OpenApp()
+        {
+            Process.Start(ProgramFiles + "\\" + Exename);
+            Application.Current.Shutdown();
+        }
         /// <summary>
         /// Checks if app is installed to the computer. Runs when launching the app.
         /// </summary>
@@ -41,8 +46,8 @@ namespace WPFinstaller
             if (Directory.Exists(ProgramFiles))
             {
                 int versioncompare = CompareVersion(version);
-                
-                if(versioncompare == 0)
+
+                if (versioncompare == 0)
                 {
                     return true;
                 }
@@ -91,7 +96,7 @@ namespace WPFinstaller
                 //0 = same version exists = false
                 //1 = older version exists but installed is newer = true
                 //2 = older version is newer than installed = false
-                Stream stream = new MemoryStream(Package_installer.Properties.Resources.Package);
+                Stream stream = new MemoryStream(Package_installer.Properties.Resources.package);
                 FileStream fileStream = new FileStream(tempfile, FileMode.Create);
                 for (int i = 0; i < stream.Length; i++)
                     fileStream.WriteByte((byte)stream.ReadByte());
