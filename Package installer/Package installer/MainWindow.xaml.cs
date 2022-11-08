@@ -168,6 +168,10 @@ namespace Package_installer
         {
             fileManager.OpenApp();
         }
+        private void UninstallApp(object sender, RoutedEventArgs e)
+        {
+
+        }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)

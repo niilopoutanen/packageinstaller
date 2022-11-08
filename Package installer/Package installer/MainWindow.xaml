@@ -40,14 +40,28 @@
             <Grid>
                 <Border BorderThickness="20">
                     <Canvas
-                        Visibility="Visible"
+                        Visibility="Hidden"
                         x:Name="MainView"
                         Height="95"
                         VerticalAlignment="Bottom">
                         <Button Panel.ZIndex="2" x:Name="installButton" Style="{StaticResource PrimaryButton}" Click="InstallApp" Width="290">
-                            <TextBlock x:Name="installButtonText" Text="Install" FontSize="20" FontFamily="Inter SemiBold"/>
+                            <TextBlock Text="Install" FontSize="20" FontFamily="Inter SemiBold"/>
                         </Button>
                         <Button Panel.ZIndex="1" x:Name="cancelButton" Style="{StaticResource SecondaryButton}" Click="CloseApp" Width="290" Margin="0,55,0,0">
+                            <TextBlock Text="Cancel" FontSize="18" FontFamily="Inter SemiBold"/>
+                        </Button>
+                    </Canvas>
+                </Border>
+                <Border BorderThickness="20">
+                    <Canvas
+                        Visibility="Visible"
+                        x:Name="UninstallView"
+                        Height="95"
+                        VerticalAlignment="Bottom">
+                        <Button Panel.ZIndex="2" x:Name="uninstallButton" Style="{StaticResource PrimaryButton}" Click="UninstallApp" Width="290">
+                            <TextBlock Text="Uninstall" FontSize="20" FontFamily="Inter SemiBold"/>
+                        </Button>
+                        <Button Panel.ZIndex="1" x:Name="cancelUninstallButton" Style="{StaticResource SecondaryButton}" Click="CloseApp" Width="290" Margin="0,55,0,0">
                             <TextBlock Text="Cancel" FontSize="18" FontFamily="Inter SemiBold"/>
                         </Button>
                     </Canvas>
