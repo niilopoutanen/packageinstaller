@@ -13,6 +13,7 @@
     <None Remove="Resources\interbold.ttf" />
     <None Remove="Resources\intermedium.ttf" />
     <None Remove="Resources\intersemibold.ttf" />
+    <None Remove="Resources\package.zip" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +35,9 @@
     </Resource>
     <Resource Include="Resources\intermedium.ttf" />
     <Resource Include="Resources\intersemibold.ttf" />
+    <Resource Include="Resources\package.zip">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>

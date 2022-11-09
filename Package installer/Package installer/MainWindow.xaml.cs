@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -76,7 +77,7 @@ namespace Package_installer
             storyboard.Begin();
 
         }
-        private async void StartProgress()
+        private void StartProgress()
         {
             MainView.Visibility = Visibility.Hidden;
             InstallingView.Visibility = Visibility.Visible;
@@ -97,15 +98,17 @@ namespace Package_installer
                 
             };
             storyboard.Begin();
-            //file code
-            new Thread(async () =>
+
+            BackgroundWorker backgroundWorker = new BackgroundWorker
             {
-                Thread.CurrentThread.IsBackground = true;
-                await fileManager.StartInstall();
-            }).Start();
-            FinishProgress();
+                WorkerReportsProgress = true,
+                WorkerSupportsCancellation = true
+            };
+            backgroundWorker.DoWork += fileManager.StartInstall;
+            backgroundWorker.RunWorkerCompleted += FinishProgress;
+            backgroundWorker.RunWorkerAsync();
         }
-        private void FinishProgress()
+        private void FinishProgress(object sender, RunWorkerCompletedEventArgs e)
         {
             DoubleAnimation fadein = (this.FindResource("FadeIn") as DoubleAnimation).Clone();
             DoubleAnimation fadeout = (this.FindResource("FadeOut") as DoubleAnimation).Clone();

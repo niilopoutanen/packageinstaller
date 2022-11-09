@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.ComponentModel;
 
 namespace Package_installer
 {
@@ -23,18 +24,18 @@ namespace Package_installer
         readonly string desktop = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
         readonly string programFiles = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles), "NiiloPoutanen", productName);
 
-        public async Task<bool> StartInstall()
+        public void StartInstall(object sender, DoWorkEventArgs e)
         {
-            byte[] result;
             Stream stream = new MemoryStream(Package_installer.Properties.Resources.package);
-            await using (FileStream fileStream = new FileStream(tempfile, FileMode.Create))
+            
+            using (FileStream fileStream = new FileStream(tempfile, FileMode.Create))
             {
-                result = new byte[stream.Length];
-                await stream.ReadAsync(result, 0, (int)stream.Length);
-
-                await fileStream.WriteAsync(result, 0, result.Length);
+                for (int i = 0; i < stream.Length; i++)
+                {
+                    fileStream.WriteByte((byte)stream.ReadByte());
+                }
             }
-            return true;
+            stream.Close();
             
         }
         public bool IsAppInstalled()
