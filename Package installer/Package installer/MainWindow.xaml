@@ -106,6 +106,15 @@
                                     <Path Data="M13.302 33C11.8894 33 10.7515 32.3631 9.77051 31.0893L0.980975 20.0627C0.313912 19.2268 0 18.351 0 17.4355C0 15.4053 1.56956 13.8926 3.49227 13.8926C4.70868 13.8926 5.72889 14.4499 6.47443 15.4849L13.1451 24.123L26.2901 1.99035C27.0357 0.716526 28.1736 0 29.39 0C31.352 0 33 1.47286 33 3.38359C33 4.29916 32.5291 5.25452 32.0975 5.97105L16.6766 31.0096C15.8918 32.2835 14.6754 33 13.302 33Z" Fill="white"/>
                                 </Canvas>
                             </Viewbox>
+                            <Viewbox
+                                x:Name="failIcon"
+                                Visibility="Hidden"
+                                Width="30"
+                                Height="30">
+                                <Canvas Width="33" Height="33" ClipToBounds="True">
+                                    <Path Data="M6.65536 30.9013C5.03435 32.4741 2.74587 32.1881 1.22021 30.7583C-0.257769 29.3761 -0.496154 26.993 1.07718 25.3725L10.3741 15.983L1.07718 6.64126C-0.496154 5.02075 -0.162416 2.73297 1.22021 1.25545C2.65051 -0.26974 5.03435 -0.508051 6.65536 1.11246L16 10.4066L25.3446 1.11246C27.0133 -0.508051 29.3018 -0.174415 30.7798 1.25545C32.2578 2.63765 32.4962 5.02075 30.9228 6.64126L21.6259 15.983L30.9228 25.3725C32.4962 26.993 32.2101 29.2808 30.7798 30.8059C29.3495 32.2835 26.9657 32.4741 25.3446 30.9013L16 21.6072L6.65536 30.9013Z" Fill="white"/>
+                                </Canvas>
+                            </Viewbox>
                         </Grid>
                     </Border>
                 </StackPanel>
@@ -142,6 +151,32 @@
                         <Button 
                             Panel.ZIndex="1"
                             x:Name="quitButtonUninstall"
+                            Style="{StaticResource SecondaryButton}"
+                            Click="CloseApp"
+                            Width="290"
+                            Margin="0,30,0,0">
+                            <TextBlock Text="Quit" FontSize="18" FontFamily="Inter SemiBold"/>
+                        </Button>
+                    </Canvas>
+                </Border>
+
+                <Border BorderThickness="20">
+                    <Canvas
+                        Visibility="Hidden"
+                        x:Name="InstallFailedView"
+                        Height="70"
+                        VerticalAlignment="Bottom">
+                        <TextBlock 
+                            x:Name="installFailedText"
+                            Text="Install failed."
+                            FontSize="15"
+                            Width="290"
+                            FontFamily="Inter medium"
+                            TextAlignment="Center"/>
+
+                        <Button 
+                            Panel.ZIndex="1"
+                            x:Name="quitButtonFail"
                             Style="{StaticResource SecondaryButton}"
                             Click="CloseApp"
                             Width="290"

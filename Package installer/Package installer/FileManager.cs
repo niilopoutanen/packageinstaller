@@ -25,7 +25,10 @@ namespace Package_installer
         public void StartInstall(object sender, DoWorkEventArgs e)
         {
             Stream stream = new MemoryStream(Package_installer.Properties.Resources.package);
-            
+            if(stream.Length == 0)
+            {
+                throw new FileLoadException("Package corrupted");
+            }
             using (FileStream fileStream = new FileStream(tempfile, FileMode.Create))
             {
                 for (int i = 0; i < stream.Length; i++)

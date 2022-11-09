@@ -105,10 +105,68 @@ namespace Package_installer
                 WorkerSupportsCancellation = true
             };
             backgroundWorker.DoWork += fileManager.StartInstall;
-            backgroundWorker.RunWorkerCompleted += FinishProgress;
+            backgroundWorker.RunWorkerCompleted += ResultHandler;
             backgroundWorker.RunWorkerAsync();
         }
-        private void FinishProgress(object sender, RunWorkerCompletedEventArgs e)
+        private void ResultHandler(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if(e.Error == null)
+            {
+                FinishProgress();
+            }
+            else
+            {
+                ProgressFailed(e.Error);
+            }
+        }
+        private void ProgressFailed(Exception error)
+        {
+            DoubleAnimation fadein = (this.FindResource("FadeIn") as DoubleAnimation).Clone();
+            DoubleAnimation fadeout = (this.FindResource("FadeOut") as DoubleAnimation).Clone();
+            DoubleAnimation resultOpen = (this.FindResource("resultOpen") as DoubleAnimation).Clone();
+            DoubleAnimation resultClose = (this.FindResource("resultClose") as DoubleAnimation).Clone();
+
+            LoadSpinner.Visibility = Visibility.Hidden;
+            ((Storyboard)Resources["LoadAnim"]).Stop();
+
+
+            Storyboard resultBoard = new Storyboard();
+            resultBoard.Children.Add(resultOpen);
+            resultBoard.Children.Add(fadein);
+            Storyboard.SetTarget(resultOpen, loadingBG);
+            Storyboard.SetTarget(fadein, failIcon);
+            resultBoard.Completed += async delegate
+            {
+                Storyboard fadeinresult = new Storyboard();
+                fadeinresult.Children.Add(fadein);
+                Storyboard.SetTarget(fadein, failIcon);
+                failIcon.Visibility = Visibility.Visible;
+                fadeinresult.Begin();
+                await Task.Delay(2000);
+                Storyboard resultBoardClose = new Storyboard();
+                resultBoardClose.Children.Add(resultClose);
+                resultBoardClose.Children.Add(fadeout);
+                Storyboard.SetTarget(resultClose, loadingBG);
+                Storyboard.SetTarget(fadeout, failIcon);
+                resultBoardClose.Completed += delegate
+                {
+                    Storyboard fadeOutResult = new Storyboard();
+                    fadeOutResult.Children.Add(fadeout);
+                    Storyboard.SetTarget(fadeout, loadingBG);
+                    fadeOutResult.Completed += delegate
+                    {
+                        InstallingView.Visibility = Visibility.Hidden;
+                        InstallFailedView.Visibility = Visibility.Visible;
+                        installFailedText.Text = error.Message;
+                    };
+                    fadeOutResult.Begin();
+
+                };
+                resultBoardClose.Begin();
+            };
+            resultBoard.Begin();
+        }
+        private void FinishProgress()
         {
             DoubleAnimation fadein = (this.FindResource("FadeIn") as DoubleAnimation).Clone();
             DoubleAnimation fadeout = (this.FindResource("FadeOut") as DoubleAnimation).Clone();
