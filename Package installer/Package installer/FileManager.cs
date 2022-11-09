@@ -4,6 +4,7 @@ using System.IO;
 using System.ComponentModel;
 using System.IO.Compression;
 using IWshRuntimeLibrary;
+using System.Diagnostics;
 
 namespace Package_installer
 {
@@ -15,7 +16,7 @@ namespace Package_installer
 
         public readonly static string productName = "Template";
         public readonly static float appVersion = 0.1f;
-        readonly string exeName = "Template.exe";
+        readonly string exeName = "Tetris.exe";
 
 
         readonly string tempfile = Path.GetTempPath() + "\\temp.zip";
@@ -172,6 +173,11 @@ namespace Package_installer
             IWshShortcut menuShortCut = (IWshShortcut)shell.CreateShortcut(startMenuShortcut);
             menuShortCut.TargetPath = Path.Combine(programFiles, exeName);
             menuShortCut.Save();
+        }
+
+        public void OpenApp()
+        {
+            Process.Start(Path.Combine(programFiles, exeName));
         }
     }
 }

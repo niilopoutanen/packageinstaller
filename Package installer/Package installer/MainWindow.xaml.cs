@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -245,7 +246,8 @@ namespace Package_installer
         }
         private void OpenApp(object sender, RoutedEventArgs e)
         {
-
+            fileManager.OpenApp();
+            Application.Current.Shutdown();
         }
         private void UninstallApp(object sender, RoutedEventArgs e)
         {

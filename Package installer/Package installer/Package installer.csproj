@@ -36,7 +36,7 @@
     <Resource Include="Resources\intermedium.ttf" />
     <Resource Include="Resources\intersemibold.ttf" />
     <EmbeddedResource Include="Resources\package.zip">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
 

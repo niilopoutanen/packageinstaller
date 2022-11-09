@@ -161,11 +161,17 @@
                 </Border>
 
                 <Border BorderThickness="20">
-                    <Canvas
+                    <StackPanel
                         Visibility="Hidden"
                         x:Name="InstallFailedView"
-                        Height="70"
+                        Height="auto"
                         VerticalAlignment="Bottom">
+                        <TextBlock
+                            Text="ERROR"
+                            TextAlignment="Center"
+                            FontFamily="Inter semibold"
+                            FontSize="25"
+                            Foreground="red"/>
                         <TextBlock 
                             x:Name="installFailedText"
                             Text="Install failed."
@@ -180,10 +186,10 @@
                             Style="{StaticResource SecondaryButton}"
                             Click="CloseApp"
                             Width="290"
-                            Margin="0,30,0,0">
+                            Margin="0,10,0,0">
                             <TextBlock Text="Quit" FontSize="18" FontFamily="Inter SemiBold"/>
                         </Button>
-                    </Canvas>
+                    </StackPanel>
                 </Border>
             </Grid>
 
