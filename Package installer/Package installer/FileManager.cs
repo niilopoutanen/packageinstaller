@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.IO.Compression;
 using IWshRuntimeLibrary;
 using System.Diagnostics;
+using Package_installer.Properties;
 
 namespace Package_installer
 {
@@ -15,7 +16,8 @@ namespace Package_installer
         //2 = older version is newer than installed = false
 
         public readonly static string productName = "Template";
-        public readonly static float appVersion = 0.1f;
+        readonly string productDescription = "Tetris game made with unity";
+        public readonly static float appVersion = 1.0f;
         readonly string exeName = "Tetris.exe";
 
 
@@ -55,7 +57,7 @@ namespace Package_installer
                 else if (!Directory.EnumerateFileSystemEntries(programFiles).Any())
                 {
                     ZipFile.ExtractToDirectory(tempfile, programFiles);
-                    using (StreamWriter versionwriter = new StreamWriter(programFiles + "\\version.txt"))
+                    using (StreamWriter versionwriter = new StreamWriter(programFiles + "\\version.NPVERSION"))
                     {
                         versionwriter.WriteLine(appVersion);
                     }
@@ -65,7 +67,7 @@ namespace Package_installer
             else if (!(Directory.Exists(programFiles)))
             {
                 ZipFile.ExtractToDirectory(tempfile, programFiles);
-                using (StreamWriter versionwriter = new StreamWriter(programFiles + "\\version.txt"))
+                using (StreamWriter versionwriter = new StreamWriter(programFiles + "\\version.NPVERSION"))
                 {
                     versionwriter.WriteLine(appVersion);
                 }
@@ -133,7 +135,7 @@ namespace Package_installer
                 string[] oldversionstring;
                 try
                 {
-                    oldversionstring = System.IO.File.ReadAllLines(programFiles + "\\version.txt");
+                    oldversionstring = System.IO.File.ReadAllLines(programFiles + "\\version.NPVERSION");
                     float oldversion = Convert.ToSingle(oldversionstring[0]);
 
                     return oldversion;
@@ -168,10 +170,12 @@ namespace Package_installer
             WshShell shell = new WshShell();
             IWshShortcut desktopShortCut = (IWshShortcut)shell.CreateShortcut(desktopShortcut);
             desktopShortCut.TargetPath = Path.Combine(programFiles, exeName);
+            desktopShortCut.Description = productDescription;
             desktopShortCut.Save();
 
             IWshShortcut menuShortCut = (IWshShortcut)shell.CreateShortcut(startMenuShortcut);
             menuShortCut.TargetPath = Path.Combine(programFiles, exeName);
+            menuShortCut.Description = productDescription;
             menuShortCut.Save();
         }
 
