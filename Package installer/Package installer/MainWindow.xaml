@@ -17,6 +17,7 @@
         </Storyboard>
     </Window.Resources>
     <Border
+        x:Name="mainBG"
         Background="#121212"
         BorderBrush="#3a3a3a"
         BorderThickness="2"
@@ -26,11 +27,13 @@
                 VerticalAlignment="Top"
                 Height="250">
                 <Image
+                    x:Name="appIconImage"
                     Margin="0,30,0,20"
                     Width="150"
                     Height="150" 
                     Source="/Resources/icon.png"/>
                 <TextBlock
+                    x:Name="appNameText"
                     Text="Unity tetris"
                     VerticalAlignment="Center"
                     TextAlignment="Center"
@@ -54,7 +57,7 @@
                 </Border>
                 <Border BorderThickness="20">
                     <Canvas
-                        Visibility="Visible"
+                        Visibility="Hidden"
                         x:Name="UninstallView"
                         Height="95"
                         VerticalAlignment="Bottom">
@@ -117,6 +120,32 @@
                             <TextBlock Text="Open app" FontSize="20" FontFamily="Inter SemiBold"/>
                         </Button>
                         <Button Panel.ZIndex="1" x:Name="quitButton" Style="{StaticResource SecondaryButton}" Click="CloseApp" Width="290" Margin="0,0,0,0">
+                            <TextBlock Text="Quit" FontSize="18" FontFamily="Inter SemiBold"/>
+                        </Button>
+                    </Canvas>
+                </Border>
+
+                <Border BorderThickness="20">
+                    <Canvas
+                        Visibility="Hidden"
+                        x:Name="UninstallDoneView"
+                        Height="70"
+                        VerticalAlignment="Bottom">
+                        <TextBlock 
+                            x:Name="appUninstalledText"
+                            Text="App uninstalled."
+                            FontSize="15"
+                            Width="290"
+                            FontFamily="Inter medium"
+                            TextAlignment="Center"/>
+
+                        <Button 
+                            Panel.ZIndex="1"
+                            x:Name="quitButtonUninstall"
+                            Style="{StaticResource SecondaryButton}"
+                            Click="CloseApp"
+                            Width="290"
+                            Margin="0,30,0,0">
                             <TextBlock Text="Quit" FontSize="18" FontFamily="Inter SemiBold"/>
                         </Button>
                     </Canvas>

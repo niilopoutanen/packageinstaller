@@ -56,6 +56,8 @@
                 </EasingThicknessKeyFrame.EasingFunction>
             </EasingThicknessKeyFrame>
         </ThicknessAnimationUsingKeyFrames>
+
+        
         <Style TargetType="Button" x:Key="PrimaryButton">
             <Setter Property="Template">
                 <Setter.Value>

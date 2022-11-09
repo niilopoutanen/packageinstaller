@@ -29,7 +29,7 @@ namespace Package_installer
         {
             InitializeComponent();
             isAppInstalled = fileManager.IsAppInstalled();
-
+            appNameText.Text = FileManager.productName;
             if (isAppInstalled)
             {
                 MainView.Visibility = Visibility.Hidden;
@@ -191,6 +191,26 @@ namespace Package_installer
         }
         private void UninstallApp(object sender, RoutedEventArgs e)
         {
+            DoubleAnimation fadeout = (this.FindResource("FadeOut") as DoubleAnimation).Clone();
+            DoubleAnimation fadein = (this.FindResource("FadeIn") as DoubleAnimation).Clone();
+
+
+            Storyboard storyboard = new();
+            storyboard.Children.Add(fadeout);
+            Storyboard.SetTarget(fadeout, UninstallView);
+            storyboard.Completed += delegate
+            {
+                UninstallView.Visibility = Visibility.Hidden;
+                fileManager.StartUninstall();
+                UninstallDoneView.Visibility = Visibility.Visible;
+
+                Storyboard storyboard2 = new();
+                storyboard2.Children.Add(fadein);
+                Storyboard.SetTarget(fadein, UninstallDoneView);
+                storyboard2.Begin();
+            };
+            storyboard.Begin();
+
 
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

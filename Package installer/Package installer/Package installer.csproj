@@ -35,9 +35,9 @@
     </Resource>
     <Resource Include="Resources\intermedium.ttf" />
     <Resource Include="Resources\intersemibold.ttf" />
-    <Resource Include="Resources\package.zip">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
+    <EmbeddedResource Include="Resources\package.zip">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>

@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
-using System.Text.RegularExpressions;
 using System.ComponentModel;
+using System.IO.Compression;
+using IWshRuntimeLibrary;
 
 namespace Package_installer
 {
@@ -36,7 +34,39 @@ namespace Package_installer
                 }
             }
             stream.Close();
-            
+            InstallFromTemp();
+
+            System.IO.File.Delete(tempfile);
+
+        }
+        private void InstallFromTemp()
+        {
+            if (Directory.Exists(programFiles))
+            {
+                if (Directory.EnumerateFileSystemEntries(programFiles).Any())
+                {
+                    ClearDirectory();
+                    InstallFromTemp();
+                }
+                else if (!Directory.EnumerateFileSystemEntries(programFiles).Any())
+                {
+                    ZipFile.ExtractToDirectory(tempfile, programFiles);
+                    using (StreamWriter versionwriter = new StreamWriter(programFiles + "\\version.txt"))
+                    {
+                        versionwriter.WriteLine(appVersion);
+                    }
+                    CreateShortcut();
+                }
+            }
+            else if (!(Directory.Exists(programFiles)))
+            {
+                ZipFile.ExtractToDirectory(tempfile, programFiles);
+                using (StreamWriter versionwriter = new StreamWriter(programFiles + "\\version.txt"))
+                {
+                    versionwriter.WriteLine(appVersion);
+                }
+                CreateShortcut();
+            }
         }
         public bool IsAppInstalled()
         {
@@ -57,7 +87,22 @@ namespace Package_installer
         }
         public void StartUninstall()
         {
+            string desktopShortcut = Path.Combine(desktop, productName + ".lnk");
+            string StartMenu = Environment.GetFolderPath(Environment.SpecialFolder.StartMenu);
+            string StartMenuShortcut = Path.Combine(StartMenu, productName + ".lnk");
+            string AppFolder = Environment.GetFolderPath(Environment.SpecialFolder.ProgramFiles) + "\\NiiloPoutanen";
 
+            string[] AppDirectories = Directory.GetDirectories(AppFolder);
+            foreach (string dir in AppDirectories)
+            {
+                string folder = Path.Combine(AppFolder, productName);
+                if (dir == folder)
+                {
+                    Directory.Delete(dir, true);
+                }
+            }
+            System.IO.File.Delete(desktopShortcut);
+            System.IO.File.Delete(StartMenuShortcut);
         }
         private int CompareVersion(float newVersion)
         {
@@ -77,7 +122,6 @@ namespace Package_installer
             }
             return 0;
         }
-
         public float GetVersion(bool IsLocal)
         {
             if (IsLocal == false)
@@ -96,6 +140,35 @@ namespace Package_installer
                 }
             }
             return appVersion;
+        }
+        private void ClearDirectory()
+        {
+            DirectoryInfo drinfo = new DirectoryInfo(programFiles);
+            DirectoryInfo[] folders = drinfo.GetDirectories();
+            FileInfo[] files = drinfo.GetFiles();
+            foreach (FileInfo file in files)
+            {
+                file.Delete();
+            }
+            foreach (DirectoryInfo folder in folders)
+            {
+                folder.Delete(true);
+            }
+        }
+        private void CreateShortcut()
+        {
+            string desktopShortcut = Path.Combine(desktop, productName + ".lnk");
+            string startMenu = Environment.GetFolderPath(Environment.SpecialFolder.StartMenu);
+            string startMenuShortcut = Path.Combine(startMenu, productName + ".lnk");
+
+            WshShell shell = new WshShell();
+            IWshShortcut desktopShortCut = (IWshShortcut)shell.CreateShortcut(desktopShortcut);
+            desktopShortCut.TargetPath = Path.Combine(programFiles, exeName);
+            desktopShortCut.Save();
+
+            IWshShortcut menuShortCut = (IWshShortcut)shell.CreateShortcut(startMenuShortcut);
+            menuShortCut.TargetPath = Path.Combine(programFiles, exeName);
+            menuShortCut.Save();
         }
     }
 }
