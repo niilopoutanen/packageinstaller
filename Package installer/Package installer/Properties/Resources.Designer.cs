@@ -73,6 +73,16 @@ namespace Package_installer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] installer_icon {
+            get {
+                object obj = ResourceManager.GetObject("installer_icon", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] interbold {
             get {
                 object obj = ResourceManager.GetObject("interbold", resourceCulture);

@@ -7,9 +7,12 @@
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <PackageIcon>installer-icon.png</PackageIcon>
+    <ApplicationIcon>Resources\installer-icon-ico.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\installer-icon.png" />
     <None Remove="Resources\interbold.ttf" />
     <None Remove="Resources\intermedium.ttf" />
     <None Remove="Resources\intersemibold.ttf" />
@@ -29,7 +32,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="Resources\installer-icon-ico.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Resources\icon.png" />
+    <Resource Include="Resources\installer-icon.png" />
     <Resource Include="Resources\interbold.ttf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
