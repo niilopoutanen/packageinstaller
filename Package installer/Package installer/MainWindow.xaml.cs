@@ -82,6 +82,7 @@ namespace Package_installer
         {
             MainView.Visibility = Visibility.Hidden;
             InstallingView.Visibility = Visibility.Visible;
+            NavBar.Visibility = Visibility.Hidden;
 
             LoadSpinner.Visibility = Visibility.Visible;
             DoubleAnimation fadein = (this.FindResource("FadeIn") as DoubleAnimation).Clone();
@@ -111,7 +112,8 @@ namespace Package_installer
         }
         private void ResultHandler(object sender, RunWorkerCompletedEventArgs e)
         {
-            if(e.Error == null)
+            NavBar.Visibility = Visibility.Visible;
+            if (e.Error == null)
             {
                 FinishProgress();
             }
@@ -286,6 +288,11 @@ namespace Package_installer
 
                 }
             }
+        }
+
+        private void OpenHelp(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
