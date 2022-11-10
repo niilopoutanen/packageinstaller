@@ -15,7 +15,7 @@ namespace Package_installer
         //1 = older version exists but installed is newer = true
         //2 = older version is newer than installed = false
 
-        public readonly static string productName = "Template";
+        public readonly static string productName = "Tetris";
         readonly string productDescription = "Tetris game made with unity";
         public readonly static float appVersion = 1.0f;
         readonly string exeName = "Tetris.exe";

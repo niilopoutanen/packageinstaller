@@ -111,7 +111,7 @@
                             MinWidth="50"
                             Height="40"
                             CornerRadius="12"
-                            Background="#343434">
+                            Background="#3a3a3a">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>
 
@@ -123,14 +123,14 @@
                                 <Trigger.EnterActions>
                                     <BeginStoryboard>
                                         <Storyboard>
-                                            <ColorAnimation From="#343434" To="#404040" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="Background.Color" Storyboard.TargetName="background"/>
+                                            <ColorAnimation From="#3a3a3a" To="#404040" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="Background.Color" Storyboard.TargetName="background"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </Trigger.EnterActions>
                                 <Trigger.ExitActions>
                                     <BeginStoryboard>
                                         <Storyboard>
-                                            <ColorAnimation From="#404040" To="#343434" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="Background.Color" Storyboard.TargetName="background"/>
+                                            <ColorAnimation From="#404040" To="#3a3a3a" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="Background.Color" Storyboard.TargetName="background"/>
                                         </Storyboard>
                                     </BeginStoryboard>
                                 </Trigger.ExitActions>
@@ -142,5 +142,44 @@
             </Setter>
         </Style>
 
+
+        <Style TargetType="Button" x:Key="NavBarButton">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border
+                            x:Name="background"
+                            Width="25"
+                            Height="25"
+                            CornerRadius="12"
+                            Background="#3a3a3a">
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </Border>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" Value="#232323" TargetName="background"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation From="#3a3a3a" To="#404040" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="Background.Color" Storyboard.TargetName="background"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation From="#404040" To="#3a3a3a" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="Background.Color" Storyboard.TargetName="background"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Application.Resources>
 </Application>

@@ -23,177 +23,191 @@
         BorderThickness="2"
         CornerRadius="30">
         <Grid>
-            <StackPanel
-                VerticalAlignment="Top"
-                Height="250">
-                <Image
-                    x:Name="appIconImage"
-                    Margin="0,30,0,20"
-                    Width="150"
-                    Height="150" 
-                    Source="/Resources/icon.png"/>
-                <TextBlock
-                    x:Name="appNameText"
-                    Text="Unity tetris"
-                    VerticalAlignment="Center"
-                    TextAlignment="Center"
-                    FontSize="40"
-                    Style="{StaticResource interBold}"/>
-            </StackPanel>
-            <Grid>
-                <Border BorderThickness="20">
-                    <Canvas
-                        Visibility="Hidden"
-                        x:Name="MainView"
-                        Height="95"
-                        VerticalAlignment="Bottom">
-                        <Button Panel.ZIndex="2" x:Name="installButton" Style="{StaticResource PrimaryButton}" Click="InstallApp" Width="290">
-                            <TextBlock Text="Install" FontSize="20" FontFamily="Inter SemiBold"/>
-                        </Button>
-                        <Button Panel.ZIndex="1" x:Name="cancelButton" Style="{StaticResource SecondaryButton}" Click="CloseApp" Width="290" Margin="0,55,0,0">
-                            <TextBlock Text="Cancel" FontSize="18" FontFamily="Inter SemiBold"/>
-                        </Button>
-                    </Canvas>
-                </Border>
-                <Border BorderThickness="20">
-                    <Canvas
-                        Visibility="Hidden"
-                        x:Name="UninstallView"
-                        Height="95"
-                        VerticalAlignment="Bottom">
-                        <Button Panel.ZIndex="2" x:Name="uninstallButton" Style="{StaticResource PrimaryButton}" Click="UninstallApp" Width="290">
-                            <TextBlock Text="Uninstall" FontSize="20" FontFamily="Inter SemiBold"/>
-                        </Button>
-                        <Button Panel.ZIndex="1" x:Name="cancelUninstallButton" Style="{StaticResource SecondaryButton}" Click="CloseApp" Width="290" Margin="0,55,0,0">
-                            <TextBlock Text="Cancel" FontSize="18" FontFamily="Inter SemiBold"/>
-                        </Button>
-                    </Canvas>
-                </Border>
+            <Border BorderThickness="15">
+                <DockPanel Height="25" x:Name="NavBar" VerticalAlignment="Top">
+                    <Button Style="{StaticResource NavBarButton}" HorizontalAlignment="Left">
+                        <Viewbox Width="10" Height="16">
+                            <Canvas Width="10" Height="16">
+                                <Path Data="M4.6,11.4c0.6,0,1.1-0.3,1.2-1C5.8,9.8,6,9.4,6.5,9c0.7-0.6,2.2-1.4,2.6-2.2C11,3.8,8.2,0.8,5,1C3.2,1,1.4,1.6,0.6,3.2c-0.3,0.6-0.5,1.5,0,2C1,5.6,1.8,5.6,2.3,5.3c0.5-0.3,0.6-1.1,1-1.5C4.1,2.9,5.9,3,6.6,4c1.1,2-1.3,2.8-2.4,3.9C3.1,8.7,2.7,11.4,4.6,11.4z M4.6,15.9c2.1,0,2.1-3,0-3C2.5,12.9,2.5,15.9,4.6,15.9z" Fill="White"/>
+                            </Canvas>
+                        </Viewbox>
+                    </Button>
+                    <Button Style="{StaticResource NavBarButton}" HorizontalAlignment="Right">
+                        <Viewbox Width="14" Height="14">
+                            <Canvas Width="14" Height="14" ClipToBounds="True">
+                                <Path Data="M2.91172 13.5193C2.20253 14.2074 1.20132 14.0823 0.533842 13.4567C-0.112774 12.852 -0.217067 11.8094 0.471266 11.1005L4.53869 6.99258L0.471266 2.90555C-0.217067 2.19658 -0.071057 1.19568 0.533842 0.549258C1.1596 -0.118011 2.20253 -0.222272 2.91172 0.486701L7 4.55287L11.0883 0.486701C11.8183 -0.222272 12.8195 -0.0763068 13.4662 0.549258C14.1128 1.15397 14.2171 2.19658 13.5287 2.90555L9.46131 6.99258L13.5287 11.1005C14.2171 11.8094 14.0919 12.8103 13.4662 13.4776C12.8404 14.124 11.7975 14.2074 11.0883 13.5193L7 9.45313L2.91172 13.5193Z" Fill="white"/>
+                            </Canvas>
+                        </Viewbox>
+                    </Button>
 
+                </DockPanel>
+            </Border>
 
-                <StackPanel
-                    x:Name="InstallingView"
-                    Height="130"
-                    Visibility="Hidden"
-                    VerticalAlignment="Bottom">
-                    <Border
-                        Margin="0,5,0,0"
-                        x:Name="loadingBG"
-                        Width="50"
-                        Height="50"
-                        CornerRadius="25"
-                        Background="#3662FF">
-                        <Grid>
-                            <Viewbox
-                                Width="38"
-                                RenderTransformOrigin="0.5, 0.5"
-                                x:Name="LoadSpinner"
-                                Height="36">
-                                <Canvas Width="38" Height="39" ClipToBounds="True">
-                                    <Path Data="M19.0763 4C10.7499 4 4 10.9076 4 19.4286C4 27.9495 10.7499 34.8571 19.0763 34.8571C26.6715 34.8571 32.9549 29.1095 34 21.6327" Stroke="white" StrokeThickness="7" StrokeStartLineCap="round"/>
-                                </Canvas>
-                                <Viewbox.RenderTransform>
-                                    <RotateTransform Angle="90" />
-                                </Viewbox.RenderTransform>
-                            </Viewbox>
-
-                            <Viewbox
-                                x:Name="successIcon"
-                                Visibility="Hidden"
-                                Width="30"
-                                Height="30">
-                                <Canvas Width="33" Height="33" ClipToBounds="True">
-                                    <Path Data="M13.302 33C11.8894 33 10.7515 32.3631 9.77051 31.0893L0.980975 20.0627C0.313912 19.2268 0 18.351 0 17.4355C0 15.4053 1.56956 13.8926 3.49227 13.8926C4.70868 13.8926 5.72889 14.4499 6.47443 15.4849L13.1451 24.123L26.2901 1.99035C27.0357 0.716526 28.1736 0 29.39 0C31.352 0 33 1.47286 33 3.38359C33 4.29916 32.5291 5.25452 32.0975 5.97105L16.6766 31.0096C15.8918 32.2835 14.6754 33 13.302 33Z" Fill="white"/>
-                                </Canvas>
-                            </Viewbox>
-                            <Viewbox
-                                x:Name="failIcon"
-                                Visibility="Hidden"
-                                Width="30"
-                                Height="30">
-                                <Canvas Width="33" Height="33" ClipToBounds="True">
-                                    <Path Data="M6.65536 30.9013C5.03435 32.4741 2.74587 32.1881 1.22021 30.7583C-0.257769 29.3761 -0.496154 26.993 1.07718 25.3725L10.3741 15.983L1.07718 6.64126C-0.496154 5.02075 -0.162416 2.73297 1.22021 1.25545C2.65051 -0.26974 5.03435 -0.508051 6.65536 1.11246L16 10.4066L25.3446 1.11246C27.0133 -0.508051 29.3018 -0.174415 30.7798 1.25545C32.2578 2.63765 32.4962 5.02075 30.9228 6.64126L21.6259 15.983L30.9228 25.3725C32.4962 26.993 32.2101 29.2808 30.7798 30.8059C29.3495 32.2835 26.9657 32.4741 25.3446 30.9013L16 21.6072L6.65536 30.9013Z" Fill="white"/>
-                                </Canvas>
-                            </Viewbox>
-                        </Grid>
-                    </Border>
-                </StackPanel>
-
-                <Border BorderThickness="20">
-                    <Canvas
-                        Visibility="Hidden"
-                        x:Name="InstallDoneView"
-                        Height="95"
-                        VerticalAlignment="Bottom">
-                        <Button Panel.ZIndex="2" x:Name="openAppButton" Style="{StaticResource PrimaryButton}" Click="OpenApp" Width="290">
-                            <TextBlock Text="Open app" FontSize="20" FontFamily="Inter SemiBold"/>
-                        </Button>
-                        <Button Panel.ZIndex="1" x:Name="quitButton" Style="{StaticResource SecondaryButton}" Click="CloseApp" Width="290" Margin="0,0,0,0">
-                            <TextBlock Text="Quit" FontSize="18" FontFamily="Inter SemiBold"/>
-                        </Button>
-                    </Canvas>
-                </Border>
-
-                <Border BorderThickness="20">
-                    <Canvas
-                        Visibility="Hidden"
-                        x:Name="UninstallDoneView"
-                        Height="70"
-                        VerticalAlignment="Bottom">
-                        <TextBlock 
-                            x:Name="appUninstalledText"
-                            Text="App uninstalled."
-                            FontSize="15"
-                            Width="290"
-                            FontFamily="Inter medium"
-                            TextAlignment="Center"/>
-
-                        <Button 
-                            Panel.ZIndex="1"
-                            x:Name="quitButtonUninstall"
-                            Style="{StaticResource SecondaryButton}"
-                            Click="CloseApp"
-                            Width="290"
-                            Margin="0,30,0,0">
-                            <TextBlock Text="Quit" FontSize="18" FontFamily="Inter SemiBold"/>
-                        </Button>
-                    </Canvas>
-                </Border>
-
-                <Border BorderThickness="20">
-                    <StackPanel
-                        Visibility="Hidden"
-                        x:Name="InstallFailedView"
-                        Height="auto"
-                        VerticalAlignment="Bottom">
+            <Border BorderThickness="20">
+                <Grid>
+                    <StackPanel VerticalAlignment="Top" Height="240" Margin="0,10,0,0">
+                        <Image
+                            x:Name="appIconImage"
+                            Margin="0,0,0,20"
+                            Width="150"
+                            Height="150" 
+                            Source="/Resources/icon.png"/>
                         <TextBlock
-                            Text="ERROR"
+                            x:Name="appNameText"
+                            Text="Unity tetris"
+                            VerticalAlignment="Center"
                             TextAlignment="Center"
-                            FontFamily="Inter semibold"
-                            FontSize="25"
-                            Foreground="red"/>
-                        <TextBlock 
-                            x:Name="installFailedText"
-                            Text="Install failed."
-                            FontSize="15"
-                            Width="290"
-                            FontFamily="Inter medium"
-                            TextAlignment="Center"/>
-
-                        <Button 
-                            Panel.ZIndex="1"
-                            x:Name="quitButtonFail"
-                            Style="{StaticResource SecondaryButton}"
-                            Click="CloseApp"
-                            Width="290"
-                            Margin="0,10,0,0">
-                            <TextBlock Text="Quit" FontSize="18" FontFamily="Inter SemiBold"/>
-                        </Button>
+                            FontSize="40"
+                            Style="{StaticResource interBold}"/>
                     </StackPanel>
-                </Border>
-            </Grid>
+                    <Grid>
+                        <Canvas
+                            Visibility="Visible"
+                            x:Name="MainView"
+                            Height="95"
+                            VerticalAlignment="Bottom">
+                            <Button Panel.ZIndex="2" x:Name="installButton" Style="{StaticResource PrimaryButton}" Click="InstallApp" Width="290">
+                                <TextBlock Text="Install" FontSize="20" FontFamily="Inter SemiBold"/>
+                            </Button>
+                            <Button Panel.ZIndex="1" x:Name="cancelButton" Style="{StaticResource SecondaryButton}" Click="CloseApp" Width="290" Margin="0,55,0,0">
+                                <TextBlock Text="Cancel" FontSize="18" FontFamily="Inter SemiBold"/>
+                            </Button>
+                        </Canvas>
+                        <Canvas
+                            Visibility="Hidden"
+                            x:Name="UninstallView"
+                            Height="95"
+                            VerticalAlignment="Bottom">
+                            <Button Panel.ZIndex="2" x:Name="uninstallButton" Style="{StaticResource PrimaryButton}" Click="UninstallApp" Width="290">
+                                <TextBlock Text="Uninstall" FontSize="20" FontFamily="Inter SemiBold"/>
+                            </Button>
+                            <Button Panel.ZIndex="1" x:Name="cancelUninstallButton" Style="{StaticResource SecondaryButton}" Click="CloseApp" Width="290" Margin="0,55,0,0">
+                                <TextBlock Text="Cancel" FontSize="18" FontFamily="Inter SemiBold"/>
+                            </Button>
+                        </Canvas>
+
+
+                        <StackPanel
+                        x:Name="InstallingView"
+                        Height="130"
+                        Visibility="Hidden"
+                        VerticalAlignment="Bottom">
+                            <Border
+                            Margin="0,5,0,0"
+                            x:Name="loadingBG"
+                            Width="50"
+                            Height="50"
+                            CornerRadius="25"
+                            Background="#3662FF">
+                                <Grid>
+                                    <Viewbox
+                                    Width="38"
+                                    RenderTransformOrigin="0.5, 0.5"
+                                    x:Name="LoadSpinner"
+                                    Height="36">
+                                        <Canvas Width="38" Height="39" ClipToBounds="True">
+                                            <Path Data="M19.0763 4C10.7499 4 4 10.9076 4 19.4286C4 27.9495 10.7499 34.8571 19.0763 34.8571C26.6715 34.8571 32.9549 29.1095 34 21.6327" Stroke="white" StrokeThickness="7" StrokeStartLineCap="round"/>
+                                        </Canvas>
+                                        <Viewbox.RenderTransform>
+                                            <RotateTransform Angle="90" />
+                                        </Viewbox.RenderTransform>
+                                    </Viewbox>
+
+                                    <Viewbox
+                                    x:Name="successIcon"
+                                    Visibility="Hidden"
+                                    Width="30"
+                                    Height="30">
+                                        <Canvas Width="33" Height="33" ClipToBounds="True">
+                                            <Path Data="M13.302 33C11.8894 33 10.7515 32.3631 9.77051 31.0893L0.980975 20.0627C0.313912 19.2268 0 18.351 0 17.4355C0 15.4053 1.56956 13.8926 3.49227 13.8926C4.70868 13.8926 5.72889 14.4499 6.47443 15.4849L13.1451 24.123L26.2901 1.99035C27.0357 0.716526 28.1736 0 29.39 0C31.352 0 33 1.47286 33 3.38359C33 4.29916 32.5291 5.25452 32.0975 5.97105L16.6766 31.0096C15.8918 32.2835 14.6754 33 13.302 33Z" Fill="white"/>
+                                        </Canvas>
+                                    </Viewbox>
+                                    <Viewbox
+                                    x:Name="failIcon"
+                                    Visibility="Hidden"
+                                    Width="30"
+                                    Height="30">
+                                        <Canvas Width="33" Height="33" ClipToBounds="True">
+                                            <Path Data="M6.65536 30.9013C5.03435 32.4741 2.74587 32.1881 1.22021 30.7583C-0.257769 29.3761 -0.496154 26.993 1.07718 25.3725L10.3741 15.983L1.07718 6.64126C-0.496154 5.02075 -0.162416 2.73297 1.22021 1.25545C2.65051 -0.26974 5.03435 -0.508051 6.65536 1.11246L16 10.4066L25.3446 1.11246C27.0133 -0.508051 29.3018 -0.174415 30.7798 1.25545C32.2578 2.63765 32.4962 5.02075 30.9228 6.64126L21.6259 15.983L30.9228 25.3725C32.4962 26.993 32.2101 29.2808 30.7798 30.8059C29.3495 32.2835 26.9657 32.4741 25.3446 30.9013L16 21.6072L6.65536 30.9013Z" Fill="white"/>
+                                        </Canvas>
+                                    </Viewbox>
+                                </Grid>
+                            </Border>
+                        </StackPanel>
+
+                        <Canvas
+                            Visibility="Hidden"
+                            x:Name="InstallDoneView"
+                            Height="95"
+                            VerticalAlignment="Bottom">
+                            <Button Panel.ZIndex="2" x:Name="openAppButton" Style="{StaticResource PrimaryButton}" Click="OpenApp" Width="290">
+                                <TextBlock Text="Open app" FontSize="20" FontFamily="Inter SemiBold"/>
+                            </Button>
+                            <Button Panel.ZIndex="1" x:Name="quitButton" Style="{StaticResource SecondaryButton}" Click="CloseApp" Width="290" Margin="0,0,0,0">
+                                <TextBlock Text="Quit" FontSize="18" FontFamily="Inter SemiBold"/>
+                            </Button>
+                        </Canvas>
+
+                        <Canvas
+                            Visibility="Hidden"
+                            x:Name="UninstallDoneView"
+                            Height="70"
+                            VerticalAlignment="Bottom">
+                            <TextBlock 
+                                x:Name="appUninstalledText"
+                                Text="App uninstalled."
+                                FontSize="15"
+                                Width="290"
+                                FontFamily="Inter medium"
+                                TextAlignment="Center"/>
+
+                            <Button 
+                                Panel.ZIndex="1"
+                                x:Name="quitButtonUninstall"
+                                Style="{StaticResource SecondaryButton}"
+                                Click="CloseApp"
+                                Width="290"
+                                Margin="0,30,0,0">
+                                <TextBlock Text="Quit" FontSize="18" FontFamily="Inter SemiBold"/>
+                            </Button>
+                        </Canvas>
+
+                        <StackPanel
+                            Visibility="Hidden"
+                            x:Name="InstallFailedView"
+                            Height="auto"
+                            VerticalAlignment="Bottom">
+                            <TextBlock
+                                Text="ERROR"
+                                TextAlignment="Center"
+                                FontFamily="Inter semibold"
+                                FontSize="25"
+                                Foreground="red"/>
+                            <TextBlock 
+                                x:Name="installFailedText"
+                                Text="Install failed."
+                                FontSize="15"
+                                Width="290"
+                                FontFamily="Inter medium"
+                                TextAlignment="Center"/>
+
+                            <Button 
+                                Panel.ZIndex="1"
+                                x:Name="quitButtonFail"
+                                Style="{StaticResource SecondaryButton}"
+                                Click="CloseApp"
+                                Width="290"
+                                Margin="0,10,0,0">
+                                <TextBlock Text="Quit" FontSize="18" FontFamily="Inter SemiBold"/>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
 
         </Grid>
+
+
 
 
     </Border>
