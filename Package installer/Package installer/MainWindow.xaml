@@ -55,18 +55,19 @@
                     <Grid>
                         <StackPanel VerticalAlignment="Top" Height="240" Margin="0,20,0,0">
                             <Image
-                            x:Name="appIconImage"
-                            Margin="0,0,0,20"
-                            Width="150"
-                            Height="150" 
-                            Source="/Resources/icon.png"/>
+                                x:Name="appIconImage"
+                                Margin="0,0,0,20"
+                                Width="150"
+                                Height="150" 
+                                Source="/Resources/icon.png"
+                                RenderOptions.BitmapScalingMode="HighQuality"/>
                             <TextBlock
-                            x:Name="appNameText"
-                            Text="Unity tetris"
-                            VerticalAlignment="Center"
-                            TextAlignment="Center"
-                            FontSize="40"
-                            Style="{StaticResource interBold}"/>
+                                x:Name="appNameText"
+                                Text="Unity tetris"
+                                VerticalAlignment="Center"
+                                TextAlignment="Center"
+                                FontSize="40"
+                                Style="{StaticResource interBold}"/>
                         </StackPanel>
                         <Grid>
                             <Canvas
@@ -233,20 +234,26 @@
             <Border BorderThickness="15">
                 <Grid>
                     <Button Style="{StaticResource NavBarButton}" Width="25" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Click="OpenHelp">
-
+                        <Viewbox Width="16" Height="10">
+                            <Canvas Width="16" Height="10">
+                                <Path Data="M9.3296 4.54708L13.7011 8.91858C14.2137 9.43116 15.0513 9.46449 15.5805 8.96442C16.1306 8.44767 16.139 7.58087 15.6097 7.05163L8.94204 0.383952C8.42113 -0.116124 7.57516 -0.141128 7.05008 0.388119L0.403245 7.03496C-0.109333 7.54754 -0.142671 8.38516 0.357405 8.91441C0.87415 9.46449 1.74095 9.47283 2.27019 8.94358L6.66253 4.54708C8.00023 3.11353 8.00023 3.10103 9.3296 4.54708Z" Fill="white"/>
+                            </Canvas>
+                        </Viewbox>
                     </Button>
                     <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top">
-                        <Image Width="50" Height="50" Source="/Resources/installer-icon.png" HorizontalAlignment="Left" Margin="0,0,10,0"/>
+                        <Image Width="50" Height="50" Source="/Resources/installer-icon.png" HorizontalAlignment="Left" Margin="0,0,10,0" RenderOptions.BitmapScalingMode="HighQuality"/>
                         <StackPanel>
-                            <TextBlock 
+                            <TextBlock
                                 Text="Unity tetris installer"
                                 FontFamily="Inter semibold"
-                                FontSize="15"></TextBlock>
+                                FontSize="18"
+                                x:Name="appInfoName"/>
                             <TextBlock 
+                                x:Name="appInfoCopyright"
                                 Text="© Niilo Poutanen 2022"
                                 FontFamily="Inter medium"
                                 FontSize="10"
-                                Foreground="#a1a1a1"></TextBlock>
+                                Foreground="#a1a1a1"/>
                         </StackPanel>
 
                     </StackPanel>

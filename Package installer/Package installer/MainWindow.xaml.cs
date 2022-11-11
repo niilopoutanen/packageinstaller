@@ -31,6 +31,8 @@ namespace Package_installer
             InitializeComponent();
             isAppInstalled = fileManager.IsAppInstalled();
             appNameText.Text = FileManager.productName;
+            appInfoName.Text = FileManager.productName + " installer";
+            appInfoCopyright.Text = "© Niilo Poutanen " + DateTime.Now.Year.ToString();
             if (isAppInstalled)
             {
                 MainView.Visibility = Visibility.Hidden;

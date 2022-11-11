@@ -56,14 +56,9 @@
                 </EasingThicknessKeyFrame.EasingFunction>
             </EasingThicknessKeyFrame>
         </ThicknessAnimationUsingKeyFrames>
-        
-        
+
+
         <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="0:0:0" x:Key="helpSlideOut">
-            <EasingThicknessKeyFrame KeyTime="0:0:0" Value="0,-160,0,0">
-                <EasingThicknessKeyFrame.EasingFunction>
-                    <QuarticEase EasingMode="EaseInout"/>
-                </EasingThicknessKeyFrame.EasingFunction>
-            </EasingThicknessKeyFrame>
 
             <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="0,10,0,0">
                 <EasingThicknessKeyFrame.EasingFunction>
@@ -73,12 +68,6 @@
         </ThicknessAnimationUsingKeyFrames>
 
         <ThicknessAnimationUsingKeyFrames Storyboard.TargetProperty="Margin" BeginTime="0:0:0" x:Key="helpSlideIn">
-            <EasingThicknessKeyFrame KeyTime="0:0:0" Value="0,10,0,0">
-                <EasingThicknessKeyFrame.EasingFunction>
-                    <QuarticEase EasingMode="EaseInout"/>
-                </EasingThicknessKeyFrame.EasingFunction>
-            </EasingThicknessKeyFrame>
-
             <EasingThicknessKeyFrame KeyTime="0:0:0.3" Value="0,-160,0,0">
                 <EasingThicknessKeyFrame.EasingFunction>
                     <QuarticEase EasingMode="EaseInout"/>
