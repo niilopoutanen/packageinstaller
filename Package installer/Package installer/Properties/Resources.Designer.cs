@@ -83,16 +83,6 @@ namespace Package_installer.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
-        internal static byte[] interbold {
-            get {
-                object obj = ResourceManager.GetObject("interbold", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
         internal static byte[] intermedium {
             get {
                 object obj = ResourceManager.GetObject("intermedium", resourceCulture);

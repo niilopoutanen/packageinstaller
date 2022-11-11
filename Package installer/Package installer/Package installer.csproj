@@ -9,14 +9,15 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
     <PackageIcon>installer-icon.png</PackageIcon>
     <ApplicationIcon>Resources\installer-icon-ico.ico</ApplicationIcon>
+    <Version>2.0</Version>
+    <Title>Package installer for apps</Title>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\icon.png" />
     <None Remove="Resources\installer-icon.png" />
-    <None Remove="Resources\interbold.ttf" />
     <None Remove="Resources\intermedium.ttf" />
     <None Remove="Resources\intersemibold.ttf" />
-    <None Remove="Resources\package.zip" />
   </ItemGroup>
 
   <ItemGroup>
@@ -38,14 +39,8 @@
   <ItemGroup>
     <Resource Include="Resources\icon.png" />
     <Resource Include="Resources\installer-icon.png" />
-    <Resource Include="Resources\interbold.ttf">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="Resources\intermedium.ttf" />
     <Resource Include="Resources\intersemibold.ttf" />
-    <EmbeddedResource Include="Resources\package.zip">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -61,6 +56,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Resources\package.zip">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

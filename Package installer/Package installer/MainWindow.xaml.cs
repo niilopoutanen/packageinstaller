@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -33,6 +34,15 @@ namespace Package_installer
             appNameText.Text = FileManager.productName;
             appInfoName.Text = FileManager.productName + " installer";
             appInfoCopyright.Text = "© Niilo Poutanen " + DateTime.Now.Year.ToString();
+            try
+            {
+                appInfoInstallerVersion.Text = "Installer version: " + Assembly.GetEntryAssembly().GetName().Version.ToString().Substring(0, 3);
+            }
+            catch (NullReferenceException)
+            {
+                appInfoInstallerVersion.Text = "Installer version: 2.0";
+            }
+            appInfoAppVersion.Text = "App version: " + FileManager.appVersion.ToString();
             if (isAppInstalled)
             {
                 MainView.Visibility = Visibility.Hidden;
