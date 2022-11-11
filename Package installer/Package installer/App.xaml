@@ -181,10 +181,28 @@
                             Height="25"
                             CornerRadius="12"
                             Background="#3a3a3a">
-                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                            <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="navBarButtonContent"/>
                         </Border>
 
                         <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation From="#3a3a3a" To="#1C1C1C" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="Background.Color" Storyboard.TargetName="background"/>
+                                            <DoubleAnimation From="1" To="0.2" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="navBarButtonContent"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ColorAnimation From="#1C1C1C" To="#3a3a3a" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="Background.Color" Storyboard.TargetName="background"/>
+                                            <DoubleAnimation From="0.2" To="1" Duration="0:0:0.2" FillBehavior="HoldEnd" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="navBarButtonContent"/>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
                             <Trigger Property="IsPressed" Value="True">
                                 <Setter Property="Background" Value="#232323" TargetName="background"/>
                             </Trigger>
