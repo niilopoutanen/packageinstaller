@@ -28,12 +28,17 @@
             <Grid>
                 <Border BorderThickness="15">
                     <DockPanel Height="25" x:Name="NavBar" VerticalAlignment="Top">
-                        <Button Style="{StaticResource NavBarButton}" HorizontalAlignment="Left" x:Name="navBarHelp" Click="OpenHelp">
-                            <Viewbox Width="10" Height="16">
-                                <Canvas Width="10" Height="16">
-                                    <Path Data="M4.6,11.4c0.6,0,1.1-0.3,1.2-1C5.8,9.8,6,9.4,6.5,9c0.7-0.6,2.2-1.4,2.6-2.2C11,3.8,8.2,0.8,5,1C3.2,1,1.4,1.6,0.6,3.2c-0.3,0.6-0.5,1.5,0,2C1,5.6,1.8,5.6,2.3,5.3c0.5-0.3,0.6-1.1,1-1.5C4.1,2.9,5.9,3,6.6,4c1.1,2-1.3,2.8-2.4,3.9C3.1,8.7,2.7,11.4,4.6,11.4z M4.6,15.9c2.1,0,2.1-3,0-3C2.5,12.9,2.5,15.9,4.6,15.9z" Fill="White"/>
-                                </Canvas>
-                            </Viewbox>
+                        <Button Style="{StaticResource NavBarButton}" HorizontalAlignment="Left" x:Name="navBarInfo" Click="OpenHelp">
+                            <Grid>
+                                <Border Background="#3662FF" Width="25" Height="25" CornerRadius="12" x:Name="navBarInfoActive" Visibility="Hidden"/>
+
+                                <Viewbox Width="10" Height="16">
+                                    <Canvas Width="10" Height="16">
+                                        <Path Data="M4.6,11.4c0.6,0,1.1-0.3,1.2-1C5.8,9.8,6,9.4,6.5,9c0.7-0.6,2.2-1.4,2.6-2.2C11,3.8,8.2,0.8,5,1C3.2,1,1.4,1.6,0.6,3.2c-0.3,0.6-0.5,1.5,0,2C1,5.6,1.8,5.6,2.3,5.3c0.5-0.3,0.6-1.1,1-1.5C4.1,2.9,5.9,3,6.6,4c1.1,2-1.3,2.8-2.4,3.9C3.1,8.7,2.7,11.4,4.6,11.4z M4.6,15.9c2.1,0,2.1-3,0-3C2.5,12.9,2.5,15.9,4.6,15.9z" Fill="White"/>
+                                    </Canvas>
+                                </Viewbox>
+                            </Grid>
+
                         </Button>
                         <Button Style="{StaticResource NavBarButton}" HorizontalAlignment="Right" x:Name="navBarClose" Click="CloseApp">
                             <Viewbox Width="14" Height="14">
@@ -217,8 +222,8 @@
         <Border 
             Panel.ZIndex="-1"
             x:Name="InfoPanel"
-            VerticalAlignment="Bottom"
-            Margin="0,10,0,0"
+            Margin="0,-160,0,0"
+            Visibility="Hidden"
             Height="120"
             Width="335"
             Background="#121212"
@@ -227,7 +232,7 @@
             CornerRadius="20">
             <Border BorderThickness="15">
                 <Grid>
-                    <Button Style="{StaticResource NavBarButton}" Width="25" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top">
+                    <Button Style="{StaticResource NavBarButton}" Width="25" Height="25" HorizontalAlignment="Right" VerticalAlignment="Top" Click="OpenHelp">
 
                     </Button>
                     <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top">

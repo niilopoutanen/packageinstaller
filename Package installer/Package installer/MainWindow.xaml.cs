@@ -292,7 +292,39 @@ namespace Package_installer
 
         private void OpenHelp(object sender, RoutedEventArgs e)
         {
+            Storyboard storyboard = new();
+            ThicknessAnimationUsingKeyFrames helpSlideOut = (this.FindResource("helpSlideOut") as ThicknessAnimationUsingKeyFrames).Clone();
+            ThicknessAnimationUsingKeyFrames helpSlideIn = (this.FindResource("helpSlideIn") as ThicknessAnimationUsingKeyFrames).Clone();
+            DoubleAnimation fadein = (this.FindResource("FadeIn") as DoubleAnimation).Clone();
+            DoubleAnimation fadeout = (this.FindResource("FadeOut") as DoubleAnimation).Clone();
 
+            switch (InfoPanel.Visibility)
+            {
+                case Visibility.Hidden:
+                    storyboard.Children.Add(helpSlideOut);
+                    storyboard.Children.Add(fadein);
+                    Storyboard.SetTarget(helpSlideOut, InfoPanel);
+                    Storyboard.SetTarget(fadein, navBarInfoActive);
+                    navBarInfoActive.Visibility = Visibility.Visible;
+                    InfoPanel.Visibility = Visibility.Visible;
+                    storyboard.Begin();
+                    break;
+
+                case Visibility.Visible:
+                    storyboard.Children.Add(helpSlideIn);
+                    storyboard.Children.Add(fadeout);
+                    Storyboard.SetTarget(fadeout, navBarInfoActive);
+                    Storyboard.SetTarget(helpSlideIn, InfoPanel);
+                    storyboard.Completed += delegate
+                    {
+                        navBarInfoActive.Visibility = Visibility.Hidden;
+                        InfoPanel.Visibility = Visibility.Hidden;
+
+                    };
+                    storyboard.Begin();
+
+                    break;
+            }
         }
     }
 }
