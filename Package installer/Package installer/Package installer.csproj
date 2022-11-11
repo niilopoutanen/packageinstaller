@@ -18,6 +18,7 @@
     <None Remove="Resources\installer-icon.png" />
     <None Remove="Resources\intermedium.ttf" />
     <None Remove="Resources\intersemibold.ttf" />
+    <None Remove="Resources\package.zip" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +35,12 @@
 
   <ItemGroup>
     <Content Include="Resources\installer-icon-ico.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\package.zip">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </EmbeddedResource>
   </ItemGroup>
 
   <ItemGroup>
@@ -56,12 +63,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Resources\package.zip">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Linq;
-using System.IO;
+﻿using IWshRuntimeLibrary;
+using System;
 using System.ComponentModel;
-using System.IO.Compression;
-using IWshRuntimeLibrary;
 using System.Diagnostics;
-using Package_installer.Properties;
+using System.IO;
+using System.IO.Compression;
+using System.Linq;
 
 namespace Package_installer
 {
@@ -18,7 +17,7 @@ namespace Package_installer
         public readonly static string productName = "Template";
         readonly string productDescription = "Template for app installer";
         public readonly static float appVersion = 0.1f;
-        readonly string exeName = "Template.exe";
+        readonly string exeName = "template.exe";
 
 
         readonly string tempfile = Path.GetTempPath() + "\\temp.zip";
@@ -28,7 +27,7 @@ namespace Package_installer
         public void StartInstall(object sender, DoWorkEventArgs e)
         {
             Stream stream = new MemoryStream(Package_installer.Properties.Resources.package);
-            if(stream.Length == 0)
+            if (stream.Length == 0)
             {
                 throw new FileLoadException("Package corrupted");
             }
